@@ -358,6 +358,11 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         help="Optional path to save the first successfully acquired frame.",
     )
     parser.add_argument(
+        "--print-first-frame-stats",
+        action="store_true",
+        help="Log a one-shot detection summary for the first grabbed frame.",
+    )
+    parser.add_argument(
         "--undistort",
         action="store_true",
         help="Undistort frames before detection using calibration coefficients (default: off).",
@@ -810,6 +815,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     dump_first_frame_path = getattr(args, "dump_first_frame", None)
     dumped_first_frame = False
     n_grabbed = 0
+    printed_first_stats = False
     requested_w = int(args.width) if args.width else None
     requested_h = int(args.height) if args.height else None
     actual_w = 0
@@ -1023,6 +1029,11 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 continue
             n_grabbed += 1
             log_grabbed = (n_grabbed % 10 == 0)
+            if log_grabbed:
+                LOGGER.info("grabbed=%d grab_ms=%.1f poses=%d", n_grabbed, t_read_ms, n_frames_processed)
+            if args.frames is not None and n_grabbed >= args.frames:
+                LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
+                break
             if basler_cam is not None and frame is not None and frame.ndim == 2:
                 frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
             if basler_cam is not None and dump_first_frame_path and not dumped_first_frame:
@@ -1584,6 +1595,18 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                     )
     
                 accepted = status in {"OK", "HOLD_PREV_POSE"}
+                if args.print_first_frame_stats and not printed_first_stats:
+                    used_ids = sorted(final_used_ids) if final_used_ids else sorted(candidate_ids)
+                    LOGGER.info(
+                        "first_frame: dets_raw=%d dets_kept=%d unknown=%d used_ids=%s accepted=%s reject_reason=%s",
+                        n_dets_raw,
+                        len(candidate_ids),
+                        n_unknown_ids,
+                        used_ids,
+                        accepted,
+                        reject_reason,
+                    )
+                    printed_first_stats = True
                 if debug_logger:
                     debug_logger.log(
                         fps_estimate,
@@ -1629,17 +1652,12 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                         t_total_ms=t_total_ms,
                     )
                 n_frames_processed += 1
-                if log_grabbed:
-                    LOGGER.info("grabbed=%d poses=%d", n_grabbed, n_frames_processed)
                 if key == 27:  # ESC
                     LOGGER.info("ESC pressed, exiting.")
                     break
                 frame_idx += 1
                 frame_count += 1
                 bench_timer.snapshot()
-                if args.frames is not None and n_grabbed >= args.frames:
-                    LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
-                    break
     except KeyboardInterrupt:
         LOGGER.info("Interrupted by user.")
     finally:
