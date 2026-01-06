@@ -1,0 +1,10 @@
+Comparison: 720p vs 1080p
+
+Medians (per-frame):
+- 720p: fps=15.134 median_t_total_ms=-
+- 1080p: fps=10.093 median_t_total_ms=-
+- Missing t_total_ms in one or both runs; skipping total comparison.
+
+Stage medians (ms) and share of median total:
+stage               720p ms     720p %     1080p ms    1080p %    Δms (B-A)    Δ% vs A
+--------------------------------------------------------------------------------------

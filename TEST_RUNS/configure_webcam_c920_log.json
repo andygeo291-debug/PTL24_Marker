@@ -1,0 +1,100 @@
+{
+  "timestamp": "2025-12-17T18:32:46.841347",
+  "video_index": 0,
+  "requested": {
+    "width": null,
+    "height": null,
+    "fps": null
+  },
+  "actual": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 5.0
+  },
+  "frame_shape": [
+    1080,
+    1920,
+    3
+  ],
+  "attempts": [
+    {
+      "name": "focus",
+      "requested": 0.0,
+      "auto_step": {
+        "name": "focus_auto",
+        "prop_id": 39,
+        "requested": 0.0,
+        "set_ok": false,
+        "readback": 0.0
+      },
+      "manual_step": {
+        "name": "focus",
+        "prop_id": 28,
+        "requested": 0.0,
+        "set_ok": false,
+        "readback": 0.0
+      },
+      "applied": false,
+      "warning": true,
+      "message": "macOS driver ignored or clamped value"
+    },
+    {
+      "name": "exposure",
+      "requested": -6.0,
+      "auto_step": {
+        "name": "exposure_auto",
+        "prop_id": 21,
+        "requested": 0.0,
+        "set_ok": false,
+        "readback": 0.0
+      },
+      "manual_step": {
+        "name": "exposure",
+        "prop_id": 15,
+        "requested": -6.0,
+        "set_ok": false,
+        "readback": 0.0
+      },
+      "applied": false,
+      "warning": true,
+      "message": "macOS driver ignored or clamped value"
+    },
+    {
+      "name": "white_balance",
+      "requested": 4500.0,
+      "auto_step": {
+        "name": "white_balance_auto",
+        "prop_id": 44,
+        "requested": 0.0,
+        "set_ok": false,
+        "readback": 0.0
+      },
+      "manual_step": {
+        "name": "white_balance",
+        "prop_id": 45,
+        "requested": 4500.0,
+        "set_ok": false,
+        "readback": 0.0
+      },
+      "applied": false,
+      "warning": true,
+      "message": "macOS driver ignored or clamped value"
+    },
+    {
+      "name": "digital_zoom",
+      "requested": 0.0,
+      "auto_step": null,
+      "manual_step": {
+        "name": "digital_zoom",
+        "prop_id": 27,
+        "requested": 0.0,
+        "set_ok": false,
+        "readback": 0.0
+      },
+      "applied": false,
+      "warning": true,
+      "message": "macOS driver ignored or clamped value"
+    }
+  ],
+  "notes": "macOS often ignores manual exposure/white balance/focus; see warnings above."
+}

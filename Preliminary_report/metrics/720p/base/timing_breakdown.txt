@@ -1,0 +1,15 @@
+Timing breakdown (median values, milliseconds)
+t_total_ms: 34.034
+effective_fps (1000/median_total): 29.382
+
+Per-stage medians and share of total:
+  t_read_ms: 3.895 ms (11.44%)
+  t_gray_ms: 0.142 ms (0.42%)
+  t_detect_ms: 27.653 ms (81.25%)
+  t_reproj_ms: 0.467 ms (1.37%)
+  t_ransac_ms: 1.206 ms (3.54%)
+  t_fuse_ms: 0.429 ms (1.26%)
+  t_ekf_ms: 0.000 ms (0.00%)
+  t_hud_ms: 0.000 ms (0.00%)
+  t_log_ms: 0.055 ms (0.16%)
+  t_total_ms: 34.034 ms (100.00%)

@@ -1,0 +1,24 @@
+# A2 paper test roll: Ø ~0.19 m, L ~0.42 m
+# Ring tags 100-111 (30 mm), top caps 200-202 (30 mm), bottom caps 300-302 (30 mm)
+radius_m: 0.095
+length_m: 0.42
+
+# Top rim (3 tags at ~120° apart)
+top_annulus:
+  ids: [200, 201, 202]
+  radius_m: 0.08
+  size_m: 0.030     # 30 mm black-square edge (measure your print!)
+  yaw0_deg: 0
+
+# Bottom rim (3 tags at ~120° apart)
+bottom_annulus:
+  ids: [300, 301, 302]
+  radius_m: 0.08
+  size_m: 0.030
+  yaw0_deg: 15      # small offset for symmetry (optional)
+
+# Side ring (12 tags evenly spaced around barrel)
+ring:
+  ids: [100,101,102,103,104,105,106,107,108,109,110,111]
+  size_m: 0.030
+  z_m: 0.0

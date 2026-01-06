@@ -1,0 +1,16 @@
+radius_m: 0.40
+length_m: 1.50
+top_annulus:
+  ids: [40, 41, 42, 43, 44, 45]
+  radius_m: 0.33
+  size_m: 0.050
+  yaw0_deg: 0
+bottom_annulus:
+  ids: [50, 51, 52, 53, 54, 55]
+  radius_m: 0.33
+  size_m: 0.050
+  yaw0_deg: 15
+ring:
+  ids: [300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319]
+  size_m: 0.050
+  z_m: 0.0

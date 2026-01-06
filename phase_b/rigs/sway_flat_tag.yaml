@@ -1,0 +1,10 @@
+# Minimal single-tag rig for sway camera verification.
+radius_m: 0.05        # effective radius of the cylindrical proxy
+length_m: 0.10        # effective height (top cap is +0.05 m in Z)
+
+top:
+  id: 2
+  size_m: 0.10
+  x_m: 0.0
+  y_m: 0.0
+  yaw_deg: 0.0

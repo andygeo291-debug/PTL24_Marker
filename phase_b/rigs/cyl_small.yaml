@@ -1,0 +1,23 @@
+radius_m: 0.15
+length_m: 0.60
+top:
+  id: 10
+  size_m: 0.05
+  x_m: 0.07
+  y_m: 0.00
+  yaw_deg: 0
+bottom:
+  id: 11
+  size_m: 0.05
+  x_m: -0.07
+  y_m: 0.00
+  yaw_deg: 180
+top_annulus:
+  ids: [20, 21, 22]
+  radius_m: 0.11
+  size_m: 0.024
+  yaw0_deg: 0
+ring:
+  ids: [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
+  size_m: 0.024
+  z_m: 0.0

@@ -1,0 +1,11 @@
+stage,median_ms,pct_of_median_total
+t_read_ms,24.315,24.54
+t_gray_ms,0.323,0.33
+t_detect_ms,48.037,48.49
+t_reproj_ms,0.508,0.51
+t_ransac_ms,1.350,1.36
+t_fuse_ms,0.453,0.46
+t_ekf_ms,0.000,0.00
+t_hud_ms,23.818,24.04
+t_log_ms,0.061,0.06
+t_total_ms,99.069,100.00

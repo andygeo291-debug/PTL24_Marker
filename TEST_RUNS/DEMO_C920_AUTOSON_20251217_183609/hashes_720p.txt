@@ -1,0 +1,2 @@
+573557a42826c5380bc3867f2f28b81a7f2be3c4fe86e1273e5a2173b39064b9  common/calib/calib_c920_1280x720.yaml
+78441fd21800eaefaa428a6aecb8fedcba6ce59513da358bd782fcd3b493e668  common/extrinsics/T_WC_c920_1280x720.yaml

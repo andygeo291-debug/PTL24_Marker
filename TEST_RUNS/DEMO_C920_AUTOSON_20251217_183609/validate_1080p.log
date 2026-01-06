@@ -1,0 +1,4 @@
+Calib: fx=1417.3 fy=1428.2 cx=974.2 cy=532.3 (image 1920x1080)
+2025-12-17 18:40:44.805 Python[20289:987224] WARNING: AVCaptureDeviceTypeExternal is deprecated for Continuity Cameras. Please use AVCaptureDeviceTypeContinuityCamera and add NSCameraUseContinuityCameraDeviceType to your Info.plist.
+Grabbed frame shape: 1920x1080
+Frame size matches requested width/height.

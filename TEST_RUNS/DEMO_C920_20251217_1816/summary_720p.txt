@@ -1,0 +1,42 @@
+Summarizing poses: TEST_RUNS/DEMO_C920_20251217_1816/poses_720p_no_ransac.csv
+Summarizing debug: TEST_RUNS/DEMO_C920_20251217_1816/debug_720p_no_ransac.csv
+=== HEADER CHECK ===
+[poses] file: TEST_RUNS/DEMO_C920_20251217_1816/poses_720p_no_ransac.csv
+[poses] extrinsics_path_resolved: /Users/Andreas/Desktop/ptl24_marker/common/extrinsics/T_WC_c920_1280x720.yaml
+[poses] rig_path_resolved       : /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[poses] poses_csv              : TEST_RUNS/DEMO_C920_20251217_1816/poses_720p_no_ransac.csv
+[poses] debug_metrics_csv      : TEST_RUNS/DEMO_C920_20251217_1816/debug_720p_no_ransac.csv
+
+[debug] file: TEST_RUNS/DEMO_C920_20251217_1816/debug_720p_no_ransac.csv
+[debug] extrinsics_path_resolved: /Users/Andreas/Desktop/ptl24_marker/common/extrinsics/T_WC_c920_1280x720.yaml
+[debug] rig_path_resolved       : /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[debug] poses_csv              : TEST_RUNS/DEMO_C920_20251217_1816/poses_720p_no_ransac.csv
+[debug] debug_metrics_csv      : TEST_RUNS/DEMO_C920_20251217_1816/debug_720p_no_ransac.csv
+
+=== POSE STATS (CAMERA & WORLD) ===
+Camera tilt  (deg): min= 23.827, mean= 55.731, max= 74.406
+World tilt   (deg): min= 42.667, mean= 63.138, max= 89.235
+
+rvec_cam stats:
+  rvec_cam_x     : min=-0.4882, mean= 0.1800, max= 0.7418
+  rvec_cam_y     : min=-1.6033, mean= 0.0505, max= 1.6652
+  rvec_cam_z     : min=-2.4480, mean= 0.3472, max= 2.5667
+
+tvec_cam_m stats:
+  tvec_cam_x     : min=-7.4266, mean=-0.7038, max= 4.4993
+  tvec_cam_y     : min= 5.3539, mean= 8.9972, max= 14.3175
+  tvec_cam_z     : min= 4.5005, mean= 12.1624, max= 18.4763
+
+tvec_world_m stats:
+  tvec_world_x   : min=-19.1299, mean=-14.9682, max=-10.1864
+  tvec_world_y   : min=-9.0235, mean= 1.7482, max= 8.2988
+  tvec_world_z   : min= 17.2424, mean= 22.6079, max= 27.4396
+
+Mean world translation (m): [-14.968154   1.748222  22.607913]
+Approx roll-centre distance (m): 27.1702
+
+=== DEBUG STATS ===
+fps              : min=  6.063, mean= 95.894, max=41527.762
+mean_reproj_px   : min= 26.360, mean= 27.745, max= 30.175
+mean_tag_area_px2: min=711.400, mean=775.334, max=913.700
+tilt_deg         : min= 23.827, mean= 55.731, max= 74.406

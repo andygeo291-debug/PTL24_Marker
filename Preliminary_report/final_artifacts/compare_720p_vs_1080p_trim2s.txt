@@ -1,0 +1,21 @@
+Comparison: 720p_nohud_trim2s vs 1080p_nohud_trim2s
+
+Medians (per-frame):
+- 720p_nohud_trim2s: fps=30.183 median_t_total_ms=33.643
+- 1080p_nohud_trim2s: fps=15.127 median_t_total_ms=66.149
+- effective_fps (1000/median_total): 720p_nohud_trim2s=29.724 1080p_nohud_trim2s=15.117
+- Δ total (B - A): 32.506 ms (96.62% relative to 720p_nohud_trim2s)
+
+Stage medians (ms) and share of median total:
+stage          720p_nohud_trim2s ms 720p_nohud_trim2s % 1080p_nohud_trim2s ms 1080p_nohud_trim2s %    Δms (B-A)    Δ% vs A
+--------------------------------------------------------------------------------------------------------------------------
+t_read_ms             3.661     10.88%       13.614     20.58%        9.954    271.88%
+t_gray_ms             0.143      0.43%        0.302      0.46%        0.160    111.54%
+t_detect_ms          27.683     82.28%       49.736     75.19%       22.053     79.66%
+t_reproj_ms           0.454      1.35%        0.510      0.77%        0.056     12.33%
+t_ransac_ms           1.179      3.50%        1.341      2.03%        0.162     13.74%
+t_fuse_ms             0.426      1.27%        0.456      0.69%        0.030      7.04%
+t_ekf_ms              0.000      0.00%        0.000      0.00%        0.000          -
+t_hud_ms              0.000      0.00%        0.000      0.00%        0.000          -
+t_log_ms              0.054      0.16%        0.062      0.09%        0.008     14.81%
+t_total_ms           33.643    100.00%       66.149    100.00%       32.506     96.62%

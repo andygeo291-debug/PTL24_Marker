@@ -1,0 +1,48 @@
+2025-12-17 18:38:31.475 Python[19197:983088] WARNING: AVCaptureDeviceTypeExternal is deprecated for Continuity Cameras. Please use AVCaptureDeviceTypeContinuityCamera and add NSCameraUseContinuityCameraDeviceType to your Info.plist.
+Instructions:
+  - Press SPACE to capture a frame when the chessboard is visible.
+  - Press ESC to exit early.
+[info] Captured frame 1/40
+[info] Captured frame 2/40
+[info] Captured frame 3/40
+[info] Captured frame 4/40
+[info] Captured frame 5/40
+[info] Captured frame 6/40
+[info] Captured frame 7/40
+[info] Captured frame 8/40
+[info] Captured frame 9/40
+[info] Captured frame 10/40
+[info] Captured frame 11/40
+[info] Captured frame 12/40
+[info] Captured frame 13/40
+[info] Captured frame 14/40
+[info] Captured frame 15/40
+[info] Captured frame 16/40
+[info] Captured frame 17/40
+[info] Captured frame 18/40
+[info] Captured frame 19/40
+[info] Captured frame 20/40
+[info] Captured frame 21/40
+[info] Captured frame 22/40
+[info] Captured frame 23/40
+[info] Captured frame 24/40
+[info] Captured frame 25/40
+[info] Captured frame 26/40
+[info] Captured frame 27/40
+[info] Captured frame 28/40
+[info] Captured frame 29/40
+[info] Captured frame 30/40
+[info] Captured frame 31/40
+[info] Captured frame 32/40
+[info] Captured frame 33/40
+[info] Captured frame 34/40
+[info] Captured frame 35/40
+[info] Captured frame 36/40
+[info] Captured frame 37/40
+[info] Captured frame 38/40
+[info] Captured frame 39/40
+[info] Captured frame 40/40
+[info] Target number of shots reached.
+[result] RMS=2.3093 fx=848.763 fy=853.891 cx=599.375 cy=336.987
+[result] Distortion coefficients: k1=-1.581187 k2=26.836919 p1=0.011868 p2=-0.005990 k3=-166.210071
+[info] Calibration saved to common/calib/calib_c920_1280x720.yaml

@@ -1,0 +1,26 @@
+ransac:
+  trans_max_m: 0.05
+  rot_max_deg: 5
+  min_inliers: 3
+  adaptive: false
+  A_ref_px2: 12000
+  base_trans_m: 0.05
+  base_rot_deg: 5
+fuse:
+  ema_alpha: 0.3
+  use_weighted_se3: true
+  axis_len_m: 0.1
+health:
+  max_tilt_jump_deg: 15
+video:
+  device: 2
+  width: 1920
+  height: 1080
+  fps: 30
+logging:
+  poses_csv: phase_b/poses.csv
+  debug_metrics_csv: phase_b/debug_metrics.csv
+hud:
+  enabled: true
+bench:
+  print_every: 60

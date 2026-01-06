@@ -1,0 +1,587 @@
+2025-12-17 18:24:09,649 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/calib_c920_1280x720.yaml extrinsics=/Users/Andreas/Desktop/ptl24_marker/common/extrinsics/T_WC_c920_1280x720.yaml rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+[run] Using extrinsics: /Users/Andreas/Desktop/ptl24_marker/common/extrinsics/T_WC_c920_1280x720.yaml
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/calib_c920_1280x720.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+2025-12-17 18:24:09,653 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2025-12-17 18:24:09,666 [INFO] Fusion mode: weighted
+2025-12-17 18:24:09,666 [INFO] Adaptive RANSAC: disabled
+2025-12-17 18:24:09,666 [INFO] EKF filtering: enabled
+2025-12-17 18:24:09,666 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=False
+2025-12-17 18:24:09.915 Python[12624:958840] WARNING: AVCaptureDeviceTypeExternal is deprecated for Continuity Cameras. Please use AVCaptureDeviceTypeContinuityCamera and add NSCameraUseContinuityCameraDeviceType to your Info.plist.
+2025-12-17 18:24:11,748 [INFO] Capture opened on 0 (requested: 1280x720 @ 30.0 FPS, actual: 1280x720 @ 30.00 FPS)
+2025-12-17 18:24:11,749 [INFO] Using video source: 0
+2025-12-17 18:24:11,749 [INFO] OpenCV backend: AVFOUNDATION
+2025-12-17 18:24:11,780 [INFO] Capture opened: 1280x720
+2025-12-17 18:24:11,784 [INFO] World-frame output enabled using extrinsics: /Users/Andreas/Desktop/ptl24_marker/common/extrinsics/T_WC_c920_1280x720.yaml
+2025-12-17 18:24:11,812 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/TEST_RUNS/DEMO_C920_20251217_1816/poses_720p_no_ransac.csv
+2025-12-17 18:24:11,814 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/TEST_RUNS/DEMO_C920_20251217_1816/debug_720p_no_ransac.csv
+2025-12-17 18:24:11,815 [INFO] Expecting tag sizes (m): 0.050
+2025-12-17 18:24:11,992 [INFO] frame=0 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=74.4deg tilt_world=42.7deg
+2025-12-17 18:24:11,992 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:12,084 [INFO] frame=1 inliers=5/5 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=74.4deg tilt_world=42.7deg
+2025-12-17 18:24:12,218 [INFO] frame=2 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=74.4deg tilt_world=42.7deg
+2025-12-17 18:24:12,345 [INFO] frame=3 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=74.4deg tilt_world=42.7deg
+2025-12-17 18:24:12,463 [INFO] frame=4 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=74.4deg tilt_world=42.7deg
+2025-12-17 18:24:12,586 [INFO] frame=5 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=74.4deg tilt_world=42.7deg
+2025-12-17 18:24:12,744 [INFO] frame=6 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:12,850 [INFO] frame=7 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:12,957 [INFO] frame=8 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,043 [INFO] frame=9 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,111 [INFO] frame=10 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,169 [INFO] frame=11 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,231 [INFO] frame=12 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,294 [INFO] frame=13 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,360 [INFO] frame=14 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,424 [INFO] frame=15 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,491 [INFO] frame=16 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,558 [INFO] frame=17 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,624 [INFO] frame=18 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,705 [INFO] frame=19 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,769 [INFO] frame=20 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,848 [INFO] frame=21 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:13,955 [INFO] frame=22 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,044 [INFO] frame=23 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,143 [INFO] frame=24 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,232 [INFO] frame=25 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,286 [INFO] frame=26 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,354 [INFO] frame=27 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,418 [INFO] frame=28 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,482 [INFO] frame=29 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,548 [INFO] frame=30 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,614 [INFO] frame=31 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,715 [INFO] frame=32 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,777 [INFO] frame=33 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,845 [INFO] frame=34 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,914 [INFO] frame=35 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:14,978 [INFO] frame=36 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,045 [INFO] frame=37 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,111 [INFO] frame=38 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,175 [INFO] frame=39 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,242 [INFO] frame=40 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,309 [INFO] frame=41 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,375 [INFO] frame=42 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,448 [INFO] frame=43 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,510 [INFO] frame=44 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,580 [INFO] frame=45 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,643 [INFO] frame=46 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,713 [INFO] frame=47 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,785 [INFO] frame=48 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,850 [INFO] frame=49 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:15,917 [INFO] frame=50 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,046 [INFO] frame=51 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,132 [INFO] frame=52 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,211 [INFO] frame=53 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,276 [INFO] frame=54 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,339 [INFO] frame=55 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,409 [INFO] frame=56 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,472 [INFO] frame=57 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,540 [INFO] frame=58 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,608 [INFO] frame=59 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,624 [INFO] [bench] over 60 frames total=78.17ms fps=8.62 wall=6.96s capture=14.53ms (18.6%) detect=39.45ms (50.5%) fuse=0.43ms (0.6%) pnp=0.63ms (0.8%) ransac=1.61ms (2.1%) render=21.52ms (27.5%)
+2025-12-17 18:24:16,672 [INFO] frame=60 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,751 [INFO] frame=61 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,838 [INFO] frame=62 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,902 [INFO] frame=63 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:16,967 [INFO] frame=64 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,036 [INFO] frame=65 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,102 [INFO] frame=66 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,166 [INFO] frame=67 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,233 [INFO] frame=68 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,335 [INFO] frame=69 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,399 [INFO] frame=70 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,465 [INFO] frame=71 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,528 [INFO] frame=72 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,597 [INFO] frame=73 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,662 [INFO] frame=74 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,730 [INFO] frame=75 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,796 [INFO] frame=76 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,863 [INFO] frame=77 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,925 [INFO] frame=78 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:17,991 [INFO] frame=79 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,055 [INFO] frame=80 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,124 [INFO] frame=81 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,191 [INFO] frame=82 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,256 [INFO] frame=83 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,321 [INFO] frame=84 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,389 [INFO] frame=85 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,486 [INFO] frame=86 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,553 [INFO] frame=87 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,618 [INFO] frame=88 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,684 [INFO] frame=89 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,750 [INFO] frame=90 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,818 [INFO] frame=91 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,882 [INFO] frame=92 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:18,964 [INFO] frame=93 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,052 [INFO] frame=94 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,115 [INFO] frame=95 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,187 [INFO] frame=96 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,282 [INFO] frame=97 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,345 [INFO] frame=98 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,416 [INFO] frame=99 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,481 [INFO] frame=100 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,540 [INFO] frame=101 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,610 [INFO] frame=102 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,675 [INFO] frame=103 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,740 [INFO] frame=104 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,806 [INFO] frame=105 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,873 [INFO] frame=106 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:19,937 [INFO] frame=107 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,004 [INFO] frame=108 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,074 [INFO] frame=109 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,136 [INFO] frame=110 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,202 [INFO] frame=111 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,269 [INFO] frame=112 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,334 [INFO] frame=113 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,397 [INFO] frame=114 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,466 [INFO] frame=115 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,531 [INFO] frame=116 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,599 [INFO] frame=117 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,665 [INFO] frame=118 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,731 [INFO] frame=119 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,748 [INFO] [bench] over 60 frames total=68.68ms fps=14.55 wall=4.12s capture=9.13ms (13.3%) detect=39.74ms (57.9%) fuse=0.34ms (0.5%) pnp=0.49ms (0.7%) ransac=1.28ms (1.9%) render=17.69ms (25.8%)
+2025-12-17 18:24:20,796 [INFO] frame=120 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,863 [INFO] frame=121 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,928 [INFO] frame=122 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:20,994 [INFO] frame=123 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,062 [INFO] frame=124 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,131 [INFO] frame=125 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,193 [INFO] frame=126 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,259 [INFO] frame=127 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,328 [INFO] frame=128 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,393 [INFO] frame=129 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,463 [INFO] frame=130 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,526 [INFO] frame=131 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,591 [INFO] frame=132 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,657 [INFO] frame=133 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,722 [INFO] frame=134 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,790 [INFO] frame=135 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,856 [INFO] frame=136 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,920 [INFO] frame=137 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:21,985 [INFO] frame=138 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,068 [INFO] frame=139 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,148 [INFO] frame=140 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,218 [INFO] frame=141 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,292 [INFO] frame=142 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,379 [INFO] frame=143 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,446 [INFO] frame=144 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,511 [INFO] frame=145 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,579 [INFO] frame=146 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,642 [INFO] frame=147 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,712 [INFO] frame=148 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,777 [INFO] frame=149 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,842 [INFO] frame=150 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,912 [INFO] frame=151 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:22,975 [INFO] frame=152 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,039 [INFO] frame=153 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,107 [INFO] frame=154 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,170 [INFO] frame=155 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,237 [INFO] frame=156 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,303 [INFO] frame=157 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,370 [INFO] frame=158 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,436 [INFO] frame=159 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,502 [INFO] frame=160 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,568 [INFO] frame=161 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,635 [INFO] frame=162 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,699 [INFO] frame=163 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,766 [INFO] frame=164 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,834 [INFO] frame=165 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,899 [INFO] frame=166 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:23,964 [INFO] frame=167 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,046 [INFO] frame=168 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,130 [INFO] frame=169 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,198 [INFO] frame=170 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,292 [INFO] frame=171 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,355 [INFO] frame=172 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,422 [INFO] frame=173 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,487 [INFO] frame=174 inliers=5/5 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,558 [INFO] frame=175 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,624 [INFO] frame=176 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,690 [INFO] frame=177 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,813 [INFO] frame=178 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,881 [INFO] frame=179 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:24,897 [INFO] [bench] over 60 frames total=69.12ms fps=14.46 wall=4.15s capture=10.93ms (15.8%) detect=38.41ms (55.6%) fuse=0.33ms (0.5%) pnp=0.48ms (0.7%) ransac=1.25ms (1.8%) render=17.72ms (25.6%)
+2025-12-17 18:24:24,946 [INFO] frame=180 inliers=5/5 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:25,014 [INFO] frame=181 inliers=5/5 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:25,176 [INFO] frame=182 inliers=5/5 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:25,241 [INFO] frame=183 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:25,306 [INFO] frame=184 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:25,371 [INFO] frame=185 inliers=5/5 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:25,438 [INFO] frame=186 inliers=5/5 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=71.6deg tilt_world=47.4deg
+2025-12-17 18:24:25,504 [INFO] frame=187 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=68.4deg tilt_world=50.8deg
+2025-12-17 18:24:25,504 [INFO] Tags used for fusion: [102, 103, 104, 105, 202]
+2025-12-17 18:24:25,569 [INFO] frame=188 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=66.4deg tilt_world=52.7deg
+2025-12-17 18:24:25,644 [INFO] frame=189 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=67.2deg tilt_world=52.3deg
+2025-12-17 18:24:25,700 [INFO] frame=190 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=66.1deg tilt_world=53.1deg
+2025-12-17 18:24:25,767 [INFO] frame=191 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=67.1deg tilt_world=52.5deg
+2025-12-17 18:24:25,832 [INFO] frame=192 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=68.0deg tilt_world=52.0deg
+2025-12-17 18:24:25,898 [INFO] frame=193 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=68.5deg tilt_world=51.6deg
+2025-12-17 18:24:25,965 [INFO] frame=194 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=66.9deg tilt_world=52.7deg
+2025-12-17 18:24:26,030 [INFO] frame=195 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=69.8deg tilt_world=51.0deg
+2025-12-17 18:24:26,096 [INFO] frame=196 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,160 [INFO] frame=197 inliers=4/4 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,232 [INFO] frame=198 inliers=5/5 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,303 [INFO] frame=199 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,369 [INFO] frame=200 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,437 [INFO] frame=201 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,561 [INFO] frame=202 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,626 [INFO] frame=203 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,692 [INFO] frame=204 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,760 [INFO] frame=205 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,825 [INFO] frame=206 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,892 [INFO] frame=207 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:26,957 [INFO] frame=208 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,024 [INFO] frame=209 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,090 [INFO] frame=210 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,158 [INFO] frame=211 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,222 [INFO] frame=212 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,285 [INFO] frame=213 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,356 [INFO] frame=214 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,423 [INFO] frame=215 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,486 [INFO] frame=216 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,552 [INFO] frame=217 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,620 [INFO] frame=218 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,689 [INFO] frame=219 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,755 [INFO] frame=220 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,824 [INFO] frame=221 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:27,950 [INFO] frame=222 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,013 [INFO] frame=223 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,079 [INFO] frame=224 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,144 [INFO] frame=225 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,212 [INFO] frame=226 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,282 [INFO] frame=227 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,346 [INFO] frame=228 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,414 [INFO] frame=229 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,486 [INFO] frame=230 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,553 [INFO] frame=231 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,652 [INFO] frame=232 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,716 [INFO] frame=233 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,784 [INFO] frame=234 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,848 [INFO] frame=235 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,916 [INFO] frame=236 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:28,982 [INFO] frame=237 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,046 [INFO] frame=238 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,112 [INFO] frame=239 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,129 [INFO] [bench] over 60 frames total=70.48ms fps=14.18 wall=4.23s capture=20.50ms (29.1%) detect=30.28ms (43.0%) fuse=0.34ms (0.5%) pnp=0.46ms (0.7%) ransac=1.21ms (1.7%) render=17.69ms (25.1%)
+2025-12-17 18:24:29,180 [INFO] frame=240 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,246 [INFO] frame=241 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,373 [INFO] frame=242 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,500 [INFO] frame=243 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,565 [INFO] frame=244 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,627 [INFO] frame=245 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,695 [INFO] frame=246 inliers=7/7 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,764 [INFO] frame=247 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,837 [INFO] frame=248 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,897 [INFO] frame=249 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:29,964 [INFO] frame=250 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,094 [INFO] frame=251 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,163 [INFO] frame=252 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,227 [INFO] frame=253 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,293 [INFO] frame=254 inliers=5/5 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,365 [INFO] frame=255 inliers=5/5 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,460 [INFO] frame=256 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,531 [INFO] frame=257 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,595 [INFO] frame=258 inliers=5/5 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,664 [INFO] frame=259 inliers=6/6 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,726 [INFO] frame=260 inliers=4/4 used=[102, 103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=66.5deg tilt_world=53.3deg
+2025-12-17 18:24:30,798 [INFO] frame=261 inliers=6/6 used=[103, 104, 105, 106, 201, 202] tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:30,798 [INFO] Tags used for fusion: [103, 104, 105, 106, 201, 202]
+2025-12-17 18:24:30,924 [INFO] frame=262 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,056 [INFO] frame=263 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,183 [INFO] frame=264 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,251 [INFO] frame=265 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,326 [INFO] frame=266 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,398 [INFO] frame=267 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,513 [INFO] frame=268 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,584 [INFO] frame=269 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,651 [INFO] frame=270 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,716 [INFO] frame=271 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,852 [INFO] frame=272 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:31,921 [INFO] frame=273 inliers=5/5 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:32,016 [INFO] frame=274 inliers=4/4 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=61.8deg tilt_world=61.8deg
+2025-12-17 18:24:32,082 [INFO] frame=275 inliers=4/4 used=[103, 104, 105, 202] tilt_cam=59.3deg tilt_world=63.8deg
+2025-12-17 18:24:32,082 [INFO] Tags used for fusion: [103, 104, 105, 202]
+2025-12-17 18:24:32,151 [INFO] frame=276 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=58.3deg tilt_world=62.3deg
+2025-12-17 18:24:32,151 [INFO] Tags used for fusion: [102, 103, 104, 105, 202]
+2025-12-17 18:24:32,216 [INFO] frame=277 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=60.2deg tilt_world=59.9deg
+2025-12-17 18:24:32,340 [INFO] frame=278 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=62.2deg tilt_world=57.6deg
+2025-12-17 18:24:32,474 [INFO] frame=279 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=63.6deg tilt_world=55.9deg
+2025-12-17 18:24:32,606 [INFO] frame=280 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=63.2deg tilt_world=55.4deg
+2025-12-17 18:24:32,738 [INFO] frame=281 inliers=5/5 used=[102, 103, 104, 105, 202] tilt_cam=63.7deg tilt_world=55.0deg
+2025-12-17 18:24:32,868 [INFO] frame=282 inliers=4/4 used=[103, 104, 105, 202] tilt_cam=60.4deg tilt_world=58.4deg
+2025-12-17 18:24:32,869 [INFO] Tags used for fusion: [103, 104, 105, 202]
+2025-12-17 18:24:32,997 [INFO] frame=283 inliers=5/5 used=[103, 104, 105, 106, 202] tilt_cam=57.5deg tilt_world=62.6deg
+2025-12-17 18:24:32,997 [INFO] Tags used for fusion: [103, 104, 105, 106, 202]
+2025-12-17 18:24:33,064 [INFO] frame=284 inliers=5/5 used=[103, 104, 105, 106, 202] tilt_cam=55.5deg tilt_world=66.1deg
+2025-12-17 18:24:33,128 [INFO] frame=285 inliers=5/5 used=[103, 104, 105, 106, 202] tilt_cam=56.6deg tilt_world=70.0deg
+2025-12-17 18:24:33,197 [INFO] frame=286 inliers=4/4 used=[103, 104, 105, 202] tilt_cam=56.7deg tilt_world=69.9deg
+2025-12-17 18:24:33,197 [INFO] Tags used for fusion: [103, 104, 105, 202]
+2025-12-17 18:24:33,331 [INFO] frame=287 inliers=6/6 used=[103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=56.7deg tilt_world=69.9deg
+2025-12-17 18:24:33,400 [INFO] frame=288 inliers=6/6 used=[103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=56.7deg tilt_world=69.9deg
+2025-12-17 18:24:33,464 [INFO] frame=289 inliers=5/5 used=[103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=56.7deg tilt_world=69.9deg
+2025-12-17 18:24:33,540 [INFO] frame=290 inliers=5/5 used=[103, 104, 105, 202] status=REJECT_SPIKE tilt_cam=56.7deg tilt_world=69.9deg
+2025-12-17 18:24:33,611 [INFO] frame=291 inliers=6/6 used=[104, 105, 106, 107, 201, 202] tilt_cam=51.5deg tilt_world=78.8deg
+2025-12-17 18:24:33,611 [INFO] Tags used for fusion: [104, 105, 106, 107, 201, 202]
+2025-12-17 18:24:33,693 [INFO] frame=292 inliers=6/6 used=[104, 105, 106, 107, 201, 202] status=REJECT_SPIKE tilt_cam=51.5deg tilt_world=78.8deg
+2025-12-17 18:24:33,825 [INFO] frame=293 inliers=6/6 used=[104, 105, 106, 107, 201, 202] tilt_cam=47.9deg tilt_world=85.7deg
+2025-12-17 18:24:33,890 [INFO] frame=294 inliers=6/6 used=[104, 105, 106, 107, 201, 202] status=REJECT_SPIKE tilt_cam=47.9deg tilt_world=85.7deg
+2025-12-17 18:24:33,957 [INFO] frame=295 inliers=6/6 used=[104, 105, 106, 107, 201, 202] status=REJECT_SPIKE tilt_cam=47.9deg tilt_world=85.7deg
+2025-12-17 18:24:34,026 [INFO] frame=296 inliers=6/6 used=[104, 105, 106, 107, 201, 202] status=REJECT_SPIKE tilt_cam=47.9deg tilt_world=85.7deg
+2025-12-17 18:24:34,150 [INFO] frame=297 inliers=5/5 used=[104, 105, 106, 107, 201, 202] status=REJECT_SPIKE tilt_cam=47.9deg tilt_world=85.7deg
+2025-12-17 18:24:34,220 [INFO] frame=298 inliers=6/6 used=[104, 105, 106, 107, 201, 202] status=REJECT_SPIKE tilt_cam=47.9deg tilt_world=85.7deg
+2025-12-17 18:24:34,287 [INFO] frame=299 inliers=6/6 used=[103, 104, 105, 106, 201, 202] tilt_cam=46.2deg tilt_world=89.2deg
+2025-12-17 18:24:34,287 [INFO] Tags used for fusion: [103, 104, 105, 106, 201, 202]
+2025-12-17 18:24:34,304 [INFO] [bench] over 60 frames total=86.21ms fps=11.59 wall=5.18s capture=32.56ms (37.8%) detect=34.03ms (39.5%) fuse=0.34ms (0.4%) pnp=0.44ms (0.5%) ransac=1.14ms (1.3%) render=17.70ms (20.5%)
+2025-12-17 18:24:34,357 [INFO] frame=300 inliers=6/6 used=[103, 104, 105, 106, 201, 202] tilt_cam=44.7deg tilt_world=87.4deg
+2025-12-17 18:24:34,487 [INFO] frame=301 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=44.7deg tilt_world=87.4deg
+2025-12-17 18:24:34,617 [INFO] frame=302 inliers=6/6 used=[103, 104, 105, 106, 201, 202] status=REJECT_SPIKE tilt_cam=44.7deg tilt_world=87.4deg
+2025-12-17 18:24:34,681 [INFO] frame=303 inliers=5/5 used=[103, 104, 105, 106, 202] tilt_cam=45.6deg tilt_world=86.6deg
+2025-12-17 18:24:34,681 [INFO] Tags used for fusion: [103, 104, 105, 106, 202]
+2025-12-17 18:24:34,750 [INFO] frame=304 inliers=6/6 used=[103, 104, 105, 106, 202] status=REJECT_SPIKE tilt_cam=45.6deg tilt_world=86.6deg
+2025-12-17 18:24:34,817 [INFO] frame=305 inliers=6/6 used=[103, 104, 105, 106, 201, 202] tilt_cam=44.3deg tilt_world=84.4deg
+2025-12-17 18:24:34,817 [INFO] Tags used for fusion: [103, 104, 105, 106, 201, 202]
+2025-12-17 18:24:34,950 [INFO] frame=306 inliers=6/6 used=[103, 104, 105, 106, 201, 202] tilt_cam=43.4deg tilt_world=82.8deg
+2025-12-17 18:24:35,082 [INFO] frame=307 inliers=6/6 used=[103, 104, 105, 106, 201, 202] tilt_cam=42.8deg tilt_world=81.5deg
+2025-12-17 18:24:35,153 [INFO] frame=308 inliers=6/6 used=[103, 104, 105, 106, 201, 202] tilt_cam=42.3deg tilt_world=80.5deg
+2025-12-17 18:24:35,216 [INFO] frame=309 inliers=6/6 used=[103, 104, 105, 106, 201, 202] tilt_cam=30.0deg tilt_world=79.9deg
+2025-12-17 18:24:35,284 [INFO] frame=310 inliers=5/5 used=[103, 104, 105, 106, 202] tilt_cam=26.4deg tilt_world=82.2deg
+2025-12-17 18:24:35,284 [INFO] Tags used for fusion: [103, 104, 105, 106, 202]
+2025-12-17 18:24:35,443 [INFO] frame=311 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.8deg tilt_world=82.9deg
+2025-12-17 18:24:35,443 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:35,506 [INFO] frame=312 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.0deg tilt_world=83.7deg
+2025-12-17 18:24:35,570 [INFO] frame=313 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.0deg tilt_world=83.7deg
+2025-12-17 18:24:35,635 [INFO] frame=314 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=23.8deg tilt_world=84.5deg
+2025-12-17 18:24:35,703 [INFO] frame=315 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=23.9deg tilt_world=85.2deg
+2025-12-17 18:24:35,789 [INFO] frame=316 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.1deg tilt_world=85.8deg
+2025-12-17 18:24:35,870 [INFO] frame=317 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.1deg tilt_world=85.8deg
+2025-12-17 18:24:35,939 [INFO] frame=318 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.1deg tilt_world=85.8deg
+2025-12-17 18:24:36,011 [INFO] frame=319 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.1deg tilt_world=85.8deg
+2025-12-17 18:24:36,077 [INFO] frame=320 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.4deg tilt_world=86.4deg
+2025-12-17 18:24:36,144 [INFO] frame=321 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.6deg tilt_world=86.8deg
+2025-12-17 18:24:36,207 [INFO] frame=322 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.6deg tilt_world=86.8deg
+2025-12-17 18:24:36,274 [INFO] frame=323 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.6deg tilt_world=86.8deg
+2025-12-17 18:24:36,340 [INFO] frame=324 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.9deg tilt_world=87.2deg
+2025-12-17 18:24:36,405 [INFO] frame=325 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=87.2deg
+2025-12-17 18:24:36,471 [INFO] frame=326 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=25.3deg tilt_world=84.3deg
+2025-12-17 18:24:36,539 [INFO] frame=327 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=25.3deg tilt_world=84.3deg
+2025-12-17 18:24:36,606 [INFO] frame=328 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.9deg tilt_world=85.1deg
+2025-12-17 18:24:36,672 [INFO] frame=329 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.1deg
+2025-12-17 18:24:36,735 [INFO] frame=330 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.1deg
+2025-12-17 18:24:36,799 [INFO] frame=331 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.1deg
+2025-12-17 18:24:36,867 [INFO] frame=332 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.1deg
+2025-12-17 18:24:36,939 [INFO] frame=333 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.1deg
+2025-12-17 18:24:37,000 [INFO] frame=334 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.1deg
+2025-12-17 18:24:37,071 [INFO] frame=335 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,162 [INFO] frame=336 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,235 [INFO] frame=337 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,299 [INFO] frame=338 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,368 [INFO] frame=339 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,429 [INFO] frame=340 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,495 [INFO] frame=341 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,564 [INFO] frame=342 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,629 [INFO] frame=343 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,693 [INFO] frame=344 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=85.8deg
+2025-12-17 18:24:37,760 [INFO] frame=345 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=24.9deg tilt_world=86.4deg
+2025-12-17 18:24:37,829 [INFO] frame=346 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=86.4deg
+2025-12-17 18:24:37,892 [INFO] frame=347 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=86.4deg
+2025-12-17 18:24:37,959 [INFO] frame=348 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=24.9deg tilt_world=86.4deg
+2025-12-17 18:24:38,028 [INFO] frame=349 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=25.0deg tilt_world=86.8deg
+2025-12-17 18:24:38,089 [INFO] frame=350 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=26.4deg tilt_world=88.3deg
+2025-12-17 18:24:38,090 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:38,161 [INFO] frame=351 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=25.4deg tilt_world=85.2deg
+2025-12-17 18:24:38,162 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:38,256 [INFO] frame=352 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=25.4deg tilt_world=85.2deg
+2025-12-17 18:24:38,324 [INFO] frame=353 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=25.4deg tilt_world=85.2deg
+2025-12-17 18:24:38,387 [INFO] frame=354 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=25.2deg tilt_world=85.9deg
+2025-12-17 18:24:38,454 [INFO] frame=355 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=25.3deg tilt_world=86.6deg
+2025-12-17 18:24:38,519 [INFO] frame=356 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=25.3deg tilt_world=87.0deg
+2025-12-17 18:24:38,585 [INFO] frame=357 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=26.0deg tilt_world=84.1deg
+2025-12-17 18:24:38,648 [INFO] frame=358 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=26.8deg tilt_world=86.1deg
+2025-12-17 18:24:38,648 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:38,715 [INFO] frame=359 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=28.4deg tilt_world=83.6deg
+2025-12-17 18:24:38,715 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:38,731 [INFO] [bench] over 60 frames total=73.75ms fps=13.55 wall=4.43s capture=15.85ms (21.5%) detect=37.94ms (51.4%) fuse=0.39ms (0.5%) pnp=0.50ms (0.7%) ransac=1.29ms (1.7%) render=17.79ms (24.1%)
+2025-12-17 18:24:38,815 [INFO] frame=360 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=30.6deg tilt_world=81.7deg
+2025-12-17 18:24:38,879 [INFO] frame=361 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=32.9deg tilt_world=80.4deg
+2025-12-17 18:24:38,951 [INFO] frame=362 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=34.9deg tilt_world=79.5deg
+2025-12-17 18:24:39,012 [INFO] frame=363 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=36.6deg tilt_world=78.8deg
+2025-12-17 18:24:39,079 [INFO] frame=364 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=37.9deg tilt_world=78.3deg
+2025-12-17 18:24:39,145 [INFO] frame=365 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=40.5deg tilt_world=78.9deg
+2025-12-17 18:24:39,145 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:39,209 [INFO] frame=366 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.0deg tilt_world=78.3deg
+2025-12-17 18:24:39,209 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:39,275 [INFO] frame=367 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.4deg tilt_world=77.9deg
+2025-12-17 18:24:39,341 [INFO] frame=368 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=35.9deg tilt_world=80.4deg
+2025-12-17 18:24:39,341 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:39,409 [INFO] frame=369 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=38.9deg tilt_world=80.5deg
+2025-12-17 18:24:39,477 [INFO] frame=370 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=39.7deg tilt_world=79.6deg
+2025-12-17 18:24:39,478 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:39,541 [INFO] frame=371 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=40.4deg tilt_world=78.9deg
+2025-12-17 18:24:39,607 [INFO] frame=372 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=40.9deg tilt_world=78.3deg
+2025-12-17 18:24:39,674 [INFO] frame=373 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.3deg tilt_world=77.9deg
+2025-12-17 18:24:39,740 [INFO] frame=374 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.6deg tilt_world=77.6deg
+2025-12-17 18:24:39,805 [INFO] frame=375 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.9deg tilt_world=77.3deg
+2025-12-17 18:24:39,871 [INFO] frame=376 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.1deg tilt_world=77.2deg
+2025-12-17 18:24:39,937 [INFO] frame=377 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=40.4deg tilt_world=77.5deg
+2025-12-17 18:24:39,937 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:40,003 [INFO] frame=378 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=32.2deg tilt_world=80.2deg
+2025-12-17 18:24:40,070 [INFO] frame=379 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=34.4deg tilt_world=79.3deg
+2025-12-17 18:24:40,070 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:40,136 [INFO] frame=380 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=36.1deg tilt_world=78.6deg
+2025-12-17 18:24:40,202 [INFO] frame=381 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=37.6deg tilt_world=78.1deg
+2025-12-17 18:24:40,267 [INFO] frame=382 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=32.2deg tilt_world=79.7deg
+2025-12-17 18:24:40,334 [INFO] frame=383 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=34.4deg tilt_world=78.9deg
+2025-12-17 18:24:40,399 [INFO] frame=384 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=36.2deg tilt_world=78.3deg
+2025-12-17 18:24:40,467 [INFO] frame=385 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=37.6deg tilt_world=77.9deg
+2025-12-17 18:24:40,531 [INFO] frame=386 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=38.8deg tilt_world=77.6deg
+2025-12-17 18:24:40,596 [INFO] frame=387 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=39.7deg tilt_world=77.4deg
+2025-12-17 18:24:40,664 [INFO] frame=388 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=40.4deg tilt_world=77.2deg
+2025-12-17 18:24:40,729 [INFO] frame=389 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.0deg tilt_world=77.0deg
+2025-12-17 18:24:40,794 [INFO] frame=390 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=42.9deg tilt_world=77.9deg
+2025-12-17 18:24:40,794 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:40,863 [INFO] frame=391 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=77.6deg
+2025-12-17 18:24:40,863 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:40,928 [INFO] frame=392 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=77.4deg
+2025-12-17 18:24:40,993 [INFO] frame=393 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=42.9deg tilt_world=77.4deg
+2025-12-17 18:24:41,060 [INFO] frame=394 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=42.9deg tilt_world=77.4deg
+2025-12-17 18:24:41,125 [INFO] frame=395 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=45.6deg tilt_world=77.5deg
+2025-12-17 18:24:41,189 [INFO] frame=396 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=46.5deg tilt_world=78.3deg
+2025-12-17 18:24:41,190 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:41,257 [INFO] frame=397 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=45.6deg tilt_world=77.8deg
+2025-12-17 18:24:41,258 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:41,323 [INFO] frame=398 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=43.0deg tilt_world=77.9deg
+2025-12-17 18:24:41,323 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:41,389 [INFO] frame=399 inliers=7/7 used=[103, 104, 105, 106, 200, 202] status=REJECT_SPIKE tilt_cam=43.0deg tilt_world=77.9deg
+2025-12-17 18:24:41,456 [INFO] frame=400 inliers=7/7 used=[103, 104, 105, 106, 200, 202] status=REJECT_SPIKE tilt_cam=43.0deg tilt_world=77.9deg
+2025-12-17 18:24:41,523 [INFO] frame=401 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.0deg tilt_world=77.6deg
+2025-12-17 18:24:41,523 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:41,590 [INFO] frame=402 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=77.4deg
+2025-12-17 18:24:41,657 [INFO] frame=403 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=77.2deg
+2025-12-17 18:24:41,722 [INFO] frame=404 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=77.0deg
+2025-12-17 18:24:41,790 [INFO] frame=405 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=44.5deg tilt_world=77.9deg
+2025-12-17 18:24:41,790 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:41,856 [INFO] frame=406 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=44.1deg tilt_world=77.6deg
+2025-12-17 18:24:41,856 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:41,921 [INFO] frame=407 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.9deg tilt_world=77.4deg
+2025-12-17 18:24:41,989 [INFO] frame=408 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=37.5deg tilt_world=79.8deg
+2025-12-17 18:24:41,990 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:42,051 [INFO] frame=409 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=40.2deg tilt_world=80.0deg
+2025-12-17 18:24:42,118 [INFO] frame=410 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=40.7deg tilt_world=79.2deg
+2025-12-17 18:24:42,118 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:42,218 [INFO] frame=411 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.2deg tilt_world=78.6deg
+2025-12-17 18:24:42,284 [INFO] frame=412 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.5deg tilt_world=78.1deg
+2025-12-17 18:24:42,352 [INFO] frame=413 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=41.5deg tilt_world=78.1deg
+2025-12-17 18:24:42,414 [INFO] frame=414 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=41.5deg tilt_world=78.1deg
+2025-12-17 18:24:42,478 [INFO] frame=415 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.8deg tilt_world=77.8deg
+2025-12-17 18:24:42,543 [INFO] frame=416 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.1deg tilt_world=77.5deg
+2025-12-17 18:24:42,608 [INFO] frame=417 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=43.8deg tilt_world=78.4deg
+2025-12-17 18:24:42,608 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:42,677 [INFO] frame=418 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.6deg tilt_world=77.9deg
+2025-12-17 18:24:42,677 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:42,742 [INFO] frame=419 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=45.0deg tilt_world=78.6deg
+2025-12-17 18:24:42,742 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:42,758 [INFO] [bench] over 60 frames total=67.07ms fps=14.90 wall=4.03s capture=8.45ms (12.6%) detect=38.72ms (57.7%) fuse=0.43ms (0.6%) pnp=0.48ms (0.7%) ransac=1.30ms (1.9%) render=17.70ms (26.4%)
+2025-12-17 18:24:42,809 [INFO] frame=420 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=44.5deg tilt_world=78.2deg
+2025-12-17 18:24:42,809 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:42,873 [INFO] frame=421 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=44.5deg tilt_world=78.2deg
+2025-12-17 18:24:42,940 [INFO] frame=422 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=44.1deg tilt_world=77.8deg
+2025-12-17 18:24:43,006 [INFO] frame=423 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=44.1deg tilt_world=77.8deg
+2025-12-17 18:24:43,073 [INFO] frame=424 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.8deg tilt_world=77.5deg
+2025-12-17 18:24:43,138 [INFO] frame=425 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.6deg tilt_world=77.3deg
+2025-12-17 18:24:43,205 [INFO] frame=426 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.4deg tilt_world=77.1deg
+2025-12-17 18:24:43,269 [INFO] frame=427 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=43.4deg tilt_world=77.1deg
+2025-12-17 18:24:43,337 [INFO] frame=428 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.3deg tilt_world=77.0deg
+2025-12-17 18:24:43,403 [INFO] frame=429 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.2deg tilt_world=76.9deg
+2025-12-17 18:24:43,469 [INFO] frame=430 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.1deg tilt_world=76.8deg
+2025-12-17 18:24:43,536 [INFO] frame=431 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.1deg tilt_world=76.7deg
+2025-12-17 18:24:43,599 [INFO] frame=432 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=44.6deg tilt_world=77.7deg
+2025-12-17 18:24:43,599 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:43,665 [INFO] frame=433 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=44.2deg tilt_world=77.4deg
+2025-12-17 18:24:43,665 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:43,733 [INFO] frame=434 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.9deg tilt_world=77.2deg
+2025-12-17 18:24:43,799 [INFO] frame=435 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.6deg tilt_world=77.0deg
+2025-12-17 18:24:43,866 [INFO] frame=436 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=43.6deg tilt_world=77.0deg
+2025-12-17 18:24:43,930 [INFO] frame=437 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=43.6deg tilt_world=77.0deg
+2025-12-17 18:24:43,995 [INFO] frame=438 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.5deg tilt_world=76.9deg
+2025-12-17 18:24:44,061 [INFO] frame=439 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.4deg tilt_world=76.8deg
+2025-12-17 18:24:44,128 [INFO] frame=440 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.2deg tilt_world=76.8deg
+2025-12-17 18:24:44,196 [INFO] frame=441 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.1deg tilt_world=76.7deg
+2025-12-17 18:24:44,261 [INFO] frame=442 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.0deg tilt_world=76.6deg
+2025-12-17 18:24:44,326 [INFO] frame=443 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.0deg tilt_world=76.5deg
+2025-12-17 18:24:44,409 [INFO] frame=444 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=76.5deg
+2025-12-17 18:24:44,492 [INFO] frame=445 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=76.5deg
+2025-12-17 18:24:44,557 [INFO] frame=446 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=76.5deg
+2025-12-17 18:24:44,624 [INFO] frame=447 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=76.4deg
+2025-12-17 18:24:44,687 [INFO] frame=448 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=76.4deg
+2025-12-17 18:24:44,754 [INFO] frame=449 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=76.5deg
+2025-12-17 18:24:44,820 [INFO] frame=450 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=42.9deg tilt_world=76.5deg
+2025-12-17 18:24:44,888 [INFO] frame=451 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=76.5deg
+2025-12-17 18:24:45,000 [INFO] frame=452 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=76.4deg
+2025-12-17 18:24:45,088 [INFO] frame=453 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=76.4deg
+2025-12-17 18:24:45,151 [INFO] frame=454 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=42.8deg tilt_world=76.4deg
+2025-12-17 18:24:45,217 [INFO] frame=455 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=76.4deg
+2025-12-17 18:24:45,284 [INFO] frame=456 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=76.4deg
+2025-12-17 18:24:45,350 [INFO] frame=457 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=76.4deg
+2025-12-17 18:24:45,415 [INFO] frame=458 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.9deg tilt_world=76.4deg
+2025-12-17 18:24:45,481 [INFO] frame=459 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=76.4deg
+2025-12-17 18:24:45,546 [INFO] frame=460 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=36.6deg tilt_world=79.1deg
+2025-12-17 18:24:45,546 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:45,612 [INFO] frame=461 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=38.0deg tilt_world=78.5deg
+2025-12-17 18:24:45,612 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:45,679 [INFO] frame=462 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=39.1deg tilt_world=78.1deg
+2025-12-17 18:24:45,746 [INFO] frame=463 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=33.2deg tilt_world=79.5deg
+2025-12-17 18:24:45,830 [INFO] frame=464 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=35.2deg tilt_world=78.8deg
+2025-12-17 18:24:45,911 [INFO] frame=465 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=30.7deg tilt_world=80.3deg
+2025-12-17 18:24:45,976 [INFO] frame=466 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=33.1deg tilt_world=79.4deg
+2025-12-17 18:24:46,051 [INFO] frame=467 inliers=6/6 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=33.1deg tilt_world=79.4deg
+2025-12-17 18:24:46,143 [INFO] frame=468 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=35.2deg tilt_world=78.7deg
+2025-12-17 18:24:46,207 [INFO] frame=469 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=36.8deg tilt_world=78.2deg
+2025-12-17 18:24:46,274 [INFO] frame=470 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=38.1deg tilt_world=77.8deg
+2025-12-17 18:24:46,339 [INFO] frame=471 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=39.2deg tilt_world=77.6deg
+2025-12-17 18:24:46,404 [INFO] frame=472 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=39.2deg tilt_world=77.6deg
+2025-12-17 18:24:46,472 [INFO] frame=473 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=40.0deg tilt_world=77.3deg
+2025-12-17 18:24:46,538 [INFO] frame=474 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=40.0deg tilt_world=77.3deg
+2025-12-17 18:24:46,603 [INFO] frame=475 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=40.0deg tilt_world=77.3deg
+2025-12-17 18:24:46,669 [INFO] frame=476 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=40.7deg tilt_world=77.1deg
+2025-12-17 18:24:46,734 [INFO] frame=477 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=42.8deg tilt_world=78.0deg
+2025-12-17 18:24:46,734 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:46,801 [INFO] frame=478 inliers=7/7 used=[103, 104, 105, 106, 200, 202] status=REJECT_SPIKE tilt_cam=42.8deg tilt_world=78.0deg
+2025-12-17 18:24:46,868 [INFO] frame=479 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=77.7deg
+2025-12-17 18:24:46,869 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:46,885 [INFO] [bench] over 60 frames total=68.74ms fps=14.54 wall=4.13s capture=9.43ms (13.7%) detect=39.33ms (57.2%) fuse=0.43ms (0.6%) pnp=0.49ms (0.7%) ransac=1.33ms (1.9%) render=17.73ms (25.8%)
+2025-12-17 18:24:46,935 [INFO] frame=480 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=77.4deg
+2025-12-17 18:24:47,000 [INFO] frame=481 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=42.8deg tilt_world=77.4deg
+2025-12-17 18:24:47,065 [INFO] frame=482 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=77.2deg
+2025-12-17 18:24:47,131 [INFO] frame=483 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=77.0deg
+2025-12-17 18:24:47,199 [INFO] frame=484 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] status=REJECT_SPIKE tilt_cam=42.8deg tilt_world=77.0deg
+2025-12-17 18:24:47,264 [INFO] frame=485 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.8deg tilt_world=76.9deg
+2025-12-17 18:24:47,327 [INFO] frame=486 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=33.5deg tilt_world=79.3deg
+2025-12-17 18:24:47,328 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:47,396 [INFO] frame=487 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=35.5deg tilt_world=78.7deg
+2025-12-17 18:24:47,396 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:47,463 [INFO] frame=488 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=37.1deg tilt_world=78.2deg
+2025-12-17 18:24:47,525 [INFO] frame=489 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=39.9deg tilt_world=78.8deg
+2025-12-17 18:24:47,525 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:47,594 [INFO] frame=490 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=40.5deg tilt_world=78.3deg
+2025-12-17 18:24:47,594 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:47,662 [INFO] frame=491 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.1deg tilt_world=77.9deg
+2025-12-17 18:24:47,726 [INFO] frame=492 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.4deg tilt_world=77.6deg
+2025-12-17 18:24:47,791 [INFO] frame=493 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.8deg tilt_world=77.4deg
+2025-12-17 18:24:47,858 [INFO] frame=494 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.0deg tilt_world=77.2deg
+2025-12-17 18:24:47,922 [INFO] frame=495 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=36.2deg tilt_world=79.7deg
+2025-12-17 18:24:47,922 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:47,988 [INFO] frame=496 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=39.1deg tilt_world=80.0deg
+2025-12-17 18:24:48,054 [INFO] frame=497 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=39.9deg tilt_world=79.2deg
+2025-12-17 18:24:48,054 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:48,120 [INFO] frame=498 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=40.5deg tilt_world=78.6deg
+2025-12-17 18:24:48,189 [INFO] frame=499 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.1deg tilt_world=78.1deg
+2025-12-17 18:24:48,254 [INFO] frame=500 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.4deg tilt_world=77.7deg
+2025-12-17 18:24:48,320 [INFO] frame=501 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=41.7deg tilt_world=77.4deg
+2025-12-17 18:24:48,386 [INFO] frame=502 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.0deg tilt_world=77.2deg
+2025-12-17 18:24:48,454 [INFO] frame=503 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.2deg tilt_world=77.1deg
+2025-12-17 18:24:48,518 [INFO] frame=504 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.3deg tilt_world=76.9deg
+2025-12-17 18:24:48,584 [INFO] frame=505 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=42.5deg tilt_world=76.8deg
+2025-12-17 18:24:48,650 [INFO] frame=506 inliers=6/6 used=[103, 104, 105, 106, 200, 202] tilt_cam=44.1deg tilt_world=77.8deg
+2025-12-17 18:24:48,650 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 202]
+2025-12-17 18:24:48,717 [INFO] frame=507 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.8deg tilt_world=77.4deg
+2025-12-17 18:24:48,717 [INFO] Tags used for fusion: [103, 104, 105, 106, 200, 201, 202]
+2025-12-17 18:24:48,784 [INFO] frame=508 inliers=7/7 used=[103, 104, 105, 106, 200, 201, 202] tilt_cam=43.5deg tilt_world=77.2deg

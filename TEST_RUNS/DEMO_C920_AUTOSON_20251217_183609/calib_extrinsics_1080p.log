@@ -1,0 +1,26 @@
+2025-12-17 18:40:14.899 Python[19655:985600] WARNING: AVCaptureDeviceTypeExternal is deprecated for Continuity Cameras. Please use AVCaptureDeviceTypeContinuityCamera and add NSCameraUseContinuityCameraDeviceType to your Info.plist.
+Place the chessboard flat on the FLOOR. World frame: X right, Y forward, Z up.
+Collecting samples... (SPACE to capture, ESC to quit early)
+[info] Captured frame 1 / 8 (reproj 0.310px)
+[info] Captured frame 2 / 8 (reproj 0.321px)
+[info] Captured frame 3 / 8 (reproj 0.307px)
+[info] Captured frame 4 / 8 (reproj 0.302px)
+[info] Captured frame 5 / 8 (reproj 0.310px)
+[info] Captured frame 6 / 8 (reproj 0.306px)
+[info] Captured frame 7 / 8 (reproj 0.306px)
+[info] Captured frame 8 / 8 (reproj 0.305px)
+[info] World Z was downward; flipped frame about +X to enforce Z up.
+
+=== Extrinsics Result ===
+Saved world-to-camera T_WC to: common/extrinsics/T_WC_c920_1920x1080.yaml
+[[-0.0059354  -0.99984707  0.01645006 -0.07742367]
+ [-0.59549401 -0.00968134 -0.80330141  0.23259011]
+ [ 0.80333782 -0.01456382 -0.59534548  1.15599513]
+ [ 0.          0.          0.          1.        ]]
+
+Camera position in world (m): [-0.7906 -0.0583  0.8763]
+Camera height above floor: 0.8763 m
+Angle vs floor normal (upward): 126.537 deg
+Downward tilt from floor normal: 53.463 deg (180=straight down, 90=horizontal)
+Reprojection RMSE per frame (px): [0.31, 0.321, 0.307, 0.302, 0.31, 0.306, 0.306, 0.305]
+Mean reprojection RMSE: 0.308 px over 8 frames

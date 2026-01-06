@@ -1,0 +1,42 @@
+Summarizing poses: TEST_RUNS/DEMO_C920_AUTOSON_20251217_183609/poses_1080p_AUTOSON_no_ransac.csv
+Summarizing debug: TEST_RUNS/DEMO_C920_AUTOSON_20251217_183609/debug_1080p_AUTOSON_no_ransac.csv
+=== HEADER CHECK ===
+[poses] file: TEST_RUNS/DEMO_C920_AUTOSON_20251217_183609/poses_1080p_AUTOSON_no_ransac.csv
+[poses] extrinsics_path_resolved: /Users/Andreas/Desktop/ptl24_marker/common/extrinsics/T_WC_c920_1920x1080.yaml
+[poses] rig_path_resolved       : /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[poses] poses_csv              : TEST_RUNS/DEMO_C920_AUTOSON_20251217_183609/poses_1080p_AUTOSON_no_ransac.csv
+[poses] debug_metrics_csv      : TEST_RUNS/DEMO_C920_AUTOSON_20251217_183609/debug_1080p_AUTOSON_no_ransac.csv
+
+[debug] file: TEST_RUNS/DEMO_C920_AUTOSON_20251217_183609/debug_1080p_AUTOSON_no_ransac.csv
+[debug] extrinsics_path_resolved: /Users/Andreas/Desktop/ptl24_marker/common/extrinsics/T_WC_c920_1920x1080.yaml
+[debug] rig_path_resolved       : /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[debug] poses_csv              : TEST_RUNS/DEMO_C920_AUTOSON_20251217_183609/poses_1080p_AUTOSON_no_ransac.csv
+[debug] debug_metrics_csv      : TEST_RUNS/DEMO_C920_AUTOSON_20251217_183609/debug_1080p_AUTOSON_no_ransac.csv
+
+=== POSE STATS (CAMERA & WORLD) ===
+Camera tilt  (deg): min= 66.943, mean= 67.751, max= 67.896
+World tilt   (deg): min= 48.326, mean= 50.409, max= 50.568
+
+rvec_cam stats:
+  rvec_cam_x     : min=-0.3571, mean=-0.3562, max=-0.3532
+  rvec_cam_y     : min=-2.2470, mean=-2.2427, max=-2.2351
+  rvec_cam_z     : min=-1.3774, mean=-1.3743, max=-1.3235
+
+tvec_cam_m stats:
+  tvec_cam_x     : min=-0.1619, mean=-0.1417, max=-0.1404
+  tvec_cam_y     : min= 1.1212, mean= 1.1347, max= 1.1360
+  tvec_cam_z     : min= 0.0322, mean= 0.0330, max= 0.0386
+
+tvec_world_m stats:
+  tvec_world_x   : min= 0.3886, mean= 0.3899, max= 0.4090
+  tvec_world_y   : min= 1.1171, mean= 1.1282, max= 1.1304
+  tvec_world_z   : min= 1.6715, mean= 1.6927, max= 1.6954
+
+Mean world translation (m): [0.389913 1.128246 1.692683]
+Approx roll-centre distance (m): 2.0713
+
+=== DEBUG STATS ===
+fps              : min=  3.376, mean=130.817, max=35848.752
+mean_reproj_px   : min= 46.249, mean= 46.308, max= 46.359
+mean_tag_area_px2: min=1794.700, mean=1796.327, max=1797.800
+tilt_deg         : min= 66.943, mean= 67.751, max= 67.896

@@ -1,0 +1,40 @@
+version: 2
+
+camera:
+  index: 0
+  draw: true
+  show: true
+
+detect:
+  family: "tag36h11"
+  min_hamming: 0
+  min_area_px2: 900          # reject tiny tags
+  max_pose_reproj_err: 35.0  # px
+  max_depth_m: 6.0           # sanity z (camera frame)
+  min_inliers_for_fusion: 3
+
+ransac:
+  max_iters: 100
+  inlier_thresh_px: 2.0
+  min_subset: 3
+
+temporal:
+  hold_ms: 250                # hold last good pose for brief dropouts
+  max_dt_R_deg: 8.0           # reject big rotation jumps
+  max_dt_t_m: 0.15            # reject big translation jumps
+
+fusion:
+  rot_avg: "quat_mean"        # {quat_mean|lie}
+  trans_avg: "median"         # {mean|median|huber}
+  huber_delta_m: 0.05
+  weight_topcap: 1.2
+  weight_ring: 1.0
+
+logging:
+  csv_path: "phase_b/poses.csv"
+  csv_schema: "v2"            # adds tags_used, score, tilt, yaw
+  overlay_tags_used: true
+
+udp:
+  host: "127.0.0.1"
+  port: 5005

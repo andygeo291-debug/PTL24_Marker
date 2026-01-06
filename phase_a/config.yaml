@@ -1,0 +1,22 @@
+camera:
+  intrinsics:
+    K:
+    - [1068.668, 0.0, 960.0]
+    - [0.0, 1067.500, 540.0]
+    - [0.0, 0.0, 1.0]
+    dist:
+    - 0.01
+    - -0.02
+    - 0.0
+    - 0.0
+    - 0.0
+  world_pose:
+    x: 0.0        # forward from origin, meters
+    y: 0.0        # left from origin, meters
+    rho: 1.2      # camera height (MacBook webcam approx.)
+    pitch: 0.0    # level (look straight ahead)
+    yaw: 0.1      # slight yaw to the left
+    roll: -0.05   # slight roll (tilted clockwise)
+mode:
+  camera_pose: pnp
+  extrinsics_file: ./data/T_WC.yaml

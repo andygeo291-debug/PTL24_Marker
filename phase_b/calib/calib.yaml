@@ -1,0 +1,14 @@
+# Placeholder camera calibration file.
+# Populate with camera intrinsic parameters before running phase_b_tags.py.
+# If left empty or deleted, the script falls back to ../common/calib/calib.yaml.
+%YAML:1.0
+---
+T_WC:
+  rows: 4
+  cols: 4
+  data: [
+    1.000000, 0.000000, 0.000000, -0.000000,
+    0.000000, 0.987688, -0.156434, 0.167385,
+    0.000000, 0.156434, 0.987688, -1.056827,
+    0.0, 0.0, 0.0, 1.0
+  ]

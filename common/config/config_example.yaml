@@ -1,0 +1,17 @@
+camera:
+  intrinsics:
+    K:
+      - [1068.0, 0.0, 640.0]
+      - [0.0, 1068.0, 360.0]
+      - [0.0, 0.0, 1.0]
+    dist: [0.0, 0.0, 0.0, 0.0, 0.0]
+  world_pose:
+    x: 0.0
+    y: 0.0
+    rho: 6.5         # camera height above ground (meters)
+    pitch: -0.35     # tilt down is negative
+    yaw: 0.0
+    roll: 0.0
+mode:
+  camera_pose: manual
+  extrinsics_file: ./data/T_WC.yaml
