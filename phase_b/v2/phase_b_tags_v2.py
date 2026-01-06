@@ -328,6 +328,13 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     parser.add_argument("--width", type=int, help="Requested capture width (pixels).")
     parser.add_argument("--height", type=int, help="Requested capture height (pixels).")
     parser.add_argument("--fps", type=float, help="Requested capture FPS.")
+    from common.camera.factory import add_camera_cli_args
+
+    add_camera_cli_args(parser)
+    parser.add_argument(
+        "--dump-first-frame",
+        help="Optional path to save the first successfully acquired frame.",
+    )
     parser.add_argument(
         "--undistort",
         action="store_true",
@@ -776,40 +783,64 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     )
 
     cap = None
+    basler_cam = None
     pending_frame = None
+    dump_first_frame_path = getattr(args, "dump_first_frame", None)
+    dumped_first_frame = False
     requested_w = int(args.width) if args.width else None
     requested_h = int(args.height) if args.height else None
     actual_w = 0
     actual_h = 0
 
-    video_opt = str(args.video).lower() if isinstance(args.video, str) else args.video
-    if video_opt == "auto":
-        cap, chosen_src = v1._auto_select_camera(args)  # pylint: disable=protected-access
-        if cap is None:
-            LOGGER.error("Auto camera selection failed (tried indices 1..5, then 0).")
-            return 1
-        LOGGER.info("Using video source: %s", chosen_src)
-    else:
-        video_source = v1.parse_video_source(args.video)
-        cap = v1._open_capture_with_settings(video_source, args)  # pylint: disable=protected-access
-        if cap is None:
-            LOGGER.error("Unable to open video source: %s", args.video)
-            return 1
-        LOGGER.info("Using video source: %s", video_source)
+    # Basler backend uses the wrapper; OpenCV path remains unchanged.
+    use_basler = getattr(args, "camera_backend", "opencv") == "basler"
+    if use_basler:
+        from common.camera.factory import create_camera_from_args
 
-    backend_name = None
-    if hasattr(cap, "getBackendName"):
         try:
-            backend_name = cap.getBackendName()
-        except Exception:  # pylint: disable=broad-except
-            backend_name = None
-    if backend_name:
-        LOGGER.info("OpenCV backend: %s", backend_name)
+            basler_cam = create_camera_from_args(args)
+        except Exception as exc:  # pylint: disable=broad-except
+            LOGGER.error("Unable to open Basler camera: %s", exc)
+            return 1
+    else:
+        video_opt = str(args.video).lower() if isinstance(args.video, str) else args.video
+        if video_opt == "auto":
+            cap, chosen_src = v1._auto_select_camera(args)  # pylint: disable=protected-access
+            if cap is None:
+                LOGGER.error("Auto camera selection failed (tried indices 1..5, then 0).")
+                return 1
+            LOGGER.info("Using video source: %s", chosen_src)
+        else:
+            video_source = v1.parse_video_source(args.video)
+            cap = v1._open_capture_with_settings(video_source, args)  # pylint: disable=protected-access
+            if cap is None:
+                LOGGER.error("Unable to open video source: %s", args.video)
+                return 1
+            LOGGER.info("Using video source: %s", video_source)
 
-    actual_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 0)
-    actual_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0)
-    ret0, frame0 = cap.read()
+        backend_name = None
+        if hasattr(cap, "getBackendName"):
+            try:
+                backend_name = cap.getBackendName()
+            except Exception:  # pylint: disable=broad-except
+                backend_name = None
+        if backend_name:
+            LOGGER.info("OpenCV backend: %s", backend_name)
+
+        actual_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 0)
+        actual_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0)
+
+    if basler_cam is not None:
+        ret0, frame0 = basler_cam.read()
+    else:
+        ret0, frame0 = cap.read()
     if ret0 and frame0 is not None:
+        if basler_cam is not None and frame0.ndim == 2:
+            frame0 = cv2.cvtColor(frame0, cv2.COLOR_GRAY2BGR)
+        if basler_cam is not None and dump_first_frame_path and not dumped_first_frame:
+            if cv2.imwrite(dump_first_frame_path, frame0):
+                LOGGER.info("Wrote first frame to %s", dump_first_frame_path)
+                dumped_first_frame = True
         pending_frame = frame0
         actual_h, actual_w = frame0.shape[:2]
 
@@ -824,7 +855,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             )
         else:
             LOGGER.info("Capture opened: %sx%s", actual_w, actual_h)
-    if cap is None:
+    if cap is None and basler_cam is None:
         LOGGER.error("Camera capture failed to initialize.")
         return 1
 
@@ -954,16 +985,28 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 ret, frame = True, pending_frame
                 pending_frame = None
             else:
-                ret, frame = cap.read() if cap is not None else (False, None)
+                if basler_cam is not None:
+                    ret, frame = basler_cam.read()
+                else:
+                    ret, frame = cap.read() if cap is not None else (False, None)
             bench_timer.stop("capture")
             t_read_ms = (perf_counter() - read_start) * 1000.0
             if not ret:
                 LOGGER.warning("Frame grab failed; skipping frame.")
                 continue
+            if basler_cam is not None and frame is not None and frame.ndim == 2:
+                frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
+            if basler_cam is not None and dump_first_frame_path and not dumped_first_frame:
+                if cv2.imwrite(dump_first_frame_path, frame):
+                    LOGGER.info("Wrote first frame to %s", dump_first_frame_path)
+                    dumped_first_frame = True
             if frame is not None and frame.ndim == 2:
                 frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
 
-            frame_ts = time.time()
+            if basler_cam is not None and basler_cam.last_timestamp_s is not None:
+                frame_ts = basler_cam.last_timestamp_s
+            else:
+                frame_ts = time.time()
             delta_t = frame_ts - last_frame_ts
             if delta_t > 0.0:
                 fps_estimate = 1.0 / delta_t
@@ -1568,6 +1611,8 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     except KeyboardInterrupt:
         LOGGER.info("Interrupted by user.")
     finally:
+        if basler_cam is not None:
+            basler_cam.release()
         if cap is not None:
             cap.release()
         if hud_enabled:
