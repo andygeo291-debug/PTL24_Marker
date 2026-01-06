@@ -42,6 +42,7 @@ import os
 import random
 import socket
 import time
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Set, TextIO, Tuple
 
@@ -98,6 +99,21 @@ def _safe_numeric(values: Sequence[float], idx: int) -> Optional[float]:
     if not math.isfinite(value):
         return None
     return value
+
+
+@contextmanager
+def suppress_stderr_fd(enabled: bool):
+    if not enabled:
+        yield
+        return
+    dup = os.dup(2)
+    try:
+        with open(os.devnull, "w") as devnull:
+            os.dup2(devnull.fileno(), 2)
+            yield
+    finally:
+        os.dup2(dup, 2)
+        os.close(dup)
 
 
 def compute_quality_weights(
@@ -331,6 +347,12 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     from common.camera.factory import add_camera_cli_args
 
     add_camera_cli_args(parser)
+    parser.add_argument(
+        "--quiet-apriltag-stderr",
+        action="store_true",
+        default=None,
+        help="Suppress apriltag C stderr during detection (default: on for basler).",
+    )
     parser.add_argument(
         "--dump-first-frame",
         help="Optional path to save the first successfully acquired frame.",
@@ -787,6 +809,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     pending_frame = None
     dump_first_frame_path = getattr(args, "dump_first_frame", None)
     dumped_first_frame = False
+    n_grabbed = 0
     requested_w = int(args.width) if args.width else None
     requested_h = int(args.height) if args.height else None
     actual_w = 0
@@ -794,6 +817,10 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
 
     # Basler backend uses the wrapper; OpenCV path remains unchanged.
     use_basler = getattr(args, "camera_backend", "opencv") == "basler"
+    if args.quiet_apriltag_stderr is None:
+        quiet_apriltag_stderr = use_basler
+    else:
+        quiet_apriltag_stderr = bool(args.quiet_apriltag_stderr)
     if use_basler:
         from common.camera.factory import create_camera_from_args
 
@@ -994,6 +1021,8 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             if not ret:
                 LOGGER.warning("Frame grab failed; skipping frame.")
                 continue
+            n_grabbed += 1
+            log_grabbed = (n_grabbed % 10 == 0)
             if basler_cam is not None and frame is not None and frame.ndim == 2:
                 frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
             if basler_cam is not None and dump_first_frame_path and not dumped_first_frame:
@@ -1028,17 +1057,18 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             for size_m in unique_sizes:
                 # libapriltag (pupil_apriltags) may stderr "Error, more than one new minima found."
                 # This indicates an ambiguous decode; detector returns multiple candidates and we drop them here.
-                dets = detector.detect(
-                    gray,
-                    estimate_tag_pose=True,
-                    camera_params=(
-                        float(K[0, 0]),
-                        float(K[1, 1]),
-                        float(K[0, 2]),
-                        float(K[1, 2]),
-                    ),
-                    tag_size=size_m,
-                )
+                with suppress_stderr_fd(quiet_apriltag_stderr):
+                    dets = detector.detect(
+                        gray,
+                        estimate_tag_pose=True,
+                        camera_params=(
+                            float(K[0, 0]),
+                            float(K[1, 1]),
+                            float(K[0, 2]),
+                            float(K[1, 2]),
+                        ),
+                        tag_size=size_m,
+                    )
                 for det in dets:
                     tag_id = det.tag_id
                     if ignore_ids and tag_id in ignore_ids:
@@ -1599,13 +1629,15 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                         t_total_ms=t_total_ms,
                     )
                 n_frames_processed += 1
+                if log_grabbed:
+                    LOGGER.info("grabbed=%d poses=%d", n_grabbed, n_frames_processed)
                 if key == 27:  # ESC
                     LOGGER.info("ESC pressed, exiting.")
                     break
                 frame_idx += 1
                 frame_count += 1
                 bench_timer.snapshot()
-                if args.frames is not None and frame_idx >= args.frames:
+                if args.frames is not None and n_grabbed >= args.frames:
                     LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
                     break
     except KeyboardInterrupt:
