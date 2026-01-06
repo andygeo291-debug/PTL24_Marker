@@ -363,6 +363,11 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         help="Log a one-shot detection summary for the first grabbed frame.",
     )
     parser.add_argument(
+        "--print-first-pose-debug",
+        action="store_true",
+        help="Log one-shot pose estimation checkpoints for the first grabbed frame.",
+    )
+    parser.add_argument(
         "--undistort",
         action="store_true",
         help="Undistort frames before detection using calibration coefficients (default: off).",
@@ -816,6 +821,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     dumped_first_frame = False
     n_grabbed = 0
     printed_first_stats = False
+    printed_first_pose_debug = False
     requested_w = int(args.width) if args.width else None
     requested_h = int(args.height) if args.height else None
     actual_w = 0
@@ -1031,6 +1037,8 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             log_grabbed = (n_grabbed % 10 == 0)
             if log_grabbed:
                 LOGGER.info("grabbed=%d grab_ms=%.1f poses=%d", n_grabbed, t_read_ms, n_frames_processed)
+            stop_after_frame = args.frames is not None and n_grabbed >= args.frames
+            pose_debug_active = args.print_first_pose_debug and not printed_first_pose_debug
             if basler_cam is not None and frame is not None and frame.ndim == 2:
                 frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
             if basler_cam is not None and dump_first_frame_path and not dumped_first_frame:
@@ -1144,6 +1152,15 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             bench_timer.stop("pnp")
             t_reproj_ms = (perf_counter() - reproj_start) * 1000.0
 
+            if pose_debug_active:
+                used_ids = sorted(set(candidate_ids)) if candidate_ids else []
+                LOGGER.info("pose_dbg: n_used_ids=%d ids=%s", len(used_ids), used_ids)
+                LOGGER.info(
+                    "pose_dbg: n_corr=%d points=%d",
+                    len(transforms_cam_to_cyl),
+                    len(candidate_ids) * 4,
+                )
+
             if args.print_first_frame_stats and not printed_first_stats:
                 used_ids = sorted(candidate_ids) if candidate_ids else []
                 LOGGER.info(
@@ -1156,10 +1173,6 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                     None,
                 )
                 printed_first_stats = True
-
-            if args.frames is not None and n_grabbed >= args.frames:
-                LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
-                break
 
             mean_candidate_area = float(np.mean(quad_areas)) if quad_areas else None
             depth_estimate = 0.0
@@ -1196,6 +1209,13 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             adaptive_enabled = bool(use_adaptive and N_vis > 0)
             ransac_trans_eff = base_trans
             ransac_rot_eff = base_rot
+            if pose_debug_active and not adaptive_enabled:
+                reason = "NO_TRANSFORMS" if N_vis == 0 else "ADAPTIVE_DISABLED"
+                LOGGER.info("pose_dbg: early_exit reason=%s", reason)
+                printed_first_pose_debug = True
+            if stop_after_frame and not adaptive_enabled:
+                LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
+                break
             if adaptive_enabled:
                 area_ratio = 1.0
                 if mean_candidate_area and mean_candidate_area > 0.0 and A_ref > 0.0:
@@ -1234,6 +1254,9 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 spike_ref_frame_idx: Optional[int] = None
                 consecutive_reject_spike = 0
                 reject_reason = "OK"
+
+                if pose_debug_active:
+                    LOGGER.info("pose_dbg: ransac_in=%d", total_candidates)
         
                 bench_timer.start("ransac")
                 ransac_start = perf_counter()
@@ -1372,6 +1395,20 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 else:
                     consecutive_reject_spike = 0
                 reject_reason = status
+
+                if pose_debug_active:
+                    reproj_val = mean_reproj_inliers if mean_reproj_inliers is not None else mean_reproj_px
+                    LOGGER.info(
+                        "pose_dbg: pnp_ok=%s ransac_inliers=%d reproj_mean=%s",
+                        bool(candidates),
+                        len(current_inlier_indices),
+                        f"{reproj_val:.3f}" if reproj_val is not None else "n/a",
+                    )
+                    if not candidates:
+                        LOGGER.info("pose_dbg: early_exit reason=NO_CANDIDATES")
+                    elif len(current_inlier_indices) < min_inliers:
+                        LOGGER.info("pose_dbg: early_exit reason=TOO_FEW_INLIERS")
+                    printed_first_pose_debug = True
     
                 if status == "OK":
                     fused_cam_to_cyl, ema_state = v1.apply_ema_pose(
@@ -1672,6 +1709,9 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 frame_idx += 1
                 frame_count += 1
                 bench_timer.snapshot()
+                if stop_after_frame:
+                    LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
+                    break
     except KeyboardInterrupt:
         LOGGER.info("Interrupted by user.")
     finally:
