@@ -1031,9 +1031,6 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             log_grabbed = (n_grabbed % 10 == 0)
             if log_grabbed:
                 LOGGER.info("grabbed=%d grab_ms=%.1f poses=%d", n_grabbed, t_read_ms, n_frames_processed)
-            if args.frames is not None and n_grabbed >= args.frames:
-                LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
-                break
             if basler_cam is not None and frame is not None and frame.ndim == 2:
                 frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
             if basler_cam is not None and dump_first_frame_path and not dumped_first_frame:
@@ -1146,6 +1143,23 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 view_cosines.append(view_cos)
             bench_timer.stop("pnp")
             t_reproj_ms = (perf_counter() - reproj_start) * 1000.0
+
+            if args.print_first_frame_stats and not printed_first_stats:
+                used_ids = sorted(candidate_ids) if candidate_ids else []
+                LOGGER.info(
+                    "first_frame: dets_raw=%d dets_kept=%d unknown=%d used_ids=%s accepted=%s reject_reason=%s",
+                    n_dets_raw,
+                    len(candidate_ids),
+                    n_unknown_ids,
+                    used_ids,
+                    None,
+                    None,
+                )
+                printed_first_stats = True
+
+            if args.frames is not None and n_grabbed >= args.frames:
+                LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
+                break
 
             mean_candidate_area = float(np.mean(quad_areas)) if quad_areas else None
             depth_estimate = 0.0
