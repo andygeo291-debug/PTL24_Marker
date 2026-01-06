@@ -48,8 +48,6 @@ from typing import Dict, Iterable, List, Optional, Sequence, Set, TextIO, Tuple
 import cv2
 import numpy as np
 from time import perf_counter
-from common.camera.factory import add_camera_cli_args, create_basler_from_args
-from common.camera.opencv_cam import OpenCVCaptureAdapter
 from phase_b.v2.bench import StageTimer
 from phase_b.v2.debug_log import DebugLogger, draw_hud
 from phase_b.v2.se3_fuse import exp_se3, inv_se3, log_se3, weighted_average_se3
@@ -335,7 +333,6 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         action="store_true",
         help="Undistort frames before detection using calibration coefficients (default: off).",
     )
-    add_camera_cli_args(parser)
     parser.add_argument("--family", default="tag36h11", help="AprilTag family.")
     parser.add_argument(
         "--axis-len",
@@ -778,8 +775,6 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
         str(use_adaptive),
     )
 
-    LOGGER.info("Camera backend selected: %s", args.camera_backend)
-    cam = None
     cap = None
     pending_frame = None
     requested_w = int(args.width) if args.width else None
@@ -787,58 +782,36 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     actual_w = 0
     actual_h = 0
 
-    if args.camera_backend == "basler":
-        LOGGER.info(
-            "Basler params: serial=%s name=%s frame_format=%s",
-            getattr(args, "basler_serial", None) or "(auto)",
-            getattr(args, "basler_name", None) or "(auto)",
-            getattr(args, "frame_format", "bgr"),
-        )
-        cam = create_basler_from_args(args)
-        if not cam.open():
-            LOGGER.error("Unable to open Basler camera.")
+    video_opt = str(args.video).lower() if isinstance(args.video, str) else args.video
+    if video_opt == "auto":
+        cap, chosen_src = v1._auto_select_camera(args)  # pylint: disable=protected-access
+        if cap is None:
+            LOGGER.error("Auto camera selection failed (tried indices 1..5, then 0).")
             return 1
-        ret0, frame0 = cam.read_frame()
-        if ret0 and frame0 is not None:
-            pending_frame = frame0
-            actual_h, actual_w = frame0.shape[:2]
-        else:
-            LOGGER.warning("Initial Basler frame grab failed; continuing without size check.")
+        LOGGER.info("Using video source: %s", chosen_src)
     else:
-        video_opt = str(args.video).lower() if isinstance(args.video, str) else args.video
-        if video_opt == "auto":
-            cap, chosen_src = v1._auto_select_camera(args)  # pylint: disable=protected-access
-            if cap is None:
-                LOGGER.error("Auto camera selection failed (tried indices 1..5, then 0).")
-                return 1
-            LOGGER.info("Using video source: %s", chosen_src)
-        else:
-            video_source = v1.parse_video_source(args.video)
-            cap = v1._open_capture_with_settings(video_source, args)  # pylint: disable=protected-access
-            if cap is None:
-                LOGGER.error("Unable to open video source: %s", args.video)
-                return 1
-            LOGGER.info("Using video source: %s", video_source)
-
-        backend_name = None
-        if hasattr(cap, "getBackendName"):
-            try:
-                backend_name = cap.getBackendName()
-            except Exception:  # pylint: disable=broad-except
-                backend_name = None
-        if backend_name:
-            LOGGER.info("OpenCV backend: %s", backend_name)
-
-        actual_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 0)
-        actual_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0)
-        ret0, frame0 = cap.read()
-        if ret0 and frame0 is not None:
-            pending_frame = frame0
-            actual_h, actual_w = frame0.shape[:2]
-        cam = OpenCVCaptureAdapter(cap, frame_format=getattr(args, "frame_format", "bgr"))
-        if not cam.open():
-            LOGGER.error("Failed to initialize OpenCV camera adapter.")
+        video_source = v1.parse_video_source(args.video)
+        cap = v1._open_capture_with_settings(video_source, args)  # pylint: disable=protected-access
+        if cap is None:
+            LOGGER.error("Unable to open video source: %s", args.video)
             return 1
+        LOGGER.info("Using video source: %s", video_source)
+
+    backend_name = None
+    if hasattr(cap, "getBackendName"):
+        try:
+            backend_name = cap.getBackendName()
+        except Exception:  # pylint: disable=broad-except
+            backend_name = None
+    if backend_name:
+        LOGGER.info("OpenCV backend: %s", backend_name)
+
+    actual_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 0)
+    actual_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0)
+    ret0, frame0 = cap.read()
+    if ret0 and frame0 is not None:
+        pending_frame = frame0
+        actual_h, actual_w = frame0.shape[:2]
 
     if requested_w and requested_h and actual_w and actual_h:
         if actual_w != requested_w or actual_h != requested_h:
@@ -851,8 +824,8 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             )
         else:
             LOGGER.info("Capture opened: %sx%s", actual_w, actual_h)
-    if cam is None:
-        LOGGER.error("Camera backend failed to initialize.")
+    if cap is None:
+        LOGGER.error("Camera capture failed to initialize.")
         return 1
 
     rng = random.Random()
@@ -981,7 +954,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 ret, frame = True, pending_frame
                 pending_frame = None
             else:
-                ret, frame = cam.read_frame() if cam is not None else (False, None)
+                ret, frame = cap.read() if cap is not None else (False, None)
             bench_timer.stop("capture")
             t_read_ms = (perf_counter() - read_start) * 1000.0
             if not ret:
@@ -1595,8 +1568,8 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     except KeyboardInterrupt:
         LOGGER.info("Interrupted by user.")
     finally:
-        if cam is not None:
-            cam.close()
+        if cap is not None:
+            cap.release()
         if hud_enabled:
             cv2.destroyAllWindows()
         if csv_fp:
