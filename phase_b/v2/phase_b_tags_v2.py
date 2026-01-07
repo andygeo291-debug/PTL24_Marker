@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
 Phase B v2 entry point with config/provenance, weighted fusion, HUD, and timing.
+Includes optional Basler backend integration via a factory and lightweight
+diagnostic flags without changing pose-estimation logic.
 
 Assumptions:
   - Config defaults may enable weighted fusion; pass --no-use-weighted-se3 to
@@ -103,6 +105,7 @@ def _safe_numeric(values: Sequence[float], idx: int) -> Optional[float]:
 
 @contextmanager
 def suppress_stderr_fd(enabled: bool):
+    # Apriltag emits C-level stderr; fd redirection is required to silence it.
     if not enabled:
         yield
         return
@@ -346,7 +349,9 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     parser.add_argument("--fps", type=float, help="Requested capture FPS.")
     from common.camera.factory import add_camera_cli_args
 
+    # Add backend selection + Basler-specific CLI options.
     add_camera_cli_args(parser)
+    # Basler-friendly diagnostics; no effect unless enabled.
     parser.add_argument(
         "--quiet-apriltag-stderr",
         action="store_true",
@@ -829,6 +834,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
 
     # Basler backend uses the wrapper; OpenCV path remains unchanged.
     use_basler = getattr(args, "camera_backend", "opencv") == "basler"
+    # Default to suppressing apriltag stderr only for Basler runs.
     if args.quiet_apriltag_stderr is None:
         quiet_apriltag_stderr = use_basler
     else:
@@ -1037,9 +1043,11 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             log_grabbed = (n_grabbed % 10 == 0)
             if log_grabbed:
                 LOGGER.info("grabbed=%d grab_ms=%.1f poses=%d", n_grabbed, t_read_ms, n_frames_processed)
+            # Defer frame-limit exit until after detection so diagnostics can run.
             stop_after_frame = args.frames is not None and n_grabbed >= args.frames
             pose_debug_active = args.print_first_pose_debug and not printed_first_pose_debug
             if basler_cam is not None and frame is not None and frame.ndim == 2:
+                # Basler returns Mono8; normalize to BGR to match OpenCV path.
                 frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
             if basler_cam is not None and dump_first_frame_path and not dumped_first_frame:
                 if cv2.imwrite(dump_first_frame_path, frame):
@@ -1048,6 +1056,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             if frame is not None and frame.ndim == 2:
                 frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
 
+            # Prefer Basler host timestamp when provided.
             if basler_cam is not None and basler_cam.last_timestamp_s is not None:
                 frame_ts = basler_cam.last_timestamp_s
             else:
@@ -1213,6 +1222,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 reason = "NO_TRANSFORMS" if N_vis == 0 else "ADAPTIVE_DISABLED"
                 LOGGER.info("pose_dbg: early_exit reason=%s", reason)
                 printed_first_pose_debug = True
+            # Exit after detection to keep frame-limit tied to grabbed frames.
             if stop_after_frame and not adaptive_enabled:
                 LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
                 break
@@ -1710,6 +1720,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 frame_count += 1
                 bench_timer.snapshot()
                 if stop_after_frame:
+                    # Honor --frames after processing this grabbed frame.
                     LOGGER.info("Reached frame limit (%d); exiting.", args.frames)
                     break
     except KeyboardInterrupt:

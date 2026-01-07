@@ -117,6 +117,82 @@ python -m phase_b.v2.phase_b_tags_v2 \
 ```
 For apples-to-apples with v1: disables adaptive logic/weighted fusion and mirrors legacy heuristics while still emitting v2-format logs.
 
+## Basler – Phase B v2 (GigE backend)
+Basler runs use the optional backend; OpenCV remains the default. Replace `<SERIAL>` and `<NAME>` with your camera identifiers.
+
+🧪 Basler smoke (frames=60)  
+```bash
+python3 -m phase_b.v2.phase_b_tags_v2 \
+  --camera-backend basler \
+  --basler-serial <SERIAL> \
+  --basler-name <NAME> \
+  --width 1280 --height 980 \
+  --fps 20 \
+  --basler-pixel-format Mono8 \
+  --basler-exposure-us 5000 \
+  --basler-gain 0 \
+  --basler-offset-x 0 \
+  --basler-offset-y 0 \
+  --basler-interpacket-delay 3500 \
+  --basler-timeout-ms 1000 \
+  --rig phase_b/rigs/cyl_dotec.yaml \
+  --camera common/calib/basler_static_1280x980_mono8.yaml \
+  --debug-metrics /tmp/debug_basler_smoke.csv \
+  --no-hud \
+  --frames 60
+```
+
+🟢 Basler long-run (HUD on)  
+```bash
+python3 -m phase_b.v2.phase_b_tags_v2 \
+  --camera-backend basler \
+  --basler-serial <SERIAL> \
+  --basler-name <NAME> \
+  --width 1280 --height 980 \
+  --fps 20 \
+  --basler-pixel-format Mono8 \
+  --basler-exposure-us 5000 \
+  --basler-gain 0 \
+  --basler-offset-x 0 \
+  --basler-offset-y 0 \
+  --basler-interpacket-delay 3500 \
+  --basler-timeout-ms 1000 \
+  --rig phase_b/rigs/cyl_dotec.yaml \
+  --camera common/calib/basler_static_1280x980_mono8.yaml \
+  --debug-metrics /tmp/debug_basler_long.csv \
+  --frames 1200 \
+  --hud
+```
+
+🟢 Basler long-run (HUD off)  
+```bash
+python3 -m phase_b.v2.phase_b_tags_v2 \
+  --camera-backend basler \
+  --basler-serial <SERIAL> \
+  --basler-name <NAME> \
+  --width 1280 --height 980 \
+  --fps 20 \
+  --basler-pixel-format Mono8 \
+  --basler-exposure-us 5000 \
+  --basler-gain 0 \
+  --basler-offset-x 0 \
+  --basler-offset-y 0 \
+  --basler-interpacket-delay 3500 \
+  --basler-timeout-ms 1000 \
+  --rig phase_b/rigs/cyl_dotec.yaml \
+  --camera common/calib/basler_static_1280x980_mono8.yaml \
+  --debug-metrics /tmp/debug_basler_long_nohud.csv \
+  --no-hud \
+  --frames 1200
+```
+
+🔧 Basler grab test (20 frames)  
+```bash
+python -m common.camera.test_basler_grab \
+  --serial <SERIAL> --name <NAME> \
+  --frames 20 --timeout-ms 1000
+```
+
 ## Phase B v2 – Sway camera experiments
 Use the sway toolkit to model the camera along the crane arm, generate extrinsics per sway position, then run v2.
 

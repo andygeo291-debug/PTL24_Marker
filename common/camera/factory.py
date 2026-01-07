@@ -1,3 +1,6 @@
+"""Camera backend factory for OpenCV (default) and optional Basler."""
+
+
 def add_camera_cli_args(parser):
     parser.add_argument(
         "--camera-backend",
@@ -32,6 +35,7 @@ def add_camera_cli_args(parser):
 
 
 def _create_opencv_capture(args):
+    # Reuse existing Phase B v1 capture helpers to avoid behavior drift.
     from phase_b.v1 import phase_b_tags as v1
 
     video = getattr(args, "video", None)
@@ -49,6 +53,7 @@ def _create_opencv_capture(args):
 def create_camera_from_args(args):
     backend = getattr(args, "camera_backend", "opencv")
     if backend == "basler":
+        # Import lazily so pypylon is optional when Basler is unused.
         from common.camera.basler_cam import BaslerGigECam
 
         cam = BaslerGigECam(

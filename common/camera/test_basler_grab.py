@@ -1,3 +1,5 @@
+"""Standalone Basler grab test with deterministic settings and basic stats."""
+
 import argparse
 import sys
 import time
@@ -48,6 +50,7 @@ def _print_devices(devices):
 def _set_enum(node_map, name, value):
     if value is None:
         return False
+    # Skip missing or non-writable nodes to keep this robust across models.
     try:
         node = node_map.GetNode(name)
     except Exception:
@@ -69,6 +72,7 @@ def _set_enum(node_map, name, value):
 def _set_value(node_map, name, value, cast):
     if value is None:
         return False
+    # Skip missing or non-writable nodes to keep this robust across models.
     try:
         node = node_map.GetNode(name)
     except Exception:
@@ -102,6 +106,7 @@ def _read_node(node_map, name):
 def _apply_settings(camera, args):
     node_map = camera.GetNodeMap()
 
+    # Apply deterministic settings where supported.
     _set_enum(node_map, "PixelFormat", args.pixel_format)
     _set_value(node_map, "Width", args.width, int)
     _set_value(node_map, "Height", args.height, int)
@@ -118,6 +123,7 @@ def _apply_settings(camera, args):
     _set_value(node_map, "GevSCPSPacketSize", args.packet_size, int)
     _set_value(node_map, "GevSCPD", args.interpacket_delay, int)
 
+    # Read back key nodes to show what the camera accepted.
     readback_keys = [
         "PixelFormat",
         "Width",
@@ -175,6 +181,7 @@ def main():
 
     try:
         if args.use_wrapper:
+            # Optional wrapper path to share logic with Phase B integration.
             from common.camera.basler_cam import BaslerGigECam
 
             cam = BaslerGigECam(

@@ -1,3 +1,5 @@
+"""Minimal Basler GigE wrapper with lazy pypylon import and Mono8 output."""
+
 import time
 
 import numpy as np
@@ -127,6 +129,7 @@ class BaslerGigECam:
                 return None
 
     def _apply_settings(self, node_map):
+        # Apply only settings that exist and are writable on the device.
         self._set_enum(node_map, "PixelFormat", self.pixel_format)
         self._set_value(node_map, "Width", self.width, int)
         self._set_value(node_map, "Height", self.height, int)
@@ -143,6 +146,7 @@ class BaslerGigECam:
         self._set_value(node_map, "GevSCPSPacketSize", self.packet_size, int)
         self._set_value(node_map, "GevSCPD", self.interpacket_delay, int)
 
+        # Capture current device values for logging/diagnostics.
         readback_keys = [
             "PixelFormat",
             "Width",
@@ -166,7 +170,7 @@ class BaslerGigECam:
     def open(self):
         if self._camera is not None:
             return
-        self._import_pypylon()
+        self._import_pypylon()  # Lazy import to keep Basler optional.
         tl_factory = self._pylon.TlFactory.GetInstance()
         devices = tl_factory.EnumerateDevices()
         if not devices:
@@ -217,6 +221,7 @@ class BaslerGigECam:
             array = image.GetArray()
             if array.dtype != np.uint8:
                 array = array.astype(np.uint8, copy=False)
+            # Host timestamp is captured on successful frame delivery.
             self.last_timestamp_s = time.time()
             return True, array
         finally:
