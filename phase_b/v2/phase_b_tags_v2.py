@@ -44,6 +44,9 @@ import os
 import random
 import socket
 import time
+import shlex
+import shutil
+import subprocess
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Set, TextIO, Tuple
@@ -60,6 +63,7 @@ from phase_b.v2.utils_paths import (
     resolve_rig_path,
 )
 from phase_b.v2.utils_config import load_config, provenance_dict, write_provenance_header
+from phase_b.tools.run_utils import make_run_dir, sha256_file, write_run_meta
 
 
 LOGGER = logging.getLogger("phase_b_tags_v2")
@@ -393,6 +397,10 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         help="Optional CSV path to append per-frame poses.",
     )
     parser.add_argument(
+        "--poses-out",
+        help="Optional override for pose CSV output path.",
+    )
+    parser.add_argument(
         "--print-tilt",
         action="store_true",
         help="Print cylinder tilt angles relative to camera/world Z axes.",
@@ -638,6 +646,23 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         help="Optional CSV path for per-frame debug metrics output.",
     )
     parser.add_argument(
+        "--debug-metrics-out",
+        help="Optional override for debug metrics output path.",
+    )
+    parser.add_argument(
+        "--run-dir",
+        help="Optional run output directory (overrides --save-run base).",
+    )
+    parser.add_argument(
+        "--run-name",
+        help="Run name for --save-run (default: timestamp).",
+    )
+    parser.add_argument(
+        "--save-run",
+        action="store_true",
+        help='Create a run folder (example: --save-run --run-name "my_run").',
+    )
+    parser.add_argument(
         "--bench-print-every",
         type=int,
         help="Frames between benchmark summaries (default: config).",
@@ -754,6 +779,26 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
         print(f"[run] Using extrinsics: {extrinsics_path}")
     print(f"[run] Using calib: {calib_path}")
     print(f"[run] Using rig: {rig_path}")
+
+    run_dir: Optional[Path] = None
+    run_name = args.run_name or _dt.datetime.now().strftime("%Y%m%d_%H%M%S")
+    if args.run_dir or args.save_run:
+        if args.run_dir:
+            run_dir = Path(args.run_dir).expanduser()
+            run_dir.mkdir(parents=True, exist_ok=True)
+        else:
+            run_dir = make_run_dir(Path.home() / "ptl_runs", run_name)
+        run_dir = run_dir.resolve()
+
+        if args.poses_out:
+            args.save_poses = args.poses_out
+        elif "save_poses" not in cli_overrides:
+            args.save_poses = str(run_dir / "poses.csv")
+
+        if args.debug_metrics_out:
+            args.debug_metrics = args.debug_metrics_out
+        elif "debug_metrics" not in cli_overrides:
+            args.debug_metrics = str(run_dir / "debug_metrics.csv")
 
     hud_cfg = yaml_config.get("hud", {}) if isinstance(yaml_config.get("hud"), dict) else {}
     hud_enabled = bool(hud_cfg.get("enabled", False))
@@ -925,10 +970,114 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     }
     provenance_payload = provenance_dict(effective_config, provenance_files)
 
+    poses_path = _resolve_output_path(args.save_poses) if args.save_poses else None
+    debug_path = (
+        _resolve_output_path(args.debug_metrics)
+        if getattr(args, "debug_metrics", None)
+        else None
+    )
+
+    print(
+        "[run] outputs: run_dir=%s poses=%s debug=%s"
+        % (
+            str(run_dir) if run_dir else "(none)",
+            str(poses_path) if poses_path else "(none)",
+            str(debug_path) if debug_path else "(none)",
+        )
+    )
+
+    if run_dir:
+        cmd_argv = list(sys.argv) if argv is None else [sys.argv[0], *argv]
+        cmd_str = shlex.join(cmd_argv)
+        (run_dir / "run_cmd.txt").write_text(cmd_str + "\n", encoding="utf-8")
+        (run_dir / "run_header.json").write_text(
+            json.dumps(provenance_payload, indent=2, sort_keys=False) + "\n",
+            encoding="utf-8",
+        )
+
+        inputs_dir = run_dir / "inputs"
+        inputs_dir.mkdir(parents=True, exist_ok=True)
+        inputs_meta = []
+        input_items = [
+            ("camera_calib", Path(calib_path)),
+            ("rig", Path(rig_path)),
+            ("config", config_path),
+        ]
+        if extrinsics_path:
+            input_items.append(("extrinsics", Path(extrinsics_path)))
+        for label, path in input_items:
+            copied = None
+            sha256 = None
+            if path.exists():
+                sha256 = sha256_file(path)
+                copied_path = inputs_dir / path.name
+                try:
+                    shutil.copy2(path, copied_path)
+                    copied = str(copied_path)
+                except OSError:
+                    copied = None
+            inputs_meta.append(
+                {
+                    "name": label,
+                    "path": str(path),
+                    "sha256": sha256,
+                    "copied_to": copied,
+                }
+            )
+
+        git_commit = None
+        try:
+            result = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=REPO_ROOT,
+                check=False,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
+            if result.returncode == 0:
+                git_commit = result.stdout.strip() or None
+        except (OSError, ValueError):
+            git_commit = None
+
+        run_meta = {
+            "timestamp": _dt.datetime.now().isoformat(),
+            "run_name": run_name,
+            "run_dir": str(run_dir),
+            "git_commit": git_commit,
+            "paths": {
+                "camera_calib": str(calib_path),
+                "rig": str(rig_path),
+                "config": str(config_path),
+                "extrinsics": str(extrinsics_path) if extrinsics_path else None,
+            },
+            "camera": {
+                "backend": getattr(args, "camera_backend", "opencv"),
+                "width": args.width,
+                "height": args.height,
+                "fps": args.fps,
+                "pixel_format": getattr(args, "basler_pixel_format", None),
+                "exposure_us": getattr(args, "basler_exposure_us", None),
+                "gain": getattr(args, "basler_gain", None),
+                "offset_x": getattr(args, "basler_offset_x", None),
+                "offset_y": getattr(args, "basler_offset_y", None),
+                "interpacket_delay": getattr(args, "basler_interpacket_delay", None),
+                "timeout_ms": getattr(args, "basler_timeout_ms", None),
+                "packet_size": getattr(args, "basler_packet_size", None),
+                "serial": getattr(args, "basler_serial", None),
+                "name": getattr(args, "basler_name", None),
+            },
+            "outputs": {
+                "poses_csv": str(poses_path) if poses_path else None,
+                "debug_metrics_csv": str(debug_path) if debug_path else None,
+            },
+            "inputs": inputs_meta,
+        }
+        write_run_meta(run_dir / "run_meta.json", run_meta)
+
     csv_writer: Optional[csv.writer] = None
     csv_fp: Optional[TextIO] = None
-    if args.save_poses:
-        poses_path = _resolve_output_path(args.save_poses)
+    if poses_path:
         try:
             write_provenance_header(poses_path, provenance_payload, POSES_HEADER)
             csv_writer, csv_fp = v1.ensure_csv_writer(poses_path)
@@ -939,8 +1088,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             csv_fp = None
 
     debug_logger: Optional[DebugLogger] = None
-    if getattr(args, "debug_metrics", None):
-        debug_path = _resolve_output_path(args.debug_metrics)
+    if debug_path:
         try:
             write_provenance_header(debug_path, provenance_payload, DebugLogger.header)
             debug_logger = DebugLogger(debug_path)
@@ -1460,14 +1608,34 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                     if pose_record and "used_ids" in pose_record:
                         final_used_ids = pose_record["used_ids"]
                     used_ids_str = ",".join(str(uid) for uid in final_used_ids) if final_used_ids else ""
+                    dt_s = (
+                        "n/a"
+                        if spike_delta_trans_m is None
+                        else f"{format(spike_delta_trans_m, '.4f')}m"
+                    )
+                    dr_s = (
+                        "n/a"
+                        if spike_delta_rot_deg is None
+                        else f"{format(spike_delta_rot_deg, '.3f')}deg"
+                    )
+                    thrT_s = (
+                        "n/a"
+                        if spike_trans_thresh_m is None
+                        else f"{format(spike_trans_thresh_m, '.4f')}m"
+                    )
+                    thrR_s = (
+                        "n/a"
+                        if spike_rot_thresh_deg is None
+                        else f"{format(spike_rot_thresh_deg, '.3f')}deg"
+                    )
                     LOGGER.info(
                         "frame=%d reject=REJECT_SPIKE used_ids=%s dT=%s dR=%s thrT=%s thrR=%s ref_age=%s streak=%d reproj=%s",
                         frame_idx,
                         used_ids_str or "none",
-                        f"{spike_delta_trans_m:.4f}" if spike_delta_trans_m is not None else "n/a",
-                        f"{spike_delta_rot_deg:.3f}" if spike_delta_rot_deg is not None else "n/a",
-                        f"{spike_trans_thresh_m:.4f}" if spike_trans_thresh_m is not None else "n/a",
-                        f"{spike_rot_thresh_deg:.3f}" if spike_rot_thresh_deg is not None else "n/a",
+                        dt_s,
+                        dr_s,
+                        thrT_s,
+                        thrR_s,
                         spike_ref_age_frames if spike_ref_age_frames is not None else "n/a",
                         consecutive_reject_spike,
                         f"{reproj_val:.3f}" if reproj_val is not None else "n/a",
@@ -1533,35 +1701,26 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                             if tilt_world_deg is not None:
                                 log_msg += f" tilt_world={tilt_world_deg:.1f}deg"
                         if status == "REJECT_SPIKE":
+                            dt_s = (
+                                "n/a"
+                                if spike_delta_trans_m is None
+                                else f"{format(spike_delta_trans_m, '.4f')}m"
+                            )
+                            dr_s = (
+                                "n/a"
+                                if spike_delta_rot_deg is None
+                                else f"{format(spike_delta_rot_deg, '.3f')}deg"
+                            )
+                            thrR_s = (
+                                "n/a"
+                                if spike_rot_thresh_deg is None
+                                else f"{format(spike_rot_thresh_deg, '.3f')}deg"
+                            )
                             log_msg += (
-                                f" spike dT={spike_delta_trans_m:.4f}m dR={spike_delta_rot_deg:.3f}deg "
-                                f"thrR={spike_rot_thresh_deg:.2f} ref_age={spike_ref_age_frames}"
+                                f" spike dT={dt_s} dR={dr_s} "
+                                f"thrR={thrR_s} ref_age={spike_ref_age_frames}"
                             )
                         LOGGER.info(log_msg)
-    
-                        if csv_writer and csv_fp:
-                            timestamp = time.time()
-                            row: List[object] = [
-                                f"{timestamp:.6f}",
-                                frame_idx,
-                                v1.format_int_list(final_used_ids),
-                                v1.format_float_list(final_margins),
-                            ]
-                            row.extend(float(v) for v in rvec_cam.reshape(-1))
-                            row.extend(float(v) for v in tvec_cam.reshape(-1))
-                            if rvec_world is not None and tvec_world is not None:
-                                row.extend(float(v) for v in rvec_world.reshape(-1))
-                                row.extend(float(v) for v in tvec_world.reshape(-1))
-                            else:
-                                row.extend([""] * 6)
-                            row.append(f"{tilt_cam_deg:.3f}" if tilt_cam_deg is not None else "")
-                            row.append(
-                                f"{tilt_world_deg:.3f}" if tilt_world_deg is not None else ""
-                            )
-                            log_start = perf_counter()
-                            csv_writer.writerow(row)
-                            csv_fp.flush()
-                            t_log_ms += (perf_counter() - log_start) * 1000.0
     
                         if udp_sock and udp_target:
                             now = time.monotonic()
@@ -1638,6 +1797,36 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 else:
                     key = -1
                     t_hud_ms = 0.0
+
+                if pose_record is not None and csv_writer and csv_fp:
+                    timestamp = time.time()
+                    final_used_ids = pose_record["used_ids"]
+                    final_margins = pose_record["decision_margins"]
+                    rvec_cam = pose_record["rvec_cam"].reshape(3)
+                    tvec_cam = pose_record["tvec_cam"].reshape(3)
+                    rvec_world = pose_record.get("rvec_world")
+                    tvec_world = pose_record.get("tvec_world")
+                    tilt_cam_deg = pose_record["tilt_cam_deg"]
+                    tilt_world_deg = pose_record.get("tilt_world_deg")
+                    row: List[object] = [
+                        f"{timestamp:.6f}",
+                        frame_idx,
+                        v1.format_int_list(final_used_ids),
+                        v1.format_float_list(final_margins),
+                    ]
+                    row.extend(float(v) for v in rvec_cam.reshape(-1))
+                    row.extend(float(v) for v in tvec_cam.reshape(-1))
+                    if rvec_world is not None and tvec_world is not None:
+                        row.extend(float(v) for v in rvec_world.reshape(-1))
+                        row.extend(float(v) for v in tvec_world.reshape(-1))
+                    else:
+                        row.extend([""] * 6)
+                    row.append(f"{tilt_cam_deg:.3f}" if tilt_cam_deg is not None else "")
+                    row.append(f"{tilt_world_deg:.3f}" if tilt_world_deg is not None else "")
+                    log_start = perf_counter()
+                    csv_writer.writerow(row)
+                    csv_fp.flush()
+                    t_log_ms += (perf_counter() - log_start) * 1000.0
                 bench_timer.stop("render")
         
                 if t_total_ms is None:
