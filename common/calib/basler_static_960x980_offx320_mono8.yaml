@@ -1,0 +1,34 @@
+image_width: 960
+image_height: 980
+camera_matrix:
+  rows: 3
+  cols: 3
+  data:
+  - 717.2616321439981
+  - 0.0
+  - 468.8670154762204
+  - 0.0
+  - 711.8471302494446
+  - 489.5446570278076
+  - 0.0
+  - 0.0
+  - 1.0
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data:
+  - 0.8391273756300178
+  - -70.00583872398728
+  - -0.023478205606790314
+  - 0.019305577138863012
+  - -0.531769891630165
+metadata:
+  timestamp: 1767802861.93949
+  camera_backend: basler
+  width: 960
+  height: 980
+  fps: 20.0
+  basler_serial: '21601161'
+  basler_name: StaticCam
+  basler_offset_x: 320
+  basler_offset_y: 0

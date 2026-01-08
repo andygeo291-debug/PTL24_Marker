@@ -1,8 +1,16 @@
-"""Charuco-based intrinsics calibration for OpenCV or Basler backends."""
+"""Intrinsics calibration for OpenCV or Basler backends (Charuco or chessboard)."""
+
+# Allow running as a script from the repo root without PYTHONPATH tweaks.
+import sys
+from pathlib import Path
+
+THIS_FILE = Path(__file__).resolve()
+REPO_ROOT = THIS_FILE.parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import argparse
 import time
-from pathlib import Path
 
 import cv2
 import numpy as np
@@ -44,8 +52,8 @@ def _parse_args():
     parser.add_argument(
         "--mode",
         choices=["charuco", "chessboard"],
-        default="charuco",
-        help="Calibration target type (default: charuco).",
+        default="chessboard",
+        help="Calibration target type (default: chessboard).",
     )
     add_camera_cli_args(parser)
     parser.add_argument(
@@ -81,7 +89,7 @@ def _parse_args():
     parser.add_argument(
         "--square-length-mm",
         type=float,
-        default=None,
+        default=25.0,
         help="Square length in mm.",
     )
     parser.add_argument(
@@ -98,14 +106,14 @@ def _parse_args():
     parser.add_argument(
         "--chessboard-cols",
         type=int,
-        default=None,
-        help="Chessboard inner corners across.",
+        default=9,
+        help="Chessboard inner corners across (inner corners).",
     )
     parser.add_argument(
         "--chessboard-rows",
         type=int,
-        default=None,
-        help="Chessboard inner corners down.",
+        default=6,
+        help="Chessboard inner corners down (inner corners).",
     )
 
     parser.add_argument(
@@ -214,7 +222,15 @@ def main():
         cols, rows = chessboard_pattern
         objp = np.zeros((rows * cols, 3), dtype=np.float32)
         objp[:, :2] = np.mgrid[0:cols, 0:rows].T.reshape(-1, 2)
-        chessboard_objp = objp * float(args.square_length_mm)
+        chessboard_objp = objp * (float(args.square_length_mm) / 1000.0)
+        expected_corners = rows * cols
+    else:
+        expected_corners = None
+    subpix_criteria = (
+        cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER,
+        30,
+        0.001,
+    )
 
     try:
         while accepted < samples_target:
@@ -273,7 +289,16 @@ def main():
                         if (cv2.waitKey(1) & 0xFF) in (27, ord("q")):
                             break
                     continue
-                if corners.shape[0] < min_corners:
+                if expected_corners is not None and corners.shape[0] != expected_corners:
+                    continue
+                corners = cv2.cornerSubPix(
+                    gray,
+                    corners,
+                    (11, 11),
+                    (-1, -1),
+                    subpix_criteria,
+                )
+                if corners is None or corners.shape[0] != expected_corners:
                     continue
 
                 obj_points.append(chessboard_objp.copy())
@@ -298,7 +323,7 @@ def main():
             cv2.destroyAllWindows()
 
     if accepted == 0:
-        raise RuntimeError("No Charuco samples collected; cannot calibrate.")
+        raise RuntimeError("No calibration samples collected; cannot calibrate.")
 
     if image_size is None:
         raise RuntimeError("No valid frames captured; cannot calibrate.")
@@ -351,6 +376,7 @@ def main():
 
     print("Calibration complete")
     print(f"RMS reprojection error: {rms:.6f}")
+    print(f"samples used: {accepted} image_size: {image_size[0]}x{image_size[1]}")
     print(f"fx={fx:.3f} fy={fy:.3f} cx={cx:.3f} cy={cy:.3f}")
     print(f"dist={dist_list}")
 
