@@ -24,8 +24,52 @@ export TIMEOUT_MS="1000"
 export RIG_PATH="phase_b/rigs/cyl_dotec.yaml"
 export CALIB_PATH="common/calib/basler_static_960x720_offx320_offy200_mono8.yaml"
 
-RUN_BASE="${RUN_BASE:-$HOME/ptl_runs/basler_pose_tests_$(date +%Y%m%d_%H%M%S)}"
-mkdir -p "$RUN_BASE"
+BASE_RAW="${RUN_BASE:-basler_test_runs}"
+if [[ "$BASE_RAW" = /* ]]; then
+  BASE_DIR="$(python3 -c 'import os,sys;print(os.path.abspath(sys.argv[1]))' "$BASE_RAW")"
+else
+  BASE_DIR="$(python3 -c 'import os,sys;print(os.path.abspath(sys.argv[1]))' "$ROOT/$BASE_RAW")"
+fi
+
+case "$BASE_DIR" in
+  "$ROOT"/*) ;;
+  *)
+    echo "ERROR: RUN_BASE must be inside repo: $ROOT"
+    exit 1
+    ;;
+esac
+
+mkdir -p "$BASE_DIR"
+
+next_num=1
+shopt -s nullglob
+for d in "$BASE_DIR"/basler_run_*; do
+  [[ -d "$d" ]] || continue
+  name="$(basename "$d")"
+  if [[ "$name" =~ basler_run_([0-9]{4})_ ]]; then
+    num="${BASH_REMATCH[1]}"
+    if ((10#$num >= next_num)); then
+      next_num=$((10#$num + 1))
+    fi
+  fi
+done
+shopt -u nullglob
+
+run_tag="$(printf "basler_run_%04d_%s" "$next_num" "$(date +%Y%m%d_%H%M%S)")"
+RUN_DIR="$BASE_DIR/$run_tag"
+mkdir -p "$RUN_DIR"/{quick_checks,spike_on,spike_off,summary}
+
+exec > >(tee -a "$RUN_DIR/terminal.log") 2>&1
+
+echo "Run dir: $RUN_DIR"
+
+CMD_LOG="$RUN_DIR/run_cmd.txt"
+touch "$CMD_LOG"
+
+record_cmd() {
+  printf '%q ' "$@" >> "$CMD_LOG"
+  printf '\n' >> "$CMD_LOG"
+}
 
 COMMON_ARGS=(
   --camera-backend basler
@@ -45,48 +89,94 @@ COMMON_ARGS=(
   --no-hud
 )
 
-echo "Run base: $RUN_BASE"
-
-run_case() {
+run_phaseb_save_poses() {
   local name="$1"
   local frames="$2"
-  local -a extra_args=()
-  shift 2
-  extra_args=("$@")
-  local run_dir="$RUN_BASE/$name"
-  mkdir -p "$run_dir"
-  echo "== $name ($frames frames) =="
+  local poses_path="$3"
+  local debug_path="$4"
+  shift 4
+  local -a extra_args=("$@")
+  mkdir -p "$(dirname "$poses_path")" "$(dirname "$debug_path")"
+  local -a cmd=(
+    python3 -m phase_b.v2.phase_b_tags_v2
+    "${COMMON_ARGS[@]}"
+    --frames "$frames"
+    --save-poses "$poses_path"
+    --debug-metrics-out "$debug_path"
+  )
   if [[ "${#extra_args[@]}" -gt 0 ]]; then
-    python3 -m phase_b.v2.phase_b_tags_v2 \
-      --save-run --run-name "$name" --run-dir "$run_dir" \
-      "${COMMON_ARGS[@]}" \
-      --frames "$frames" \
-      --save-poses "$run_dir/poses.csv" \
-      --debug-metrics-out "$run_dir/debug_metrics.csv" \
-      "${extra_args[@]}"
-  else
-    python3 -m phase_b.v2.phase_b_tags_v2 \
-      --save-run --run-name "$name" --run-dir "$run_dir" \
-      "${COMMON_ARGS[@]}" \
-      --frames "$frames" \
-      --save-poses "$run_dir/poses.csv" \
-      --debug-metrics-out "$run_dir/debug_metrics.csv"
+    cmd+=("${extra_args[@]}")
   fi
-  wc -l "$run_dir/poses.csv" "$run_dir/debug_metrics.csv"
+  echo "== $name ($frames frames) =="
+  record_cmd "${cmd[@]}"
+  "${cmd[@]}"
+  wc -l "$poses_path" "$debug_path"
   local pose_lines
-  pose_lines="$(wc -l < "$run_dir/poses.csv")"
+  pose_lines="$(wc -l < "$poses_path")"
   if [[ "$pose_lines" -le 2 ]]; then
-    echo "ERROR: $run_dir/poses.csv has no pose rows."
+    echo "ERROR: $poses_path has no pose rows."
     exit 1
   fi
 }
 
-run_case "basler_pose_smoke_nohud" 30
-run_case "basler_pose_A_spikeON" 300
-run_case "basler_pose_B_spikeOFF" 300 --spike-disable
+run_phaseb_poses_out() {
+  local name="$1"
+  local frames="$2"
+  local poses_path="$3"
+  local debug_path="$4"
+  shift 4
+  local -a extra_args=("$@")
+  mkdir -p "$(dirname "$poses_path")" "$(dirname "$debug_path")"
+  local -a cmd=(
+    python3 -m phase_b.v2.phase_b_tags_v2
+    "${COMMON_ARGS[@]}"
+    --frames "$frames"
+    --poses-out "$poses_path"
+    --debug-metrics-out "$debug_path"
+  )
+  if [[ "${#extra_args[@]}" -gt 0 ]]; then
+    cmd+=("${extra_args[@]}")
+  fi
+  echo "== $name ($frames frames) =="
+  record_cmd "${cmd[@]}"
+  "${cmd[@]}"
+  wc -l "$poses_path" "$debug_path"
+  local pose_lines
+  pose_lines="$(wc -l < "$poses_path")"
+  if [[ "$pose_lines" -le 2 ]]; then
+    echo "ERROR: $poses_path has no pose rows."
+    exit 1
+  fi
+}
 
-export RUN_BASE
+run_phaseb_save_poses \
+  "quick_checks_save_poses" \
+  30 \
+  "$RUN_DIR/quick_checks/poses_save_poses.csv" \
+  "$RUN_DIR/quick_checks/debug_save_poses.csv"
+
+run_phaseb_poses_out \
+  "quick_checks_poses_out" \
+  30 \
+  "$RUN_DIR/quick_checks/poses_poses_out.csv" \
+  "$RUN_DIR/quick_checks/debug_poses_out.csv"
+
+run_phaseb_save_poses \
+  "basler_pose_A_spikeON" \
+  300 \
+  "$RUN_DIR/spike_on/poses.csv" \
+  "$RUN_DIR/spike_on/debug_metrics.csv"
+
+run_phaseb_save_poses \
+  "basler_pose_B_spikeOFF" \
+  300 \
+  "$RUN_DIR/spike_off/poses.csv" \
+  "$RUN_DIR/spike_off/debug_metrics.csv" \
+  --spike-disable
+
+export RUN_DIR
 python3 - <<'PY'
+import csv
 import json
 import os
 import subprocess
@@ -96,12 +186,7 @@ import cv2
 import numpy as np
 import pandas as pd
 
-run_base = Path(os.environ["RUN_BASE"])
-runs = [
-    "basler_pose_smoke_nohud",
-    "basler_pose_A_spikeON",
-    "basler_pose_B_spikeOFF",
-]
+run_dir = Path(os.environ["RUN_DIR"])
 
 def git_commit() -> str:
     try:
@@ -123,8 +208,6 @@ def rvec_to_ypr_deg(rvec: np.ndarray) -> np.ndarray:
     return np.array([yaw, pitch, roll], dtype=float)
 
 def drift_stats(values: np.ndarray) -> dict:
-    if len(values) == 0:
-        return {}
     base = values[0]
     drift = values - base
     return {
@@ -143,67 +226,101 @@ def timing_stats(df: pd.DataFrame, col: str) -> dict:
         "max": float(s.max()),
     }
 
+summary_dir = run_dir / "summary"
+summary_dir.mkdir(parents=True, exist_ok=True)
+
+runs = {
+    "spike_on": run_dir / "spike_on",
+    "spike_off": run_dir / "spike_off",
+}
+
+table_rows = []
 lines = []
-lines.append("# Basler Pose Test Results")
+lines.append("# Basler Pose Test Summary")
 lines.append("")
 lines.append(f"- Commit: `{git_commit()}`")
-lines.append(f"- Run base: `{run_base}`")
+lines.append(f"- Run dir: `{run_dir}`")
 lines.append("")
 
-for name in runs:
-    run_dir = run_base / name
-    poses_path = run_dir / "poses.csv"
-    debug_path = run_dir / "debug_metrics.csv"
+for name, path in runs.items():
+    poses_path = path / "poses.csv"
+    debug_path = path / "debug_metrics.csv"
     poses_df = load_pose_df(poses_path)
     debug_df = pd.read_csv(debug_path, comment="#")
     poses_count = len(poses_df)
     debug_count = len(debug_df)
 
     lines.append(f"## {name}")
-    lines.append(f"- Run dir: `{run_dir}`")
     lines.append(f"- poses.csv rows: {poses_count}")
     lines.append(f"- debug_metrics.csv rows: {debug_count}")
 
-    if debug_count:
-        stats = {c: timing_stats(debug_df, c) for c in [
-            "t_total_ms", "t_detect_ms", "t_ransac_ms", "mean_reproj_px"
-        ]}
-        lines.append("- Timing stats (ms):")
-        for col, st in stats.items():
-            lines.append(
-                f"  - {col}: median={st['median']:.3f} p90={st['p90']:.3f} max={st['max']:.3f}"
-            )
-        if "reject_reason" in debug_df.columns:
-            counts = debug_df["reject_reason"].value_counts().to_dict()
-            lines.append("- reject_reason counts:")
-            for key, val in counts.items():
-                lines.append(f"  - {key}: {val}")
+    stats = {}
+    for col in ["t_total_ms", "t_detect_ms", "t_ransac_ms", "mean_reproj_px"]:
+        stats[col] = timing_stats(debug_df, col)
+    lines.append("- Timing stats (ms):")
+    for col, st in stats.items():
+        lines.append(
+            f"  - {col}: median={st['median']:.3f} p90={st['p90']:.3f} max={st['max']:.3f}"
+        )
+    reject_counts = {}
+    if "reject_reason" in debug_df.columns:
+        reject_counts = debug_df["reject_reason"].value_counts().to_dict()
+        lines.append("- reject_reason counts:")
+        for key, val in reject_counts.items():
+            lines.append(f"  - {key}: {val}")
 
-    if poses_count:
-        tvec = poses_df[["tvec_cam_x", "tvec_cam_y", "tvec_cam_z"]].to_numpy(float)
-        rvec = poses_df[["rvec_cam_x", "rvec_cam_y", "rvec_cam_z"]].to_numpy(float)
-        ypr = np.vstack([rvec_to_ypr_deg(rv) for rv in rvec])
-        tvec_stats = drift_stats(tvec)
-        ypr_stats = drift_stats(ypr)
+    tvec = poses_df[["tvec_cam_x", "tvec_cam_y", "tvec_cam_z"]].to_numpy(float)
+    rvec = poses_df[["rvec_cam_x", "rvec_cam_y", "rvec_cam_z"]].to_numpy(float)
+    ypr = np.vstack([rvec_to_ypr_deg(rv) for rv in rvec])
+    tvec_stats = drift_stats(tvec)
+    ypr_stats = drift_stats(ypr)
 
-        def fmt_vec(v: np.ndarray) -> str:
-            return "[" + ", ".join(f"{x:.4f}" for x in v) + "]"
+    def fmt_vec(v: np.ndarray) -> str:
+        return "[" + ", ".join(f"{x:.4f}" for x in v) + "]"
 
-        lines.append("- Drift stats vs first pose:")
-        lines.append(f"  - tvec_cam std: {fmt_vec(tvec_stats['std'])}")
-        lines.append(f"  - tvec_cam p10: {fmt_vec(tvec_stats['p10'])}")
-        lines.append(f"  - tvec_cam p90: {fmt_vec(tvec_stats['p90'])}")
-        lines.append(f"  - tvec_cam min: {fmt_vec(tvec_stats['min'])}")
-        lines.append(f"  - tvec_cam max: {fmt_vec(tvec_stats['max'])}")
-        lines.append(f"  - ypr_deg std: {fmt_vec(ypr_stats['std'])}")
-        lines.append(f"  - ypr_deg p10: {fmt_vec(ypr_stats['p10'])}")
-        lines.append(f"  - ypr_deg p90: {fmt_vec(ypr_stats['p90'])}")
-        lines.append(f"  - ypr_deg min: {fmt_vec(ypr_stats['min'])}")
-        lines.append(f"  - ypr_deg max: {fmt_vec(ypr_stats['max'])}")
-
+    lines.append("- Drift stats vs first pose:")
+    lines.append(f"  - tvec_cam std: {fmt_vec(tvec_stats['std'])}")
+    lines.append(f"  - tvec_cam p10: {fmt_vec(tvec_stats['p10'])}")
+    lines.append(f"  - tvec_cam p90: {fmt_vec(tvec_stats['p90'])}")
+    lines.append(f"  - tvec_cam min: {fmt_vec(tvec_stats['min'])}")
+    lines.append(f"  - tvec_cam max: {fmt_vec(tvec_stats['max'])}")
+    lines.append(f"  - ypr_deg std: {fmt_vec(ypr_stats['std'])}")
+    lines.append(f"  - ypr_deg p10: {fmt_vec(ypr_stats['p10'])}")
+    lines.append(f"  - ypr_deg p90: {fmt_vec(ypr_stats['p90'])}")
+    lines.append(f"  - ypr_deg min: {fmt_vec(ypr_stats['min'])}")
+    lines.append(f"  - ypr_deg max: {fmt_vec(ypr_stats['max'])}")
     lines.append("")
 
-out_path = run_base / "RESULTS.md"
-out_path.write_text("\n".join(lines) + "\n")
-print(f"Wrote {out_path}")
+    table_rows.append(
+        {
+            "run": name,
+            "poses_rows": poses_count,
+            "debug_rows": debug_count,
+            "t_total_ms_median": stats["t_total_ms"]["median"],
+            "t_total_ms_p90": stats["t_total_ms"]["p90"],
+            "t_total_ms_max": stats["t_total_ms"]["max"],
+            "t_detect_ms_median": stats["t_detect_ms"]["median"],
+            "t_detect_ms_p90": stats["t_detect_ms"]["p90"],
+            "t_detect_ms_max": stats["t_detect_ms"]["max"],
+            "t_ransac_ms_median": stats["t_ransac_ms"]["median"],
+            "t_ransac_ms_p90": stats["t_ransac_ms"]["p90"],
+            "t_ransac_ms_max": stats["t_ransac_ms"]["max"],
+            "mean_reproj_px_median": stats["mean_reproj_px"]["median"],
+            "mean_reproj_px_p90": stats["mean_reproj_px"]["p90"],
+            "mean_reproj_px_max": stats["mean_reproj_px"]["max"],
+            "reject_reason_counts": json.dumps(reject_counts, sort_keys=True),
+        }
+    )
+
+summary_path = summary_dir / "MEETING_SUMMARY.md"
+summary_path.write_text("\n".join(lines) + "\n")
+
+table_path = summary_dir / "meeting_table.csv"
+with table_path.open("w", newline="") as f:
+    writer = csv.DictWriter(f, fieldnames=table_rows[0].keys())
+    writer.writeheader()
+    writer.writerows(table_rows)
+
+print(f"Wrote {summary_path}")
+print(f"Wrote {table_path}")
 PY

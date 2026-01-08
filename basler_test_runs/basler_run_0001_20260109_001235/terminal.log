@@ -1,0 +1,28 @@
+Run dir: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0001_20260109_001235
+== quick_checks_save_poses (30 frames) ==
+2026-01-09 00:12:35,571 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 00:12:35,577 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 00:12:35,595 [INFO] Fusion mode: weighted
+2026-01-09 00:12:35,595 [INFO] Adaptive RANSAC: enabled
+2026-01-09 00:12:35,595 [INFO] EKF filtering: disabled
+2026-01-09 00:12:35,595 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 00:12:40,632 [INFO] Capture opened: 960x720
+2026-01-09 00:12:40,649 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0001_20260109_001235/quick_checks/poses_save_poses.csv
+2026-01-09 00:12:40,654 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/phase_b/debug_metrics.csv
+2026-01-09 00:12:40,654 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 00:12:41,296 [INFO] grabbed=10 grab_ms=0.3 poses=9
+2026-01-09 00:12:41,559 [INFO] frame=11 reject=REJECT_SPIKE used_ids=101,102,103,104,200,202 dT=n/a dR=16.248deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=26.652
+2026-01-09 00:12:41,560 [INFO] frame=11 reject=REJECT_SPIKE dets=7 inliers=7 reproj=26.652 t_total_ms=115.063
+2026-01-09 00:12:42,469 [INFO] grabbed=20 grab_ms=0.8 poses=19
+2026-01-09 00:12:43,590 [INFO] grabbed=30 grab_ms=0.4 poses=29
+2026-01-09 00:12:43,669 [INFO] frame=29 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.776deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=28.298
+2026-01-09 00:12:43,669 [INFO] frame=29 reject=REJECT_SPIKE dets=5 inliers=5 reproj=28.298 t_total_ms=79.998
+2026-01-09 00:12:43,669 [INFO] Reached frame limit (30); exiting.
+2026-01-09 00:12:43,756 [INFO] Processed 30 frames in 3.102 s (effective FPS: 9.67)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0001_20260109_001235/quick_checks/poses_save_poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/phase_b/debug_metrics.csv
+[wall] elapsed=8.19 frames=30 avg_fps=3.66
+wc: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0001_20260109_001235/quick_checks/debug_save_poses.csv: open: No such file or directory
+      32 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0001_20260109_001235/quick_checks/poses_save_poses.csv
+      32 total
