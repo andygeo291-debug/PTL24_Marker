@@ -161,3 +161,5 @@ Run dir: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20
 [run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
 [run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_off/poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_off/debug_metrics.csv
 [wall] elapsed=28.49 frames=300 avg_fps=10.53
+Wrote /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/summary/MEETING_SUMMARY.md
+Wrote /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/summary/meeting_table.csv

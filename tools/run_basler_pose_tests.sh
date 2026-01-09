@@ -22,7 +22,7 @@ export OFFSET_Y="200"
 export INTERPACKET_DELAY="3500"
 export TIMEOUT_MS="1000"
 export RIG_PATH="phase_b/rigs/cyl_dotec.yaml"
-export CALIB_PATH="common/calib/basler_static_960x720_offx320_offy200_mono8.yaml"
+export CALIB_PATH="common/calib/basler_static_960x720_offx320_offy200_mono8_11mm.yaml"
 
 BASE_RAW="${RUN_BASE:-basler_test_runs}"
 if [[ "$BASE_RAW" = /* ]]; then
