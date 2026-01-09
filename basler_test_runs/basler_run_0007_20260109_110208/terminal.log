@@ -1,0 +1,163 @@
+Run dir: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208
+== quick_checks_save_poses (30 frames) ==
+2026-01-09 11:02:31,094 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 11:02:32,212 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 11:02:33,533 [INFO] Fusion mode: weighted
+2026-01-09 11:02:33,533 [INFO] Adaptive RANSAC: enabled
+2026-01-09 11:02:33,533 [INFO] EKF filtering: disabled
+2026-01-09 11:02:33,533 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 11:02:38,964 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/quick_checks/poses_save_poses.csv
+2026-01-09 11:02:38,965 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/quick_checks/debug_save_poses.csv
+2026-01-09 11:02:38,965 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 11:02:39,004 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:39,070 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:40,830 [INFO] grabbed=10 grab_ms=4.5 poses=9
+2026-01-09 11:02:41,496 [INFO] grabbed=20 grab_ms=11.6 poses=19
+2026-01-09 11:02:42,594 [INFO] grabbed=30 grab_ms=0.2 poses=29
+2026-01-09 11:02:42,657 [INFO] Reached frame limit (30); exiting.
+2026-01-09 11:02:42,742 [INFO] Processed 30 frames in 3.778 s (effective FPS: 7.94)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/quick_checks/poses_save_poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/quick_checks/debug_save_poses.csv
+[wall] elapsed=12.87 frames=30 avg_fps=2.33
+== quick_checks_poses_out (30 frames) ==
+2026-01-09 11:02:43,133 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 11:02:43,137 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 11:02:43,149 [INFO] Fusion mode: weighted
+2026-01-09 11:02:43,149 [INFO] Adaptive RANSAC: enabled
+2026-01-09 11:02:43,149 [INFO] EKF filtering: disabled
+2026-01-09 11:02:43,149 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 11:02:48,283 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/quick_checks/poses_poses_out.csv
+2026-01-09 11:02:48,284 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/quick_checks/debug_poses_out.csv
+2026-01-09 11:02:48,284 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 11:02:48,323 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:48,389 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:48,456 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:49,135 [INFO] grabbed=10 grab_ms=0.3 poses=9
+2026-01-09 11:02:49,902 [INFO] grabbed=20 grab_ms=0.3 poses=19
+2026-01-09 11:02:50,587 [INFO] grabbed=30 grab_ms=0.3 poses=29
+2026-01-09 11:02:50,687 [INFO] Reached frame limit (30); exiting.
+2026-01-09 11:02:50,795 [INFO] Processed 30 frames in 2.511 s (effective FPS: 11.95)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/quick_checks/poses_poses_out.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/quick_checks/debug_poses_out.csv
+[wall] elapsed=7.67 frames=30 avg_fps=3.91
+== basler_pose_A_spikeON (300 frames) ==
+2026-01-09 11:02:51,165 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 11:02:51,170 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 11:02:51,260 [INFO] Fusion mode: weighted
+2026-01-09 11:02:51,260 [INFO] Adaptive RANSAC: enabled
+2026-01-09 11:02:51,260 [INFO] EKF filtering: disabled
+2026-01-09 11:02:51,260 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 11:02:56,437 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_on/poses.csv
+2026-01-09 11:02:56,438 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_on/debug_metrics.csv
+2026-01-09 11:02:56,438 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 11:02:56,480 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:56,545 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:56,612 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:56,678 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:56,745 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:56,812 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:56,878 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:56,945 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:57,011 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:57,078 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:57,145 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:02:58,016 [INFO] grabbed=10 grab_ms=0.2 poses=9
+2026-01-09 11:02:58,704 [INFO] grabbed=20 grab_ms=12.5 poses=19
+2026-01-09 11:02:59,461 [INFO] grabbed=30 grab_ms=0.3 poses=29
+2026-01-09 11:03:00,104 [INFO] grabbed=40 grab_ms=12.1 poses=39
+2026-01-09 11:03:00,771 [INFO] grabbed=50 grab_ms=13.9 poses=49
+2026-01-09 11:03:01,438 [INFO] grabbed=60 grab_ms=7.6 poses=59
+2026-01-09 11:03:01,496 [INFO] [bench] over 60 frames total=83.98ms fps=5.86 wall=10.24s capture=19.53ms (23.3%) detect=47.51ms (56.6%) fuse=0.44ms (0.5%) pnp=0.61ms (0.7%) ransac=15.81ms (18.8%) render=0.09ms (0.1%)
+2026-01-09 11:03:02,133 [INFO] grabbed=70 grab_ms=0.3 poses=69
+2026-01-09 11:03:02,771 [INFO] grabbed=80 grab_ms=13.7 poses=79
+2026-01-09 11:03:03,438 [INFO] grabbed=90 grab_ms=7.7 poses=89
+2026-01-09 11:03:03,879 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:03:03,945 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:03:04,505 [INFO] grabbed=100 grab_ms=10.9 poses=99
+2026-01-09 11:03:05,171 [INFO] grabbed=110 grab_ms=10.6 poses=109
+2026-01-09 11:03:05,971 [INFO] grabbed=120 grab_ms=10.1 poses=119
+2026-01-09 11:03:06,029 [INFO] [bench] over 60 frames total=75.29ms fps=13.24 wall=4.53s capture=11.05ms (14.7%) detect=47.50ms (63.1%) fuse=0.45ms (0.6%) pnp=0.59ms (0.8%) ransac=15.61ms (20.7%) render=0.09ms (0.1%)
+2026-01-09 11:03:06,783 [INFO] grabbed=130 grab_ms=0.3 poses=129
+2026-01-09 11:03:07,146 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:03:07,805 [INFO] grabbed=140 grab_ms=0.2 poses=139
+2026-01-09 11:03:08,510 [INFO] grabbed=150 grab_ms=0.2 poses=149
+2026-01-09 11:03:09,172 [INFO] grabbed=160 grab_ms=11.3 poses=159
+2026-01-09 11:03:09,840 [INFO] grabbed=170 grab_ms=0.3 poses=169
+2026-01-09 11:03:10,588 [INFO] grabbed=180 grab_ms=0.3 poses=179
+2026-01-09 11:03:10,729 [INFO] [bench] over 60 frames total=78.06ms fps=12.76 wall=4.70s capture=8.17ms (10.5%) detect=51.79ms (66.3%) fuse=0.53ms (0.7%) pnp=0.64ms (0.8%) ransac=16.85ms (21.6%) render=0.10ms (0.1%)
+2026-01-09 11:03:11,321 [INFO] grabbed=190 grab_ms=0.3 poses=189
+2026-01-09 11:03:12,050 [INFO] grabbed=200 grab_ms=0.4 poses=199
+2026-01-09 11:03:12,732 [INFO] grabbed=210 grab_ms=0.2 poses=209
+2026-01-09 11:03:13,543 [INFO] grabbed=220 grab_ms=0.2 poses=219
+2026-01-09 11:03:14,172 [INFO] grabbed=230 grab_ms=12.7 poses=229
+2026-01-09 11:03:14,839 [INFO] grabbed=240 grab_ms=11.7 poses=239
+2026-01-09 11:03:14,895 [INFO] [bench] over 60 frames total=69.16ms fps=14.40 wall=4.17s capture=2.58ms (3.7%) detect=50.27ms (72.7%) fuse=0.38ms (0.6%) pnp=0.60ms (0.9%) ransac=15.24ms (22.0%) render=0.08ms (0.1%)
+2026-01-09 11:03:15,506 [INFO] grabbed=250 grab_ms=12.8 poses=249
+2026-01-09 11:03:16,172 [INFO] grabbed=260 grab_ms=12.4 poses=259
+2026-01-09 11:03:16,839 [INFO] grabbed=270 grab_ms=12.1 poses=269
+2026-01-09 11:03:17,587 [INFO] grabbed=280 grab_ms=0.2 poses=279
+2026-01-09 11:03:18,324 [INFO] grabbed=290 grab_ms=0.4 poses=289
+2026-01-09 11:03:19,084 [INFO] grabbed=300 grab_ms=0.2 poses=299
+2026-01-09 11:03:19,154 [INFO] [bench] over 60 frames total=70.72ms fps=14.09 wall=4.26s capture=6.70ms (9.5%) detect=47.57ms (67.3%) fuse=0.47ms (0.7%) pnp=0.59ms (0.8%) ransac=15.31ms (21.6%) render=0.09ms (0.1%)
+2026-01-09 11:03:19,155 [INFO] Reached frame limit (300); exiting.
+2026-01-09 11:03:19,221 [INFO] Processed 300 frames in 22.783 s (effective FPS: 13.17)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_on/poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_on/debug_metrics.csv
+[wall] elapsed=28.06 frames=300 avg_fps=10.69
+== basler_pose_B_spikeOFF (300 frames) ==
+2026-01-09 11:03:19,596 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 11:03:19,600 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 11:03:19,611 [INFO] Fusion mode: weighted
+2026-01-09 11:03:19,611 [INFO] Adaptive RANSAC: enabled
+2026-01-09 11:03:19,611 [INFO] EKF filtering: disabled
+2026-01-09 11:03:19,611 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 11:03:24,435 [INFO] Capture opened: 960x720
+2026-01-09 11:03:24,450 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_off/poses.csv
+2026-01-09 11:03:24,451 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_off/debug_metrics.csv
+2026-01-09 11:03:24,451 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 11:03:25,185 [INFO] grabbed=10 grab_ms=0.3 poses=9
+2026-01-09 11:03:25,917 [INFO] grabbed=20 grab_ms=0.2 poses=19
+2026-01-09 11:03:26,566 [INFO] grabbed=30 grab_ms=11.9 poses=29
+2026-01-09 11:03:27,233 [INFO] grabbed=40 grab_ms=0.7 poses=39
+2026-01-09 11:03:28,138 [INFO] grabbed=50 grab_ms=0.2 poses=49
+2026-01-09 11:03:28,868 [INFO] grabbed=60 grab_ms=0.3 poses=59
+2026-01-09 11:03:28,929 [INFO] [bench] over 60 frames total=74.35ms fps=6.44 wall=9.32s capture=3.90ms (5.2%) detect=53.46ms (71.9%) fuse=0.52ms (0.7%) pnp=0.62ms (0.8%) ransac=15.76ms (21.2%) render=0.10ms (0.1%)
+2026-01-09 11:03:29,657 [INFO] grabbed=70 grab_ms=0.7 poses=69
+2026-01-09 11:03:30,273 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:03:30,339 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:03:30,927 [INFO] grabbed=80 grab_ms=0.3 poses=79
+2026-01-09 11:03:31,666 [INFO] grabbed=90 grab_ms=0.3 poses=89
+2026-01-09 11:03:32,483 [INFO] grabbed=100 grab_ms=0.4 poses=99
+2026-01-09 11:03:33,106 [INFO] grabbed=110 grab_ms=0.2 poses=109
+2026-01-09 11:03:33,758 [INFO] grabbed=120 grab_ms=11.9 poses=119
+2026-01-09 11:03:33,815 [INFO] [bench] over 60 frames total=81.30ms fps=12.26 wall=4.90s capture=12.37ms (15.2%) detect=51.88ms (63.8%) fuse=0.49ms (0.6%) pnp=0.65ms (0.8%) ransac=15.82ms (19.5%) render=0.09ms (0.1%)
+2026-01-09 11:03:34,447 [INFO] grabbed=130 grab_ms=0.3 poses=129
+2026-01-09 11:03:35,220 [INFO] grabbed=140 grab_ms=0.2 poses=139
+2026-01-09 11:03:35,888 [INFO] grabbed=150 grab_ms=5.7 poses=149
+2026-01-09 11:03:37,025 [INFO] grabbed=160 grab_ms=0.2 poses=159
+2026-01-09 11:03:37,885 [INFO] grabbed=170 grab_ms=0.3 poses=169
+2026-01-09 11:03:38,627 [INFO] grabbed=180 grab_ms=0.2 poses=179
+2026-01-09 11:03:38,700 [INFO] [bench] over 60 frames total=81.26ms fps=12.26 wall=4.89s capture=3.08ms (3.8%) detect=58.37ms (71.8%) fuse=0.63ms (0.8%) pnp=0.77ms (0.9%) ransac=18.28ms (22.5%) render=0.13ms (0.2%)
+2026-01-09 11:03:39,307 [INFO] grabbed=190 grab_ms=0.2 poses=189
+2026-01-09 11:03:39,955 [INFO] grabbed=200 grab_ms=0.3 poses=199
+2026-01-09 11:03:41,024 [INFO] grabbed=210 grab_ms=0.2 poses=209
+2026-01-09 11:03:41,680 [INFO] grabbed=220 grab_ms=11.1 poses=219
+2026-01-09 11:03:42,355 [INFO] grabbed=230 grab_ms=0.3 poses=229
+2026-01-09 11:03:43,231 [INFO] grabbed=240 grab_ms=0.4 poses=239
+2026-01-09 11:03:43,317 [INFO] [bench] over 60 frames total=76.76ms fps=12.98 wall=4.62s capture=7.92ms (10.3%) detect=49.77ms (64.8%) fuse=0.47ms (0.6%) pnp=0.61ms (0.8%) ransac=17.90ms (23.3%) render=0.09ms (0.1%)
+2026-01-09 11:03:43,963 [INFO] grabbed=250 grab_ms=0.2 poses=249
+2026-01-09 11:03:44,610 [INFO] grabbed=260 grab_ms=12.7 poses=259
+2026-01-09 11:03:45,376 [INFO] grabbed=270 grab_ms=0.7 poses=269
+2026-01-09 11:03:46,318 [INFO] grabbed=280 grab_ms=0.2 poses=279
+2026-01-09 11:03:46,999 [INFO] grabbed=290 grab_ms=0.3 poses=289
+2026-01-09 11:03:47,836 [INFO] grabbed=300 grab_ms=0.4 poses=299
+2026-01-09 11:03:47,945 [INFO] [bench] over 60 frames total=76.90ms fps=12.95 wall=4.63s capture=3.36ms (4.4%) detect=54.50ms (70.9%) fuse=0.48ms (0.6%) pnp=0.75ms (1.0%) ransac=17.71ms (23.0%) render=0.10ms (0.1%)
+2026-01-09 11:03:47,945 [INFO] Reached frame limit (300); exiting.
+2026-01-09 11:03:48,054 [INFO] Processed 300 frames in 23.631 s (effective FPS: 12.70)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_off/poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0007_20260109_110208/spike_off/debug_metrics.csv
+[wall] elapsed=28.49 frames=300 avg_fps=10.53
