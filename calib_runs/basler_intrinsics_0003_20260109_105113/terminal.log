@@ -1,1 +1,20 @@
 Wrote /Users/Andreas/Desktop/ptl24_marker/calib_runs/basler_intrinsics_0003_20260109_105113/calib_meta.json
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/Users/Andreas/Desktop/ptl24_marker/venv/lib/python3.13/site-packages/cv2/__init__.py", line 11, in <module>
+    import numpy
+  File "/Users/Andreas/Desktop/ptl24_marker/venv/lib/python3.13/site-packages/numpy/__init__.py", line 181, in <module>
+    from . import lib
+  File "/Users/Andreas/Desktop/ptl24_marker/venv/lib/python3.13/site-packages/numpy/lib/__init__.py", line 23, in <module>
+    from . import _index_tricks_impl
+  File "/Users/Andreas/Desktop/ptl24_marker/venv/lib/python3.13/site-packages/numpy/lib/_index_tricks_impl.py", line 16, in <module>
+    from numpy.lib._function_base_impl import diff
+  File "/Users/Andreas/Desktop/ptl24_marker/venv/lib/python3.13/site-packages/numpy/lib/_function_base_impl.py", line 32, in <module>
+    from numpy.lib._histograms_impl import histogram, histogramdd  # noqa: F401
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1118, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1218, in get_data
+KeyboardInterrupt

@@ -6,6 +6,9 @@ import time
 from pathlib import Path
 from typing import List, Tuple
 
+# Disable OpenCL before importing OpenCV to avoid macOS crashes.
+os.environ.setdefault("OPENCV_OPENCL_RUNTIME", "disabled")
+
 import cv2
 import numpy as np
 import yaml
@@ -16,6 +19,10 @@ def _disable_opencv_opencl() -> None:
     try:
         if hasattr(cv2, "ocl"):
             cv2.ocl.setUseOpenCL(False)
+        if hasattr(cv2, "setUseOptimized"):
+            cv2.setUseOptimized(False)
+        if hasattr(cv2, "setNumThreads"):
+            cv2.setNumThreads(1)
     except Exception:
         pass
 
