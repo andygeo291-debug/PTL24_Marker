@@ -1,0 +1,339 @@
+Run dir: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458
+== quick_checks_save_poses (30 frames) ==
+2026-01-09 01:14:59,386 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 01:14:59,391 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 01:14:59,407 [INFO] Fusion mode: weighted
+2026-01-09 01:14:59,408 [INFO] Adaptive RANSAC: enabled
+2026-01-09 01:14:59,408 [INFO] EKF filtering: disabled
+2026-01-09 01:14:59,408 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 01:15:04,609 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/poses_save_poses.csv
+2026-01-09 01:15:04,611 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/debug_save_poses.csv
+2026-01-09 01:15:04,611 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 01:15:04,786 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:04,853 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:04,978 [INFO] frame=1 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=19.880deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.000
+2026-01-09 01:15:04,978 [INFO] frame=1 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.000 t_total_ms=125.354
+2026-01-09 01:15:05,417 [INFO] frame=8 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.581deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.091
+2026-01-09 01:15:05,418 [INFO] frame=8 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.091 t_total_ms=59.939
+2026-01-09 01:15:05,418 [INFO] grabbed=10 grab_ms=0.3 poses=9
+2026-01-09 01:15:05,770 [INFO] frame=11 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=20.393deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.424
+2026-01-09 01:15:05,770 [INFO] frame=11 reject=REJECT_SPIKE dets=5 inliers=5 reproj=38.424 t_total_ms=124.400
+2026-01-09 01:15:05,920 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:05,986 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:06,412 [INFO] frame=15 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.505deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.060
+2026-01-09 01:15:06,412 [INFO] frame=15 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.060 t_total_ms=102.300
+2026-01-09 01:15:06,667 [INFO] frame=18 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.335deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=37.977
+2026-01-09 01:15:06,667 [INFO] frame=18 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.977 t_total_ms=80.434
+2026-01-09 01:15:06,668 [INFO] grabbed=20 grab_ms=0.5 poses=19
+2026-01-09 01:15:07,353 [INFO] grabbed=30 grab_ms=0.3 poses=29
+2026-01-09 01:15:07,417 [INFO] Reached frame limit (30); exiting.
+2026-01-09 01:15:07,527 [INFO] Processed 30 frames in 2.916 s (effective FPS: 10.29)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/poses_save_poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/debug_save_poses.csv
+[wall] elapsed=8.15 frames=30 avg_fps=3.68
+      32 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/poses_save_poses.csv
+      32 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/debug_save_poses.csv
+      64 total
+== quick_checks_poses_out (30 frames) ==
+2026-01-09 01:15:08,096 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 01:15:08,101 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 01:15:08,117 [INFO] Fusion mode: weighted
+2026-01-09 01:15:08,117 [INFO] Adaptive RANSAC: enabled
+2026-01-09 01:15:08,117 [INFO] EKF filtering: disabled
+2026-01-09 01:15:08,117 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 01:15:13,276 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/poses_poses_out.csv
+2026-01-09 01:15:13,277 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/debug_poses_out.csv
+2026-01-09 01:15:13,277 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 01:15:13,323 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:13,390 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:13,456 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:13,523 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:13,989 [INFO] frame=5 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=19.425deg thrT=n/a thrR=15.000deg ref_age=4 streak=1 reproj=38.082
+2026-01-09 01:15:13,989 [INFO] frame=5 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.082 t_total_ms=56.616
+2026-01-09 01:15:14,197 [INFO] frame=8 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.546deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.003
+2026-01-09 01:15:14,197 [INFO] frame=8 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.003 t_total_ms=65.040
+2026-01-09 01:15:14,198 [INFO] grabbed=10 grab_ms=0.3 poses=9
+2026-01-09 01:15:14,500 [INFO] frame=11 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.144deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=37.991
+2026-01-09 01:15:14,501 [INFO] frame=11 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.991 t_total_ms=124.571
+2026-01-09 01:15:14,789 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:15,322 [INFO] grabbed=20 grab_ms=0.6 poses=19
+2026-01-09 01:15:15,459 [INFO] frame=19 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.032deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.091
+2026-01-09 01:15:15,460 [INFO] frame=19 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.091 t_total_ms=138.422
+2026-01-09 01:15:15,723 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:15,789 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:15,856 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:16,049 [INFO] frame=22 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.614deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.026
+2026-01-09 01:15:16,049 [INFO] frame=22 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.026 t_total_ms=62.634
+2026-01-09 01:15:16,492 [INFO] frame=26 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.307deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.042
+2026-01-09 01:15:16,492 [INFO] frame=26 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.042 t_total_ms=99.934
+2026-01-09 01:15:16,642 [INFO] grabbed=30 grab_ms=0.3 poses=29
+2026-01-09 01:15:16,718 [INFO] Reached frame limit (30); exiting.
+2026-01-09 01:15:16,796 [INFO] Processed 30 frames in 3.519 s (effective FPS: 8.52)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/poses_poses_out.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/debug_poses_out.csv
+[wall] elapsed=8.71 frames=30 avg_fps=3.45
+      31 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/poses_poses_out.csv
+      32 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/quick_checks/debug_poses_out.csv
+      63 total
+== basler_pose_A_spikeON (300 frames) ==
+2026-01-09 01:15:17,243 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 01:15:17,247 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 01:15:17,259 [INFO] Fusion mode: weighted
+2026-01-09 01:15:17,259 [INFO] Adaptive RANSAC: enabled
+2026-01-09 01:15:17,259 [INFO] EKF filtering: disabled
+2026-01-09 01:15:17,259 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 01:15:22,393 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_on/poses.csv
+2026-01-09 01:15:22,393 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_on/debug_metrics.csv
+2026-01-09 01:15:22,394 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 01:15:22,435 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:22,502 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:22,568 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:22,634 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:22,701 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:22,768 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:23,028 [INFO] frame=2 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.645deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.009
+2026-01-09 01:15:23,029 [INFO] frame=2 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.009 t_total_ms=59.465
+2026-01-09 01:15:23,251 [INFO] frame=5 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.325deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.070
+2026-01-09 01:15:23,251 [INFO] frame=5 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.070 t_total_ms=81.258
+2026-01-09 01:15:23,452 [INFO] frame=7 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.333deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.053
+2026-01-09 01:15:23,452 [INFO] frame=7 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.053 t_total_ms=108.178
+2026-01-09 01:15:23,589 [INFO] grabbed=10 grab_ms=0.5 poses=9
+2026-01-09 01:15:23,689 [INFO] frame=9 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.539deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.055
+2026-01-09 01:15:23,689 [INFO] frame=9 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.055 t_total_ms=100.479
+2026-01-09 01:15:24,008 [INFO] frame=12 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.449deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=37.977
+2026-01-09 01:15:24,008 [INFO] frame=12 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.977 t_total_ms=55.719
+2026-01-09 01:15:24,069 [INFO] frame=13 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.773deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.022
+2026-01-09 01:15:24,070 [INFO] frame=13 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.022 t_total_ms=61.074
+2026-01-09 01:15:24,393 [INFO] grabbed=20 grab_ms=4.8 poses=19
+2026-01-09 01:15:24,643 [INFO] frame=22 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.615deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.035
+2026-01-09 01:15:24,643 [INFO] frame=22 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.035 t_total_ms=63.278
+2026-01-09 01:15:24,908 [INFO] frame=26 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.087deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.011
+2026-01-09 01:15:24,908 [INFO] frame=26 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.011 t_total_ms=61.615
+2026-01-09 01:15:25,060 [INFO] grabbed=30 grab_ms=13.6 poses=29
+2026-01-09 01:15:25,179 [INFO] frame=30 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.014deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.076
+2026-01-09 01:15:25,179 [INFO] frame=30 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.076 t_total_ms=65.016
+2026-01-09 01:15:25,245 [INFO] frame=31 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.610deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.081
+2026-01-09 01:15:25,245 [INFO] frame=31 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.081 t_total_ms=65.044
+2026-01-09 01:15:25,410 [INFO] frame=32 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.271deg thrT=n/a thrR=15.000deg ref_age=4 streak=1 reproj=38.024
+2026-01-09 01:15:25,410 [INFO] frame=32 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.024 t_total_ms=164.734
+2026-01-09 01:15:25,979 [INFO] grabbed=40 grab_ms=0.3 poses=39
+2026-01-09 01:15:26,529 [INFO] frame=46 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.661deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.059
+2026-01-09 01:15:26,529 [INFO] frame=46 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.059 t_total_ms=64.266
+2026-01-09 01:15:26,660 [INFO] grabbed=50 grab_ms=4.8 poses=49
+2026-01-09 01:15:26,992 [INFO] frame=53 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.156deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.031
+2026-01-09 01:15:26,992 [INFO] frame=53 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.031 t_total_ms=74.874
+2026-01-09 01:15:27,066 [INFO] frame=54 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.743deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.044
+2026-01-09 01:15:27,067 [INFO] frame=54 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.044 t_total_ms=74.325
+2026-01-09 01:15:27,383 [INFO] grabbed=60 grab_ms=0.3 poses=59
+2026-01-09 01:15:27,447 [INFO] frame=59 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.921deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.027
+2026-01-09 01:15:27,447 [INFO] frame=59 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.027 t_total_ms=64.201
+2026-01-09 01:15:27,448 [INFO] [bench] over 60 frames total=83.85ms fps=5.89 wall=10.19s capture=14.29ms (17.0%) detect=50.95ms (60.8%) fuse=0.49ms (0.6%) pnp=0.71ms (0.8%) ransac=17.27ms (20.6%) render=0.14ms (0.2%)
+2026-01-09 01:15:27,664 [INFO] frame=62 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.717deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.072
+2026-01-09 01:15:27,664 [INFO] frame=62 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.072 t_total_ms=71.748
+2026-01-09 01:15:27,795 [INFO] frame=64 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.370deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.000
+2026-01-09 01:15:27,795 [INFO] frame=64 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.000 t_total_ms=63.120
+2026-01-09 01:15:28,051 [INFO] frame=68 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.238deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=37.991
+2026-01-09 01:15:28,051 [INFO] frame=68 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.991 t_total_ms=60.352
+2026-01-09 01:15:28,060 [INFO] grabbed=70 grab_ms=9.2 poses=69
+2026-01-09 01:15:28,244 [INFO] frame=71 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.628deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.050
+2026-01-09 01:15:28,245 [INFO] frame=71 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.050 t_total_ms=66.156
+2026-01-09 01:15:28,643 [INFO] frame=77 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.977deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.003
+2026-01-09 01:15:28,644 [INFO] frame=77 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.003 t_total_ms=64.493
+2026-01-09 01:15:28,710 [INFO] frame=78 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.671deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.013
+2026-01-09 01:15:28,711 [INFO] frame=78 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.013 t_total_ms=66.748
+2026-01-09 01:15:28,727 [INFO] grabbed=80 grab_ms=16.3 poses=79
+2026-01-09 01:15:28,911 [INFO] frame=81 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.271deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=37.991
+2026-01-09 01:15:28,911 [INFO] frame=81 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.991 t_total_ms=62.974
+2026-01-09 01:15:28,976 [INFO] frame=82 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.210deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.078
+2026-01-09 01:15:28,976 [INFO] frame=82 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.078 t_total_ms=64.771
+2026-01-09 01:15:29,054 [INFO] frame=83 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.116deg thrT=n/a thrR=15.000deg ref_age=4 streak=1 reproj=38.100
+2026-01-09 01:15:29,054 [INFO] frame=83 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.100 t_total_ms=77.843
+2026-01-09 01:15:29,183 [INFO] frame=85 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.865deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=37.986
+2026-01-09 01:15:29,183 [INFO] frame=85 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.986 t_total_ms=67.933
+2026-01-09 01:15:29,251 [INFO] frame=86 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.439deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.038
+2026-01-09 01:15:29,252 [INFO] frame=86 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.038 t_total_ms=68.008
+2026-01-09 01:15:29,335 [INFO] frame=87 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.604deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.043
+2026-01-09 01:15:29,335 [INFO] frame=87 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.043 t_total_ms=83.291
+2026-01-09 01:15:29,418 [INFO] grabbed=90 grab_ms=0.3 poses=89
+2026-01-09 01:15:29,637 [INFO] frame=90 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.462deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=37.998
+2026-01-09 01:15:29,638 [INFO] frame=90 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.998 t_total_ms=122.356
+2026-01-09 01:15:29,794 [INFO] frame=91 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.094deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=37.996
+2026-01-09 01:15:29,794 [INFO] frame=91 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.996 t_total_ms=155.959
+2026-01-09 01:15:29,902 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:29,968 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:30,151 [INFO] frame=93 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.150deg thrT=n/a thrR=15.000deg ref_age=4 streak=1 reproj=38.032
+2026-01-09 01:15:30,151 [INFO] frame=93 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.032 t_total_ms=54.881
+2026-01-09 01:15:30,208 [INFO] frame=94 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.092deg thrT=n/a thrR=15.000deg ref_age=5 streak=1 reproj=38.017
+2026-01-09 01:15:30,208 [INFO] frame=94 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.017 t_total_ms=57.187
+2026-01-09 01:15:30,380 [INFO] frame=97 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.286deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.009
+2026-01-09 01:15:30,380 [INFO] frame=97 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.009 t_total_ms=57.246
+2026-01-09 01:15:30,461 [INFO] grabbed=100 grab_ms=12.4 poses=99
+2026-01-09 01:15:30,669 [INFO] frame=101 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.702deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.054
+2026-01-09 01:15:30,670 [INFO] frame=101 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.054 t_total_ms=70.864
+2026-01-09 01:15:31,204 [INFO] grabbed=110 grab_ms=0.2 poses=109
+2026-01-09 01:15:31,646 [INFO] frame=115 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.389deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.040
+2026-01-09 01:15:31,646 [INFO] frame=115 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.040 t_total_ms=66.796
+2026-01-09 01:15:31,841 [INFO] frame=118 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=19.586deg thrT=n/a thrR=15.000deg ref_age=4 streak=1 reproj=38.332
+2026-01-09 01:15:31,841 [INFO] frame=118 reject=REJECT_SPIKE dets=5 inliers=5 reproj=38.332 t_total_ms=61.658
+2026-01-09 01:15:31,861 [INFO] grabbed=120 grab_ms=19.7 poses=119
+2026-01-09 01:15:31,918 [INFO] [bench] over 60 frames total=74.16ms fps=13.42 wall=4.47s capture=10.41ms (14.0%) detect=45.51ms (61.4%) fuse=0.49ms (0.7%) pnp=0.67ms (0.9%) ransac=16.94ms (22.8%) render=0.13ms (0.2%)
+2026-01-09 01:15:32,044 [INFO] frame=121 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.737deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.043
+2026-01-09 01:15:32,045 [INFO] frame=121 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.043 t_total_ms=59.802
+2026-01-09 01:15:32,243 [INFO] frame=124 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.909deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=37.984
+2026-01-09 01:15:32,243 [INFO] frame=124 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.984 t_total_ms=65.033
+2026-01-09 01:15:32,381 [INFO] frame=126 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.547deg thrT=n/a thrR=15.000deg ref_age=4 streak=1 reproj=38.046
+2026-01-09 01:15:32,381 [INFO] frame=126 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.046 t_total_ms=70.618
+2026-01-09 01:15:32,527 [INFO] grabbed=130 grab_ms=12.5 poses=129
+2026-01-09 01:15:32,777 [INFO] frame=132 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.705deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=37.967
+2026-01-09 01:15:32,777 [INFO] frame=132 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.967 t_total_ms=66.500
+2026-01-09 01:15:33,187 [INFO] frame=138 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.400deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.004
+2026-01-09 01:15:33,187 [INFO] frame=138 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.004 t_total_ms=73.414
+2026-01-09 01:15:33,194 [INFO] grabbed=140 grab_ms=6.8 poses=139
+2026-01-09 01:15:34,230 [INFO] grabbed=150 grab_ms=0.2 poses=149
+2026-01-09 01:15:34,291 [INFO] frame=149 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.542deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.011
+2026-01-09 01:15:34,292 [INFO] frame=149 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.011 t_total_ms=62.009
+2026-01-09 01:15:34,520 [INFO] frame=153 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.003deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.035
+2026-01-09 01:15:34,520 [INFO] frame=153 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.035 t_total_ms=53.512
+2026-01-09 01:15:34,580 [INFO] frame=154 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.674deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.004
+2026-01-09 01:15:34,580 [INFO] frame=154 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.004 t_total_ms=59.887
+2026-01-09 01:15:34,845 [INFO] frame=158 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.363deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.071
+2026-01-09 01:15:34,845 [INFO] frame=158 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.071 t_total_ms=67.538
+2026-01-09 01:15:34,861 [INFO] grabbed=160 grab_ms=16.1 poses=159
+2026-01-09 01:15:35,269 [INFO] frame=164 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.828deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.034
+2026-01-09 01:15:35,269 [INFO] frame=164 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.034 t_total_ms=74.275
+2026-01-09 01:15:35,403 [INFO] frame=165 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.920deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.019
+2026-01-09 01:15:35,403 [INFO] frame=165 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.019 t_total_ms=134.155
+2026-01-09 01:15:35,635 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:35,702 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:15:35,942 [INFO] grabbed=170 grab_ms=0.5 poses=169
+2026-01-09 01:15:36,001 [INFO] frame=169 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.084deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.025
+2026-01-09 01:15:36,001 [INFO] frame=169 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.025 t_total_ms=59.359
+2026-01-09 01:15:36,610 [INFO] frame=178 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=16.938deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.018
+2026-01-09 01:15:36,610 [INFO] frame=178 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.018 t_total_ms=59.513
+2026-01-09 01:15:36,611 [INFO] grabbed=180 grab_ms=0.3 poses=179
+2026-01-09 01:15:36,673 [INFO] frame=179 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.126deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.054
+2026-01-09 01:15:36,673 [INFO] frame=179 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.054 t_total_ms=62.969
+2026-01-09 01:15:36,673 [INFO] [bench] over 60 frames total=78.97ms fps=12.62 wall=4.76s capture=17.49ms (22.1%) detect=45.06ms (57.1%) fuse=0.46ms (0.6%) pnp=0.58ms (0.7%) ransac=15.26ms (19.3%) render=0.12ms (0.2%)
+2026-01-09 01:15:36,872 [INFO] frame=182 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=16.451deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.065
+2026-01-09 01:15:36,872 [INFO] frame=182 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.065 t_total_ms=65.443
+2026-01-09 01:15:37,263 [INFO] grabbed=190 grab_ms=0.2 poses=189
+2026-01-09 01:15:37,380 [INFO] frame=190 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.711deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.054
+2026-01-09 01:15:37,381 [INFO] frame=190 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.054 t_total_ms=61.057
+2026-01-09 01:15:37,512 [INFO] frame=192 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.135deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.032
+2026-01-09 01:15:37,512 [INFO] frame=192 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.032 t_total_ms=64.632
+2026-01-09 01:15:37,578 [INFO] frame=193 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.237deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=37.999
+2026-01-09 01:15:37,578 [INFO] frame=193 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.999 t_total_ms=65.747
+2026-01-09 01:15:37,928 [INFO] grabbed=200 grab_ms=13.7 poses=199
+2026-01-09 01:15:38,044 [INFO] frame=200 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.974deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.059
+2026-01-09 01:15:38,044 [INFO] frame=200 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.059 t_total_ms=62.462
+2026-01-09 01:15:38,178 [INFO] frame=202 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.692deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.010
+2026-01-09 01:15:38,178 [INFO] frame=202 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.010 t_total_ms=65.100
+2026-01-09 01:15:38,246 [INFO] frame=203 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.067deg thrT=n/a thrR=15.000deg ref_age=4 streak=1 reproj=38.070
+2026-01-09 01:15:38,246 [INFO] frame=203 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.070 t_total_ms=67.677
+2026-01-09 01:15:38,595 [INFO] grabbed=210 grab_ms=14.5 poses=209
+2026-01-09 01:15:38,777 [INFO] frame=211 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.128deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.074
+2026-01-09 01:15:38,777 [INFO] frame=211 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.074 t_total_ms=62.410
+2026-01-09 01:15:38,977 [INFO] frame=214 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.706deg thrT=n/a thrR=15.000deg ref_age=4 streak=1 reproj=38.008
+2026-01-09 01:15:38,978 [INFO] frame=214 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.008 t_total_ms=52.893
+2026-01-09 01:15:39,144 [INFO] frame=216 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.805deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.026
+2026-01-09 01:15:39,145 [INFO] frame=216 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.026 t_total_ms=94.460
+2026-01-09 01:15:39,382 [INFO] frame=218 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.486deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.075
+2026-01-09 01:15:39,382 [INFO] frame=218 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.075 t_total_ms=70.498
+2026-01-09 01:15:39,383 [INFO] grabbed=220 grab_ms=0.3 poses=219
+2026-01-09 01:15:39,799 [INFO] frame=224 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.939deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.058
+2026-01-09 01:15:39,799 [INFO] frame=224 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.058 t_total_ms=65.543
+2026-01-09 01:15:40,045 [INFO] frame=228 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=19.206deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.275
+2026-01-09 01:15:40,045 [INFO] frame=228 reject=REJECT_SPIKE dets=5 inliers=5 reproj=38.275 t_total_ms=56.586
+2026-01-09 01:15:40,061 [INFO] grabbed=230 grab_ms=15.9 poses=229
+2026-01-09 01:15:40,576 [INFO] frame=236 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.441deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.020
+2026-01-09 01:15:40,576 [INFO] frame=236 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.020 t_total_ms=58.133
+2026-01-09 01:15:40,645 [INFO] frame=237 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.156deg thrT=n/a thrR=15.000deg ref_age=3 streak=1 reproj=38.022
+2026-01-09 01:15:40,645 [INFO] frame=237 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.022 t_total_ms=68.804
+2026-01-09 01:15:40,728 [INFO] grabbed=240 grab_ms=15.2 poses=239
+2026-01-09 01:15:40,792 [INFO] [bench] over 60 frames total=68.36ms fps=14.57 wall=4.12s capture=8.81ms (12.9%) detect=43.05ms (63.0%) fuse=0.44ms (0.6%) pnp=0.61ms (0.9%) ransac=15.32ms (22.4%) render=0.12ms (0.2%)
+2026-01-09 01:15:41,111 [INFO] frame=244 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=19.047deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.033
+2026-01-09 01:15:41,111 [INFO] frame=244 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.033 t_total_ms=60.683
+2026-01-09 01:15:41,383 [INFO] frame=248 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.435deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.004
+2026-01-09 01:15:41,383 [INFO] frame=248 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.004 t_total_ms=65.183
+2026-01-09 01:15:41,395 [INFO] grabbed=250 grab_ms=11.2 poses=249
+2026-01-09 01:15:41,815 [INFO] frame=253 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=19.045deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.074
+2026-01-09 01:15:41,815 [INFO] frame=253 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.074 t_total_ms=74.191
+2026-01-09 01:15:42,159 [INFO] grabbed=260 grab_ms=0.2 poses=259
+2026-01-09 01:15:42,510 [INFO] frame=264 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.492deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.040
+2026-01-09 01:15:42,511 [INFO] frame=264 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.040 t_total_ms=64.823
+2026-01-09 01:15:42,578 [INFO] frame=265 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.831deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.009
+2026-01-09 01:15:42,578 [INFO] frame=265 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.009 t_total_ms=67.025
+2026-01-09 01:15:42,778 [INFO] frame=268 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.480deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.016
+2026-01-09 01:15:42,778 [INFO] frame=268 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.016 t_total_ms=60.867
+2026-01-09 01:15:42,795 [INFO] grabbed=270 grab_ms=16.5 poses=269
+2026-01-09 01:15:43,242 [INFO] frame=275 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.450deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.023
+2026-01-09 01:15:43,243 [INFO] frame=275 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.023 t_total_ms=61.164
+2026-01-09 01:15:43,462 [INFO] grabbed=280 grab_ms=16.2 poses=279
+2026-01-09 01:15:43,579 [INFO] frame=280 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.837deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=37.999
+2026-01-09 01:15:43,579 [INFO] frame=280 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.999 t_total_ms=62.441
+2026-01-09 01:15:43,778 [INFO] frame=283 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.675deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=38.111
+2026-01-09 01:15:43,779 [INFO] frame=283 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.111 t_total_ms=65.852
+2026-01-09 01:15:44,128 [INFO] grabbed=290 grab_ms=13.7 poses=289
+2026-01-09 01:15:44,312 [INFO] frame=291 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=17.092deg thrT=n/a thrR=15.000deg ref_age=2 streak=1 reproj=37.998
+2026-01-09 01:15:44,313 [INFO] frame=291 reject=REJECT_SPIKE dets=6 inliers=6 reproj=37.998 t_total_ms=65.617
+2026-01-09 01:15:44,579 [INFO] frame=295 reject=REJECT_SPIKE used_ids=101,102,103,104,200,201,202 dT=n/a dR=18.312deg thrT=n/a thrR=15.000deg ref_age=1 streak=1 reproj=38.036
+2026-01-09 01:15:44,579 [INFO] frame=295 reject=REJECT_SPIKE dets=6 inliers=6 reproj=38.036 t_total_ms=64.313
+2026-01-09 01:15:44,795 [INFO] grabbed=300 grab_ms=16.0 poses=299
+2026-01-09 01:15:44,856 [INFO] [bench] over 60 frames total=67.45ms fps=14.76 wall=4.06s capture=10.52ms (15.6%) detect=41.04ms (60.8%) fuse=0.48ms (0.7%) pnp=0.54ms (0.8%) ransac=14.76ms (21.9%) render=0.12ms (0.2%)
+2026-01-09 01:15:44,857 [INFO] Reached frame limit (300); exiting.
+2026-01-09 01:15:45,033 [INFO] Processed 300 frames in 22.640 s (effective FPS: 13.25)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_on/poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_on/debug_metrics.csv
+[wall] elapsed=27.80 frames=300 avg_fps=10.79
+     302 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_on/poses.csv
+     302 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_on/debug_metrics.csv
+     604 total
+== basler_pose_B_spikeOFF (300 frames) ==
+2026-01-09 01:15:45,455 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 01:15:45,460 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 01:15:45,471 [INFO] Fusion mode: weighted
+2026-01-09 01:15:45,472 [INFO] Adaptive RANSAC: enabled
+2026-01-09 01:15:45,472 [INFO] EKF filtering: disabled
+2026-01-09 01:15:45,472 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 01:15:50,592 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_off/poses.csv
+2026-01-09 01:15:50,593 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_off/debug_metrics.csv
+2026-01-09 01:15:50,593 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 01:15:51,578 [INFO] grabbed=10 grab_ms=158.3 poses=9
+2026-01-09 01:15:52,203 [INFO] grabbed=20 grab_ms=14.7 poses=19
+2026-01-09 01:15:52,870 [INFO] grabbed=30 grab_ms=16.1 poses=29
+2026-01-09 01:15:53,537 [INFO] grabbed=40 grab_ms=12.7 poses=39
+2026-01-09 01:15:54,212 [INFO] grabbed=50 grab_ms=0.2 poses=49
+2026-01-09 01:15:54,870 [INFO] grabbed=60 grab_ms=11.5 poses=59
+2026-01-09 01:15:54,926 [INFO] [bench] over 60 frames total=71.91ms fps=6.35 wall=9.45s capture=12.04ms (16.7%) detect=43.98ms (61.2%) fuse=0.57ms (0.8%) pnp=0.63ms (0.9%) ransac=14.62ms (20.3%) render=0.08ms (0.1%)
+2026-01-09 01:15:55,602 [INFO] grabbed=70 grab_ms=0.3 poses=69
+2026-01-09 01:15:56,270 [INFO] grabbed=80 grab_ms=10.3 poses=79
+2026-01-09 01:15:56,945 [INFO] grabbed=90 grab_ms=0.2 poses=89
+2026-01-09 01:15:57,754 [INFO] grabbed=100 grab_ms=0.4 poses=99
+2026-01-09 01:15:58,473 [INFO] grabbed=110 grab_ms=0.5 poses=109
+2026-01-09 01:15:59,307 [INFO] grabbed=120 grab_ms=0.8 poses=119
+2026-01-09 01:15:59,434 [INFO] [bench] over 60 frames total=74.84ms fps=13.31 wall=4.51s capture=3.03ms (4.0%) detect=50.32ms (67.2%) fuse=0.97ms (1.3%) pnp=0.71ms (1.0%) ransac=19.72ms (26.3%) render=0.09ms (0.1%)
+2026-01-09 01:16:00,204 [INFO] grabbed=130 grab_ms=16.7 poses=129
+2026-01-09 01:16:00,871 [INFO] grabbed=140 grab_ms=16.2 poses=139
+2026-01-09 01:16:01,554 [INFO] grabbed=150 grab_ms=0.3 poses=149
+2026-01-09 01:16:02,372 [INFO] grabbed=160 grab_ms=0.3 poses=159
+2026-01-09 01:16:03,073 [INFO] grabbed=170 grab_ms=0.2 poses=169
+2026-01-09 01:16:03,693 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:16:03,712 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:16:04,625 [INFO] grabbed=180 grab_ms=0.4 poses=179
+2026-01-09 01:16:04,755 [INFO] [bench] over 60 frames total=88.32ms fps=11.28 wall=5.32s capture=9.91ms (11.2%) detect=57.18ms (64.7%) fuse=0.64ms (0.7%) pnp=0.77ms (0.9%) ransac=19.69ms (22.3%) render=0.13ms (0.1%)
+2026-01-09 01:16:05,452 [INFO] grabbed=190 grab_ms=0.3 poses=189
+2026-01-09 01:16:06,071 [INFO] grabbed=200 grab_ms=19.1 poses=199
+2026-01-09 01:16:06,919 [INFO] grabbed=210 grab_ms=0.7 poses=209
+2026-01-09 01:16:07,246 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:16:07,312 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:16:07,938 [INFO] grabbed=220 grab_ms=12.6 poses=219
+2026-01-09 01:16:08,605 [INFO] grabbed=230 grab_ms=9.0 poses=229
+2026-01-09 01:16:09,246 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:16:09,312 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:16:09,379 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 01:16:09,997 [INFO] grabbed=240 grab_ms=1.1 poses=239
+2026-01-09 01:16:10,101 [INFO] [bench] over 60 frames total=88.77ms fps=11.22 wall=5.35s capture=14.60ms (16.4%) detect=53.63ms (60.4%) fuse=0.56ms (0.6%) pnp=0.78ms (0.9%) ransac=19.11ms (21.5%) render=0.10ms (0.1%)
+2026-01-09 01:16:11,115 [INFO] grabbed=250 grab_ms=0.2 poses=249

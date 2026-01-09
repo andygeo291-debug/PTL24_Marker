@@ -11,6 +11,15 @@ import numpy as np
 import yaml
 
 
+def _disable_opencv_opencl() -> None:
+    # Avoid OpenCL crashes on some macOS OpenCV builds.
+    try:
+        if hasattr(cv2, "ocl"):
+            cv2.ocl.setUseOpenCL(False)
+    except Exception:
+        pass
+
+
 def _format_matrix(mat: np.ndarray) -> dict:
     return {
         "rows": int(mat.shape[0]),
@@ -76,6 +85,7 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+    _disable_opencv_opencl()
     images_dir = Path(args.images_dir)
     if not images_dir.exists():
         raise SystemExit(f"Images dir not found: {images_dir}")
