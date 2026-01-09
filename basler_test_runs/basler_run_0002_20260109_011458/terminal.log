@@ -337,3 +337,20 @@ Run dir: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20
 2026-01-09 01:16:09,997 [INFO] grabbed=240 grab_ms=1.1 poses=239
 2026-01-09 01:16:10,101 [INFO] [bench] over 60 frames total=88.77ms fps=11.22 wall=5.35s capture=14.60ms (16.4%) detect=53.63ms (60.4%) fuse=0.56ms (0.6%) pnp=0.78ms (0.9%) ransac=19.11ms (21.5%) render=0.10ms (0.1%)
 2026-01-09 01:16:11,115 [INFO] grabbed=250 grab_ms=0.2 poses=249
+2026-01-09 01:16:11,890 [INFO] grabbed=260 grab_ms=0.3 poses=259
+2026-01-09 01:16:13,220 [INFO] grabbed=270 grab_ms=0.4 poses=269
+2026-01-09 01:16:14,004 [INFO] grabbed=280 grab_ms=0.5 poses=279
+2026-01-09 01:16:14,916 [INFO] grabbed=290 grab_ms=0.3 poses=289
+2026-01-09 01:16:15,753 [INFO] grabbed=300 grab_ms=0.6 poses=299
+2026-01-09 01:16:15,890 [INFO] [bench] over 60 frames total=96.13ms fps=10.36 wall=5.79s capture=0.74ms (0.8%) detect=68.97ms (71.7%) fuse=0.65ms (0.7%) pnp=0.91ms (0.9%) ransac=24.75ms (25.7%) render=0.11ms (0.1%)
+2026-01-09 01:16:15,890 [INFO] Reached frame limit (300); exiting.
+2026-01-09 01:16:15,989 [INFO] Processed 300 frames in 25.397 s (effective FPS: 11.81)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_off/poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_off/debug_metrics.csv
+[wall] elapsed=30.54 frames=300 avg_fps=9.82
+     302 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_off/poses.csv
+     302 /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/spike_off/debug_metrics.csv
+     604 total
+Wrote /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/summary/MEETING_SUMMARY.md
+Wrote /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0002_20260109_011458/summary/meeting_table.csv

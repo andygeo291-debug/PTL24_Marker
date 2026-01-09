@@ -1534,14 +1534,34 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                             if spike_disable:
                                 spike_reject_streak = 0
                             else:
-                                tilt_jump = v1.wrap_deg180(
-                                    raw_tilt_cam_deg - last_good_pose["tilt_cam_deg"]
-                                )
-                                if tilt_jump > max_tilt_jump_deg:
-                                    status = "REJECT_SPIKE"
-                                    pose_record = last_good_pose
-                                    spike_rot_thresh_deg = max_tilt_jump_deg
-                                    spike_delta_rot_deg = float(tilt_jump)
+                                can_spike_check = True
+                                if last_accept_frame_idx is None:
+                                    can_spike_check = False
+                                elif spike_reset_after and (frame_idx - last_accept_frame_idx) < spike_reset_after:
+                                    can_spike_check = False
+
+                                if can_spike_check:
+                                    tilt_jump = v1.wrap_deg180(
+                                        raw_tilt_cam_deg - last_good_pose["tilt_cam_deg"]
+                                    )
+                                    trans_delta = float(
+                                        np.linalg.norm(
+                                            fused_cam_to_cyl[:3, 3]
+                                            - last_good_pose["T_cam_to_cyl"][:3, 3]
+                                        )
+                                    )
+                                    spike_delta_trans_m = trans_delta
+                                    if tilt_jump > max_tilt_jump_deg:
+                                        status = "REJECT_SPIKE"
+                                        pose_record = last_good_pose
+                                        spike_rot_thresh_deg = max_tilt_jump_deg
+                                        spike_delta_rot_deg = float(tilt_jump)
+                                    if (
+                                        spike_trans_thresh_m is not None
+                                        and trans_delta > spike_trans_thresh_m
+                                    ):
+                                        status = "REJECT_SPIKE"
+                                        pose_record = last_good_pose
                                     if last_accept_frame_idx is not None:
                                         spike_ref_age_frames = frame_idx - last_accept_frame_idx
                                         spike_ref_frame_idx = last_accept_frame_idx

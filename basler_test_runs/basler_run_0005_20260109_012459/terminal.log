@@ -1,0 +1,11 @@
+Run dir: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0005_20260109_012459
+== quick_checks_save_poses (30 frames) ==
+2026-01-09 01:24:59,542 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 01:24:59,549 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 01:24:59,566 [INFO] Fusion mode: weighted
+2026-01-09 01:24:59,567 [INFO] Adaptive RANSAC: enabled
+2026-01-09 01:24:59,568 [INFO] EKF filtering: disabled
+2026-01-09 01:24:59,568 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 01:24:59,782 [ERROR] Unable to open Basler camera: No devices found
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml

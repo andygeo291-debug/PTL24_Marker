@@ -59,9 +59,14 @@ run_tag="$(printf "basler_run_%04d_%s" "$next_num" "$(date +%Y%m%d_%H%M%S)")"
 RUN_DIR="$BASE_DIR/$run_tag"
 mkdir -p "$RUN_DIR"/{quick_checks,spike_on,spike_off,summary}
 
-exec > >(tee -a "$RUN_DIR/terminal.log") 2>&1
+LOG_FILE="$RUN_DIR/terminal.log"
+touch "$LOG_FILE"
 
-echo "Run dir: $RUN_DIR"
+log() {
+  echo "$@" | tee -a "$LOG_FILE"
+}
+
+log "Run dir: $RUN_DIR"
 
 CMD_LOG="$RUN_DIR/run_cmd.txt"
 touch "$CMD_LOG"
@@ -97,6 +102,9 @@ run_phaseb_save_poses() {
   shift 4
   local -a extra_args=("$@")
   mkdir -p "$(dirname "$poses_path")" "$(dirname "$debug_path")"
+  local fallback_debug="$ROOT/phase_b/debug_metrics.csv"
+  local start_epoch
+  start_epoch="$(date +%s)"
   local -a cmd=(
     python3 -m phase_b.v2.phase_b_tags_v2
     "${COMMON_ARGS[@]}"
@@ -107,15 +115,29 @@ run_phaseb_save_poses() {
   if [[ "${#extra_args[@]}" -gt 0 ]]; then
     cmd+=("${extra_args[@]}")
   fi
-  echo "== $name ($frames frames) =="
+  log "== $name ($frames frames) =="
   record_cmd "${cmd[@]}"
-  "${cmd[@]}"
+  "${cmd[@]}" 2>&1 | tee -a "$LOG_FILE"
   wc -l "$poses_path" "$debug_path"
   local pose_lines
   pose_lines="$(wc -l < "$poses_path")"
   if [[ "$pose_lines" -le 2 ]]; then
     echo "ERROR: $poses_path has no pose rows."
     exit 1
+  fi
+  local debug_lines
+  debug_lines="$(wc -l < "$debug_path")"
+  if [[ "$debug_lines" -le 2 ]]; then
+    echo "ERROR: $debug_path has no debug rows."
+    exit 1
+  fi
+  if [[ -f "$fallback_debug" ]]; then
+    local fallback_mtime
+    fallback_mtime="$(stat -f %m "$fallback_debug")"
+    if [[ "$fallback_mtime" -ge "$start_epoch" ]]; then
+      echo "ERROR: debug metrics wrote to $fallback_debug (unexpected)."
+      exit 1
+    fi
   fi
 }
 
@@ -127,6 +149,9 @@ run_phaseb_poses_out() {
   shift 4
   local -a extra_args=("$@")
   mkdir -p "$(dirname "$poses_path")" "$(dirname "$debug_path")"
+  local fallback_debug="$ROOT/phase_b/debug_metrics.csv"
+  local start_epoch
+  start_epoch="$(date +%s)"
   local -a cmd=(
     python3 -m phase_b.v2.phase_b_tags_v2
     "${COMMON_ARGS[@]}"
@@ -137,15 +162,29 @@ run_phaseb_poses_out() {
   if [[ "${#extra_args[@]}" -gt 0 ]]; then
     cmd+=("${extra_args[@]}")
   fi
-  echo "== $name ($frames frames) =="
+  log "== $name ($frames frames) =="
   record_cmd "${cmd[@]}"
-  "${cmd[@]}"
+  "${cmd[@]}" 2>&1 | tee -a "$LOG_FILE"
   wc -l "$poses_path" "$debug_path"
   local pose_lines
   pose_lines="$(wc -l < "$poses_path")"
   if [[ "$pose_lines" -le 2 ]]; then
     echo "ERROR: $poses_path has no pose rows."
     exit 1
+  fi
+  local debug_lines
+  debug_lines="$(wc -l < "$debug_path")"
+  if [[ "$debug_lines" -le 2 ]]; then
+    echo "ERROR: $debug_path has no debug rows."
+    exit 1
+  fi
+  if [[ -f "$fallback_debug" ]]; then
+    local fallback_mtime
+    fallback_mtime="$(stat -f %m "$fallback_debug")"
+    if [[ "$fallback_mtime" -ge "$start_epoch" ]]; then
+      echo "ERROR: debug metrics wrote to $fallback_debug (unexpected)."
+      exit 1
+    fi
   fi
 }
 
@@ -175,7 +214,7 @@ run_phaseb_save_poses \
   --spike-disable
 
 export RUN_DIR
-python3 - <<'PY'
+python3 - <<'PY' 2>&1 | tee -a "$LOG_FILE"
 import csv
 import json
 import os
@@ -268,6 +307,9 @@ for name, path in runs.items():
         lines.append("- reject_reason counts:")
         for key, val in reject_counts.items():
             lines.append(f"  - {key}: {val}")
+    ok_count = int(reject_counts.get("OK", 0)) + int(reject_counts.get("HOLD_PREV_POSE", 0))
+    reject_rate = 1.0 - (ok_count / debug_count if debug_count else 0.0)
+    lines.append(f"- reject_rate: {reject_rate:.3f}")
 
     tvec = poses_df[["tvec_cam_x", "tvec_cam_y", "tvec_cam_z"]].to_numpy(float)
     rvec = poses_df[["rvec_cam_x", "rvec_cam_y", "rvec_cam_z"]].to_numpy(float)
@@ -309,8 +351,44 @@ for name, path in runs.items():
             "mean_reproj_px_p90": stats["mean_reproj_px"]["p90"],
             "mean_reproj_px_max": stats["mean_reproj_px"]["max"],
             "reject_reason_counts": json.dumps(reject_counts, sort_keys=True),
+            "reject_rate": reject_rate,
         }
     )
+
+if all(key in runs for key in ("spike_on", "spike_off")):
+    on = next(row for row in table_rows if row["run"] == "spike_on")
+    off = next(row for row in table_rows if row["run"] == "spike_off")
+    lines.append("## Spike ON vs OFF")
+    lines.append(
+        f"- reject_rate: on={on['reject_rate']:.3f} off={off['reject_rate']:.3f}"
+    )
+    lines.append(
+        f"- t_total_ms_median: on={on['t_total_ms_median']:.3f} off={off['t_total_ms_median']:.3f}"
+    )
+    lines.append(
+        f"- t_detect_ms_median: on={on['t_detect_ms_median']:.3f} off={off['t_detect_ms_median']:.3f}"
+    )
+    lines.append(
+        f"- t_ransac_ms_median: on={on['t_ransac_ms_median']:.3f} off={off['t_ransac_ms_median']:.3f}"
+    )
+    lines.append("")
+
+lines.append("## Failure Modes and Fixes")
+lines.append(
+    "- REJECT_SPIKE triggers when tilt jump exceeds max_tilt_jump_deg or when translation delta "
+    "exceeds spike_trans_thresh_m (if set). It compares against the last accepted pose and skips "
+    "spike checks for the first spike_reset_after frames after acceptance."
+)
+lines.append(
+    "- Empty outputs usually come from camera lock (another app using the device), "
+    "frame grab timeouts, or writing debug metrics to the default path. "
+    "The runner now asserts outputs and checks for fallback debug writes."
+)
+lines.append(
+    "- Stability improvements: ensure >=3 tags in view, reduce motion blur (more light/shorter exposure), "
+    "verify calibration matches ROI, and consider relaxing spike thresholds slightly if the rig is stable."
+)
+lines.append("")
 
 summary_path = summary_dir / "MEETING_SUMMARY.md"
 summary_path.write_text("\n".join(lines) + "\n")
