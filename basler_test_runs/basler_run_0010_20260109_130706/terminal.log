@@ -1,0 +1,3 @@
+Run dir: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0010_20260109_130706
+Warning: readback failed: import_error: No module named 'common'
+Best stream config: packet=1500 ipd=3500 timeout=1000 fail_rate=1.000000

@@ -159,6 +159,9 @@ class BaslerGigECam:
             "Gain",
             "GevSCPSPacketSize",
             "GevSCPD",
+            "GevSCBW",
+            "DeviceLinkThroughputLimit",
+            "DeviceLinkThroughputLimitMode",
         ]
         readback = {}
         for key in readback_keys:

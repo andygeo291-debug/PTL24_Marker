@@ -1,0 +1,3 @@
+run,poses_rows,debug_rows,t_total_ms_median,t_total_ms_p90,t_total_ms_max,t_detect_ms_median,t_detect_ms_p90,t_detect_ms_max,t_ransac_ms_median,t_ransac_ms_p90,t_ransac_ms_max,mean_reproj_px_median,mean_reproj_px_p90,mean_reproj_px_max,reject_reason_counts,reject_rate
+spike_on,300,300,104.87100000000001,160.58100000000002,961.462,39.7565,69.07750000000001,886.339,12.221499999999999,21.525100000000016,95.978,38.661,38.7141,40.279,"{""OK"": 300}",0.0
+spike_off,300,300,114.5835,164.5498000000001,252.137,36.953500000000005,55.52210000000001,122.507,12.178,14.080500000000002,54.136,38.6515,38.7111,40.317,"{""OK"": 300}",0.0

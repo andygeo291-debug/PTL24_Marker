@@ -22,7 +22,7 @@ export OFFSET_Y="200"
 export INTERPACKET_DELAY="3500"
 export TIMEOUT_MS="1000"
 export RIG_PATH="phase_b/rigs/cyl_dotec.yaml"
-export CALIB_PATH="common/calib/basler_static_960x720_offx320_offy200_mono8_11mm.yaml"
+export CALIB_PATH="${CALIB_PATH:-common/calib/basler_static_960x720_offx320_offy200_mono8_11mm.yaml}"
 
 BASE_RAW="${RUN_BASE:-basler_test_runs}"
 if [[ "$BASE_RAW" = /* ]]; then
@@ -57,7 +57,7 @@ shopt -u nullglob
 
 run_tag="$(printf "basler_run_%04d_%s" "$next_num" "$(date +%Y%m%d_%H%M%S)")"
 RUN_DIR="$BASE_DIR/$run_tag"
-mkdir -p "$RUN_DIR"/{quick_checks,spike_on,spike_off,summary}
+mkdir -p "$RUN_DIR"/{quick_checks,spike_on,spike_off,summary,summary/plots}
 
 LOG_FILE="$RUN_DIR/terminal.log"
 touch "$LOG_FILE"
@@ -76,6 +76,32 @@ record_cmd() {
   printf '\n' >> "$CMD_LOG"
 }
 
+# --- stream diagnosis / autotune ---
+DIAG_JSON="$RUN_DIR/summary/basler_stream_best.json"
+DIAG_ENV="$RUN_DIR/summary/basler_stream_best.env"
+
+python3 tools/basler_stream_diagnose.py \
+  --serial "$BASLER_SERIAL" \
+  --name "$BASLER_NAME" \
+  --width "$WIDTH" --height "$HEIGHT" \
+  --offset-x "$OFFSET_X" --offset-y "$OFFSET_Y" \
+  --fps "$FPS" \
+  --pixel-format "$PIXEL_FORMAT" \
+  --exposure-us "$EXPOSURE_US" \
+  --gain "$GAIN" \
+  --frames 300 \
+  --fail-threshold 0.01 \
+  --packet-size-candidates "1500,1440,1400,1300,1200" \
+  --interpacket-delay-candidates "3500,8000,12000" \
+  --timeout-candidates "1000,2000" \
+  --out-json "$DIAG_JSON" \
+  --out-env "$DIAG_ENV" 2>&1 | tee -a "$LOG_FILE"
+
+set -a
+source "$DIAG_ENV"
+set +a
+IPD="${IPD:-$INTERPACKET_DELAY}"
+
 COMMON_ARGS=(
   --camera-backend basler
   --basler-serial "$BASLER_SERIAL"
@@ -85,7 +111,7 @@ COMMON_ARGS=(
   --basler-exposure-us "$EXPOSURE_US"
   --basler-gain "$GAIN"
   --basler-offset-x "$OFFSET_X" --basler-offset-y "$OFFSET_Y"
-  --basler-interpacket-delay "$INTERPACKET_DELAY"
+  --basler-interpacket-delay "$IPD"
   --basler-timeout-ms "$TIMEOUT_MS"
   --rig "$RIG_PATH"
   --camera "$CALIB_PATH"
@@ -93,6 +119,10 @@ COMMON_ARGS=(
   --quiet-apriltag-stderr
   --no-hud
 )
+
+if [[ -n "${BASLER_PACKET_SIZE:-}" ]]; then
+  COMMON_ARGS+=(--basler-packet-size "$BASLER_PACKET_SIZE")
+fi
 
 run_phaseb_save_poses() {
   local name="$1"
@@ -202,13 +232,13 @@ run_phaseb_poses_out \
 
 run_phaseb_save_poses \
   "basler_pose_A_spikeON" \
-  300 \
+  600 \
   "$RUN_DIR/spike_on/poses.csv" \
   "$RUN_DIR/spike_on/debug_metrics.csv"
 
 run_phaseb_save_poses \
   "basler_pose_B_spikeOFF" \
-  300 \
+  600 \
   "$RUN_DIR/spike_off/poses.csv" \
   "$RUN_DIR/spike_off/debug_metrics.csv" \
   --spike-disable
@@ -226,6 +256,8 @@ import numpy as np
 import pandas as pd
 
 run_dir = Path(os.environ["RUN_DIR"])
+KPI_MEDIAN_MS = 100.0
+KPI_P90_MS = 120.0
 
 def git_commit() -> str:
     try:
@@ -288,10 +320,18 @@ for name, path in runs.items():
     debug_df = pd.read_csv(debug_path, comment="#")
     poses_count = len(poses_df)
     debug_count = len(debug_df)
+    fps_eff = None
+    if "t" in debug_df.columns and debug_count > 1:
+        t0 = float(debug_df["t"].iloc[0])
+        t1 = float(debug_df["t"].iloc[-1])
+        if t1 > t0:
+            fps_eff = (debug_count - 1) / (t1 - t0)
 
     lines.append(f"## {name}")
     lines.append(f"- poses.csv rows: {poses_count}")
     lines.append(f"- debug_metrics.csv rows: {debug_count}")
+    if fps_eff is not None:
+        lines.append(f"- effective_fps: {fps_eff:.2f}")
 
     stats = {}
     for col in ["t_total_ms", "t_detect_ms", "t_ransac_ms", "mean_reproj_px"]:
@@ -310,6 +350,11 @@ for name, path in runs.items():
     ok_count = int(reject_counts.get("OK", 0)) + int(reject_counts.get("HOLD_PREV_POSE", 0))
     reject_rate = 1.0 - (ok_count / debug_count if debug_count else 0.0)
     lines.append(f"- reject_rate: {reject_rate:.3f}")
+    kpi_pass = stats["t_total_ms"]["median"] <= KPI_MEDIAN_MS and stats["t_total_ms"]["p90"] <= KPI_P90_MS
+    lines.append(
+        f"- KPI(100ms): {'PASS' if kpi_pass else 'FAIL'} "
+        f"(median={stats['t_total_ms']['median']:.1f} p90={stats['t_total_ms']['p90']:.1f})"
+    )
 
     tvec = poses_df[["tvec_cam_x", "tvec_cam_y", "tvec_cam_z"]].to_numpy(float)
     rvec = poses_df[["rvec_cam_x", "rvec_cam_y", "rvec_cam_z"]].to_numpy(float)
@@ -338,6 +383,7 @@ for name, path in runs.items():
             "run": name,
             "poses_rows": poses_count,
             "debug_rows": debug_count,
+            "effective_fps": fps_eff if fps_eff is not None else "",
             "t_total_ms_median": stats["t_total_ms"]["median"],
             "t_total_ms_p90": stats["t_total_ms"]["p90"],
             "t_total_ms_max": stats["t_total_ms"]["max"],
@@ -352,6 +398,7 @@ for name, path in runs.items():
             "mean_reproj_px_max": stats["mean_reproj_px"]["max"],
             "reject_reason_counts": json.dumps(reject_counts, sort_keys=True),
             "reject_rate": reject_rate,
+            "kpi_pass": kpi_pass,
         }
     )
 
@@ -390,6 +437,22 @@ lines.append(
 )
 lines.append("")
 
+diag_path = summary_dir / "basler_stream_best.json"
+if diag_path.exists():
+    diag = json.loads(diag_path.read_text())
+    best = diag.get("best", {})
+    lines.append("## Stream Diagnosis")
+    lines.append(
+        "- Best stream config: packet=%s ipd=%s timeout=%s fail_rate=%.4f"
+        % (
+            best.get("packet_size"),
+            best.get("interpacket_delay"),
+            best.get("timeout_ms"),
+            float(best.get("fail_rate", 1.0)),
+        )
+    )
+    lines.append("")
+
 summary_path = summary_dir / "MEETING_SUMMARY.md"
 summary_path.write_text("\n".join(lines) + "\n")
 
@@ -401,4 +464,82 @@ with table_path.open("w", newline="") as f:
 
 print(f"Wrote {summary_path}")
 print(f"Wrote {table_path}")
+snippet_lines = []
+snippet_lines.append("Basler Long-Run Summary")
+snippet_lines.append(f"- Run dir: {run_dir}")
+if diag_path.exists():
+    diag = json.loads(diag_path.read_text())
+    best = diag.get("best", {})
+    snippet_lines.append(
+        "- Stream best: packet=%s ipd=%s timeout=%s fail_rate=%.4f"
+        % (
+            best.get("packet_size"),
+            best.get("interpacket_delay"),
+            best.get("timeout_ms"),
+            float(best.get("fail_rate", 1.0)),
+        )
+    )
+if all(key in runs for key in ("spike_on", "spike_off")):
+    on = next(row for row in table_rows if row["run"] == "spike_on")
+    off = next(row for row in table_rows if row["run"] == "spike_off")
+    snippet_lines.append(
+        "- spike_on KPI: %s (median %.1f / p90 %.1f)"
+        % (
+            "PASS" if on["kpi_pass"] else "FAIL",
+            on["t_total_ms_median"],
+            on["t_total_ms_p90"],
+        )
+    )
+    snippet_lines.append(
+        "- spike_off KPI: %s (median %.1f / p90 %.1f)"
+        % (
+            "PASS" if off["kpi_pass"] else "FAIL",
+            off["t_total_ms_median"],
+            off["t_total_ms_p90"],
+        )
+    )
+    snippet_lines.append(
+        "- timing (median t_total_ms): on=%.1f ms, off=%.1f ms"
+        % (on["t_total_ms_median"], off["t_total_ms_median"])
+    )
+    snippet_lines.append(
+        "- stability (tvec std): on=%s, off=%s"
+        % ("see MEETING_SUMMARY.md", "see MEETING_SUMMARY.md")
+    )
+snippet_lines.append("- Summary/plots: summary/MEETING_SUMMARY.md + summary/plots/*.png")
+
+snippet_path = summary_dir / "SLIDE_SNIPPET.md"
+snippet_path.write_text("\n".join(snippet_lines) + "\n")
+print(f"Wrote {snippet_path}")
+plots_dir = summary_dir / "plots"
+plots_dir.mkdir(parents=True, exist_ok=True)
+try:
+    import matplotlib.pyplot as plt
+
+    for name, path in runs.items():
+        debug_df = pd.read_csv(path / "debug_metrics.csv", comment="#")
+        poses_df = load_pose_df(path / "poses.csv")
+
+        plt.figure(figsize=(10, 4))
+        plt.plot(debug_df["t_total_ms"].to_numpy(), linewidth=1.0)
+        plt.title(f"{name}: t_total_ms")
+        plt.xlabel("frame")
+        plt.ylabel("ms")
+        plt.tight_layout()
+        plt.savefig(plots_dir / f"{name}_t_total_ms.png", dpi=150)
+        plt.close()
+
+        plt.figure(figsize=(10, 4))
+        plt.plot(poses_df["tvec_cam_x"].to_numpy(), label="x")
+        plt.plot(poses_df["tvec_cam_y"].to_numpy(), label="y")
+        plt.plot(poses_df["tvec_cam_z"].to_numpy(), label="z")
+        plt.title(f"{name}: tvec_cam")
+        plt.xlabel("frame")
+        plt.ylabel("m")
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig(plots_dir / f"{name}_tvec_cam.png", dpi=150)
+        plt.close()
+except Exception:
+    print("Plotting skipped (matplotlib not available).")
 PY
