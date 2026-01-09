@@ -1,0 +1,29 @@
+{
+  "timestamp": 1767917440.927425,
+  "camera": {
+    "serial": "21601161",
+    "name": "StaticCam",
+    "width": 960,
+    "height": 720,
+    "fps": 15.0,
+    "pixel_format": "Mono8",
+    "exposure_us": 15000.0,
+    "gain": 0.0,
+    "offset_x": 320,
+    "offset_y": 200,
+    "interpacket_delay": 3500,
+    "timeout_ms": 1000
+  },
+  "lens": {
+    "zoom_mm": 11.0,
+    "notes": "Kowa 1/1.8 f1.6/4.4-11mm; zoom locked at 11mm; focus locked"
+  },
+  "board": {
+    "cols": 9,
+    "rows": 6,
+    "square_size_m": 0.025
+  },
+  "capture": {
+    "num_images": 60
+  }
+}

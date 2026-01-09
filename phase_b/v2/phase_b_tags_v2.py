@@ -780,6 +780,11 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     print(f"[run] Using calib: {calib_path}")
     print(f"[run] Using rig: {rig_path}")
 
+    if args.poses_out:
+        args.save_poses = args.poses_out
+    if args.debug_metrics_out:
+        args.debug_metrics = args.debug_metrics_out
+
     run_dir: Optional[Path] = None
     run_name = args.run_name or _dt.datetime.now().strftime("%Y%m%d_%H%M%S")
     if args.run_dir or args.save_run:
@@ -790,14 +795,10 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             run_dir = make_run_dir(Path.home() / "ptl_runs", run_name)
         run_dir = run_dir.resolve()
 
-        if args.poses_out:
-            args.save_poses = args.poses_out
-        elif "save_poses" not in cli_overrides:
+        if not args.save_poses and "save_poses" not in cli_overrides:
             args.save_poses = str(run_dir / "poses.csv")
 
-        if args.debug_metrics_out:
-            args.debug_metrics = args.debug_metrics_out
-        elif "debug_metrics" not in cli_overrides:
+        if not getattr(args, "debug_metrics", None) and "debug_metrics" not in cli_overrides:
             args.debug_metrics = str(run_dir / "debug_metrics.csv")
 
     hud_cfg = yaml_config.get("hud", {}) if isinstance(yaml_config.get("hud"), dict) else {}
