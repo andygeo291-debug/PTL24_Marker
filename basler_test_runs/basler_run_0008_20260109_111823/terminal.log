@@ -115,3 +115,51 @@ Run dir: /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0008_20
 2026-01-09 11:19:27,373 [INFO] grabbed=20 grab_ms=0.2 poses=19
 2026-01-09 11:19:28,443 [INFO] grabbed=30 grab_ms=0.3 poses=29
 2026-01-09 11:19:29,340 [INFO] grabbed=40 grab_ms=0.3 poses=39
+2026-01-09 11:19:30,550 [INFO] grabbed=50 grab_ms=0.6 poses=49
+2026-01-09 11:19:30,997 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:31,382 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:31,529 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:31,545 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:31,613 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:32,733 [INFO] grabbed=60 grab_ms=0.6 poses=59
+2026-01-09 11:19:32,863 [INFO] [bench] over 60 frames total=135.30ms fps=4.51 wall=13.29s capture=10.99ms (8.1%) detect=92.69ms (68.5%) fuse=0.77ms (0.6%) pnp=1.02ms (0.8%) ransac=29.72ms (22.0%) render=0.11ms (0.1%)
+2026-01-09 11:19:33,823 [INFO] grabbed=70 grab_ms=0.5 poses=69
+2026-01-09 11:19:35,115 [INFO] grabbed=80 grab_ms=0.3 poses=79
+2026-01-09 11:19:36,665 [INFO] grabbed=90 grab_ms=0.5 poses=89
+2026-01-09 11:19:36,879 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:37,714 [INFO] grabbed=100 grab_ms=0.2 poses=99
+2026-01-09 11:19:38,819 [INFO] grabbed=110 grab_ms=0.6 poses=109
+2026-01-09 11:19:39,146 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:39,901 [INFO] grabbed=120 grab_ms=0.8 poses=119
+2026-01-09 11:19:39,992 [INFO] [bench] over 60 frames total=118.41ms fps=8.42 wall=7.13s capture=4.62ms (3.9%) detect=84.42ms (71.3%) fuse=0.86ms (0.7%) pnp=0.98ms (0.8%) ransac=27.39ms (23.1%) render=0.14ms (0.1%)
+2026-01-09 11:19:40,777 [INFO] grabbed=130 grab_ms=0.3 poses=129
+2026-01-09 11:19:41,934 [INFO] grabbed=140 grab_ms=0.2 poses=139
+2026-01-09 11:19:42,773 [INFO] grabbed=150 grab_ms=0.3 poses=149
+2026-01-09 11:19:43,819 [INFO] grabbed=160 grab_ms=0.4 poses=159
+2026-01-09 11:19:45,128 [INFO] grabbed=170 grab_ms=0.3 poses=169
+2026-01-09 11:19:45,736 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:45,748 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:19:46,744 [INFO] grabbed=180 grab_ms=0.4 poses=179
+2026-01-09 11:19:46,921 [INFO] [bench] over 60 frames total=115.08ms fps=8.66 wall=6.93s capture=3.57ms (3.1%) detect=81.53ms (70.8%) fuse=0.80ms (0.7%) pnp=1.36ms (1.2%) ransac=27.71ms (24.1%) render=0.12ms (0.1%)
+2026-01-09 11:19:47,707 [INFO] grabbed=190 grab_ms=0.2 poses=189
+2026-01-09 11:19:48,844 [INFO] grabbed=200 grab_ms=0.3 poses=199
+2026-01-09 11:19:49,914 [INFO] grabbed=210 grab_ms=0.4 poses=209
+2026-01-09 11:19:51,079 [INFO] grabbed=220 grab_ms=0.3 poses=219
+2026-01-09 11:19:52,135 [INFO] grabbed=230 grab_ms=0.2 poses=229
+2026-01-09 11:19:53,003 [INFO] grabbed=240 grab_ms=0.3 poses=239
+2026-01-09 11:19:53,113 [INFO] [bench] over 60 frames total=102.67ms fps=9.69 wall=6.19s capture=4.05ms (3.9%) detect=74.73ms (72.8%) fuse=0.74ms (0.7%) pnp=0.91ms (0.9%) ransac=22.05ms (21.5%) render=0.18ms (0.2%)
+2026-01-09 11:19:53,867 [INFO] grabbed=250 grab_ms=0.3 poses=249
+2026-01-09 11:19:54,676 [INFO] grabbed=260 grab_ms=0.3 poses=259
+2026-01-09 11:19:55,564 [INFO] grabbed=270 grab_ms=0.7 poses=269
+2026-01-09 11:19:56,440 [INFO] grabbed=280 grab_ms=0.5 poses=279
+2026-01-09 11:19:57,281 [INFO] grabbed=290 grab_ms=0.3 poses=289
+2026-01-09 11:19:58,230 [INFO] grabbed=300 grab_ms=0.7 poses=299
+2026-01-09 11:19:58,320 [INFO] [bench] over 60 frames total=86.48ms fps=11.52 wall=5.21s capture=0.34ms (0.4%) detect=64.16ms (74.2%) fuse=0.69ms (0.8%) pnp=0.78ms (0.9%) ransac=20.41ms (23.6%) render=0.11ms (0.1%)
+2026-01-09 11:19:58,320 [INFO] Reached frame limit (300); exiting.
+2026-01-09 11:19:58,429 [INFO] Processed 300 frames in 33.725 s (effective FPS: 8.90)
+[run] Using calib: /Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8_11mm.yaml
+[run] Using rig: /Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0008_20260109_111823/spike_off/poses.csv debug=/Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0008_20260109_111823/spike_off/debug_metrics.csv
+[wall] elapsed=38.89 frames=300 avg_fps=7.71
+Wrote /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0008_20260109_111823/summary/MEETING_SUMMARY.md
+Wrote /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/basler_run_0008_20260109_111823/summary/meeting_table.csv

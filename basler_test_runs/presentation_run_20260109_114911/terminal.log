@@ -1,0 +1,628 @@
+2026-01-09 11:49:26,556 [INFO] Resolved paths: calib=/Users/Andreas/Desktop/ptl24_marker/common/calib/basler_static_960x720_offx320_offy200_mono8_11mm.yaml extrinsics=(none) rig=/Users/Andreas/Desktop/ptl24_marker/phase_b/rigs/cyl_dotec.yaml config=/Users/Andreas/Desktop/ptl24_marker/phase_b/config.yaml
+2026-01-09 11:49:26,561 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-09 11:49:26,577 [INFO] Fusion mode: weighted
+2026-01-09 11:49:26,577 [INFO] Adaptive RANSAC: enabled
+2026-01-09 11:49:26,577 [INFO] EKF filtering: disabled
+2026-01-09 11:49:26,577 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-09 11:49:31,770 [INFO] Appending poses to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/presentation_run_20260109_114911/poses.csv
+2026-01-09 11:49:31,771 [INFO] Writing debug metrics to /Users/Andreas/Desktop/ptl24_marker/basler_test_runs/presentation_run_20260109_114911/debug_metrics.csv
+2026-01-09 11:49:31,771 [INFO] Expecting tag sizes (m): 0.050
+2026-01-09 11:49:31,813 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:31,880 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:31,946 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:32,013 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:32,736 [INFO] grabbed=10 grab_ms=0.3 poses=9
+2026-01-09 11:49:33,477 [INFO] grabbed=20 grab_ms=0.3 poses=19
+2026-01-09 11:49:34,106 [INFO] grabbed=30 grab_ms=8.2 poses=29
+2026-01-09 11:49:35,213 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:35,337 [INFO] grabbed=40 grab_ms=0.3 poses=39
+2026-01-09 11:49:35,972 [INFO] grabbed=50 grab_ms=19.0 poses=49
+2026-01-09 11:49:36,720 [INFO] grabbed=60 grab_ms=0.4 poses=59
+2026-01-09 11:49:36,848 [INFO] [bench] over 60 frames total=84.14ms fps=5.84 wall=10.27s capture=13.42ms (16.0%) detect=49.20ms (58.5%) fuse=0.65ms (0.8%) pnp=0.75ms (0.9%) ransac=20.03ms (23.8%) render=0.09ms (0.1%)
+2026-01-09 11:49:37,281 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:38,280 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:38,347 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:38,469 [INFO] grabbed=70 grab_ms=0.4 poses=69
+2026-01-09 11:49:39,081 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:39,147 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:39,214 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:39,681 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:39,747 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:39,814 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:40,347 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:40,414 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:40,537 [INFO] grabbed=80 grab_ms=0.2 poses=79
+2026-01-09 11:49:41,081 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:41,147 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:41,815 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:41,881 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:42,075 [INFO] grabbed=90 grab_ms=0.7 poses=89
+2026-01-09 11:49:43,348 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:43,414 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:43,481 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:43,603 [INFO] grabbed=100 grab_ms=0.3 poses=99
+2026-01-09 11:49:44,240 [INFO] grabbed=110 grab_ms=17.9 poses=109
+2026-01-09 11:49:44,907 [INFO] grabbed=120 grab_ms=18.4 poses=119
+2026-01-09 11:49:44,959 [INFO] [bench] over 60 frames total=134.77ms fps=7.40 wall=8.11s capture=48.96ms (36.3%) detect=58.16ms (43.2%) fuse=0.91ms (0.7%) pnp=0.81ms (0.6%) ransac=25.80ms (19.1%) render=0.12ms (0.1%)
+2026-01-09 11:49:45,863 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:45,882 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:46,479 [INFO] grabbed=130 grab_ms=0.3 poses=129
+2026-01-09 11:49:47,325 [INFO] grabbed=140 grab_ms=0.2 poses=139
+2026-01-09 11:49:48,028 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:48,716 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:48,749 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:48,815 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:49,597 [INFO] grabbed=150 grab_ms=0.5 poses=149
+2026-01-09 11:49:50,734 [INFO] grabbed=160 grab_ms=0.5 poses=159
+2026-01-09 11:49:52,083 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:52,148 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:52,215 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:52,282 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:52,436 [INFO] grabbed=170 grab_ms=0.3 poses=169
+2026-01-09 11:49:56,380 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:56,787 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:57,689 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:57,750 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:57,817 [INFO] grabbed=180 grab_ms=66.5 poses=179
+2026-01-09 11:49:58,049 [INFO] [bench] over 60 frames total=216.49ms fps=4.58 wall=13.09s capture=20.23ms (9.3%) detect=146.30ms (67.6%) fuse=2.40ms (1.1%) pnp=2.75ms (1.3%) ransac=44.53ms (20.6%) render=0.28ms (0.1%)
+2026-01-09 11:49:58,049 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:58,218 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:58,283 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:59,414 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:49:59,417 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:00,584 [INFO] grabbed=190 grab_ms=0.4 poses=189
+2026-01-09 11:50:01,702 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:01,750 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:02,816 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:02,883 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:02,950 [INFO] grabbed=200 grab_ms=66.5 poses=199
+2026-01-09 11:50:03,683 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:03,750 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:04,483 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:04,743 [INFO] grabbed=210 grab_ms=0.5 poses=209
+2026-01-09 11:50:05,183 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:05,218 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:05,286 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:05,350 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:05,427 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:06,003 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:06,022 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:06,421 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:06,485 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:06,550 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:06,616 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:06,683 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:07,218 [INFO] grabbed=220 grab_ms=0.2 poses=219
+2026-01-09 11:50:07,751 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:07,817 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:07,883 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:07,950 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:08,683 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:08,749 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:08,817 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:08,883 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:09,109 [INFO] grabbed=230 grab_ms=0.3 poses=229
+2026-01-09 11:50:09,817 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:09,883 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:10,586 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:10,618 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:11,065 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:11,083 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:11,150 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:11,217 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:11,289 [INFO] grabbed=240 grab_ms=72.0 poses=239
+2026-01-09 11:50:11,390 [INFO] [bench] over 60 frames total=221.04ms fps=4.50 wall=13.34s capture=60.31ms (27.3%) detect=118.25ms (53.5%) fuse=1.53ms (0.7%) pnp=1.82ms (0.8%) ransac=38.99ms (17.6%) render=0.15ms (0.1%)
+2026-01-09 11:50:11,911 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:11,951 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:12,021 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:12,087 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:12,288 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:12,353 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:12,568 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:12,617 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:12,683 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:13,533 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:13,558 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:13,713 [INFO] grabbed=250 grab_ms=0.4 poses=249
+2026-01-09 11:50:15,381 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:15,417 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:15,484 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:15,707 [INFO] grabbed=260 grab_ms=0.6 poses=259
+2026-01-09 11:50:16,086 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:16,151 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:16,218 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:16,284 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:17,284 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:17,351 [INFO] grabbed=270 grab_ms=67.4 poses=269
+2026-01-09 11:50:18,284 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:18,783 [INFO] grabbed=280 grab_ms=0.3 poses=279
+2026-01-09 11:50:19,380 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:19,419 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:19,510 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:19,557 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:19,622 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:19,689 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:19,779 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:19,927 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:19,951 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:20,019 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:20,084 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:20,153 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:20,418 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:20,485 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:21,937 [INFO] grabbed=290 grab_ms=0.3 poses=289
+2026-01-09 11:50:23,821 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:23,886 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:23,965 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:24,058 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:24,726 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:24,751 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:24,819 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:24,890 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:25,988 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:26,018 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:26,086 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:26,152 [INFO] grabbed=300 grab_ms=66.4 poses=299
+2026-01-09 11:50:26,323 [INFO] [bench] over 60 frames total=245.65ms fps=4.02 wall=14.93s capture=68.96ms (28.1%) detect=122.24ms (49.8%) fuse=1.08ms (0.4%) pnp=5.29ms (2.2%) ransac=47.90ms (19.5%) render=0.16ms (0.1%)
+2026-01-09 11:50:28,094 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:28,153 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:28,219 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:28,286 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:28,389 [INFO] grabbed=310 grab_ms=103.5 poses=309
+2026-01-09 11:50:28,787 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:28,822 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:28,914 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:28,953 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,020 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,087 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,154 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,222 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,292 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,353 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,419 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,486 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,553 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:29,753 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:31,709 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:31,754 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:31,983 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:32,279 [INFO] grabbed=320 grab_ms=0.5 poses=319
+2026-01-09 11:50:32,446 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:33,956 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:34,020 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:34,086 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:34,153 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:34,856 [INFO] grabbed=330 grab_ms=0.3 poses=329
+2026-01-09 11:50:35,688 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:35,946 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:36,258 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:36,287 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:36,353 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:36,626 [INFO] grabbed=340 grab_ms=2.4 poses=339
+2026-01-09 11:50:37,286 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:37,353 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:37,420 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:38,287 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:38,452 [INFO] grabbed=350 grab_ms=0.3 poses=349
+2026-01-09 11:50:39,800 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:39,821 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:39,887 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:39,953 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:40,020 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:40,254 [INFO] grabbed=360 grab_ms=0.3 poses=359
+2026-01-09 11:50:40,351 [INFO] [bench] over 60 frames total=232.90ms fps=4.28 wall=14.03s capture=50.71ms (21.8%) detect=133.77ms (57.4%) fuse=1.29ms (0.6%) pnp=1.16ms (0.5%) ransac=45.82ms (19.7%) render=0.15ms (0.1%)
+2026-01-09 11:50:41,273 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:41,288 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:42,126 [INFO] grabbed=370 grab_ms=0.3 poses=369
+2026-01-09 11:50:43,783 [INFO] grabbed=380 grab_ms=0.7 poses=379
+2026-01-09 11:50:44,772 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:44,822 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:44,887 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:44,954 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:45,021 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:45,596 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:45,621 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:45,956 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:46,022 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:46,088 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:46,155 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:46,221 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:46,835 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:46,888 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:46,953 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:47,021 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:47,087 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:47,154 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:47,679 [INFO] grabbed=390 grab_ms=0.3 poses=389
+2026-01-09 11:50:48,488 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:48,554 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,157 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,225 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,290 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,355 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,424 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,490 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,556 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,621 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,688 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:49,757 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:50,273 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:50,288 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:50,354 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:51,304 [INFO] grabbed=400 grab_ms=4.4 poses=399
+2026-01-09 11:50:51,631 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:53,293 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:53,354 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:53,535 [INFO] grabbed=410 grab_ms=0.4 poses=409
+2026-01-09 11:50:54,120 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:54,800 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:54,822 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:55,411 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:55,422 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:55,488 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:55,789 [INFO] grabbed=420 grab_ms=0.3 poses=419
+2026-01-09 11:50:55,870 [INFO] [bench] over 60 frames total=256.09ms fps=3.87 wall=15.52s capture=54.20ms (21.2%) detect=162.86ms (63.6%) fuse=0.95ms (0.4%) pnp=1.55ms (0.6%) ransac=36.38ms (14.2%) render=0.15ms (0.1%)
+2026-01-09 11:50:56,489 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:50:57,317 [INFO] grabbed=430 grab_ms=0.3 poses=429
+2026-01-09 11:50:58,352 [INFO] grabbed=440 grab_ms=0.3 poses=439
+2026-01-09 11:50:59,212 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:00,280 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:00,288 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:00,356 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:00,422 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:00,571 [INFO] grabbed=450 grab_ms=0.8 poses=449
+2026-01-09 11:51:01,129 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:01,155 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:02,156 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:02,223 [INFO] grabbed=460 grab_ms=66.7 poses=459
+2026-01-09 11:51:02,889 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:02,996 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:04,116 [INFO] grabbed=470 grab_ms=1.5 poses=469
+2026-01-09 11:51:04,548 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:04,557 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:04,624 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:04,691 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:05,371 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:06,090 [INFO] grabbed=480 grab_ms=0.4 poses=479
+2026-01-09 11:51:06,183 [INFO] [bench] over 60 frames total=170.97ms fps=5.82 wall=10.31s capture=24.26ms (14.2%) detect=107.62ms (62.9%) fuse=1.49ms (0.9%) pnp=0.93ms (0.5%) ransac=36.53ms (21.4%) render=0.14ms (0.1%)
+2026-01-09 11:51:06,896 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:06,957 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:07,022 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:07,089 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:07,960 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:08,038 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:08,290 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:08,355 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:08,423 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:08,635 [INFO] grabbed=490 grab_ms=0.9 poses=489
+2026-01-09 11:51:08,914 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:09,090 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:10,295 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:10,357 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:10,423 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:10,489 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:10,556 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:11,051 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:11,089 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:11,156 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:11,245 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:11,291 [INFO] grabbed=500 grab_ms=44.5 poses=499
+2026-01-09 11:51:11,851 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:11,959 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:11,961 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:14,062 [INFO] grabbed=510 grab_ms=0.4 poses=509
+2026-01-09 11:51:15,824 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:15,890 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:16,491 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:16,557 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:16,723 [INFO] grabbed=520 grab_ms=0.3 poses=519
+2026-01-09 11:51:17,949 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:17,959 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:18,024 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:18,091 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:18,157 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:18,952 [INFO] grabbed=530 grab_ms=0.3 poses=529
+2026-01-09 11:51:20,508 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:20,559 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:20,625 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:20,691 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:20,757 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:21,242 [INFO] grabbed=540 grab_ms=1.0 poses=539
+2026-01-09 11:51:21,395 [INFO] [bench] over 60 frames total=249.81ms fps=3.94 wall=15.21s capture=49.31ms (19.7%) detect=146.81ms (58.8%) fuse=1.28ms (0.5%) pnp=1.81ms (0.7%) ransac=50.42ms (20.2%) render=0.18ms (0.1%)
+2026-01-09 11:51:22,495 [INFO] grabbed=550 grab_ms=0.3 poses=549
+2026-01-09 11:51:23,491 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:23,558 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:23,624 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:24,455 [INFO] grabbed=560 grab_ms=0.4 poses=559
+2026-01-09 11:51:25,091 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:25,157 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:25,838 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:25,891 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:25,958 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:26,024 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:26,960 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:27,025 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:27,226 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:27,227 [INFO] grabbed=570 grab_ms=0.4 poses=569
+2026-01-09 11:51:29,260 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:29,297 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:29,365 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:29,430 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:29,492 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:29,560 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:29,626 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:29,693 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:29,761 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:30,489 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:30,730 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:30,893 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:31,627 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:31,692 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:31,758 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:31,927 [INFO] grabbed=580 grab_ms=0.3 poses=579
+2026-01-09 11:51:33,208 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:33,225 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:33,291 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:34,143 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:34,159 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:34,224 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:34,291 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:34,359 [INFO] grabbed=590 grab_ms=67.4 poses=589
+2026-01-09 11:51:35,228 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:35,294 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:35,360 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:35,532 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:35,761 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:36,011 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:36,028 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:36,093 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:36,159 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:36,225 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:36,364 [INFO] grabbed=600 grab_ms=0.2 poses=599
+2026-01-09 11:51:36,520 [INFO] [bench] over 60 frames total=250.67ms fps=3.97 wall=15.12s capture=50.09ms (20.0%) detect=147.15ms (58.7%) fuse=2.30ms (0.9%) pnp=2.99ms (1.2%) ransac=47.76ms (19.1%) render=0.39ms (0.2%)
+2026-01-09 11:51:36,776 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:36,959 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:37,675 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:37,693 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:37,759 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:37,826 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:38,677 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:38,826 [INFO] grabbed=610 grab_ms=36.0 poses=609
+2026-01-09 11:51:39,311 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:39,361 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:39,428 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:39,493 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:39,560 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:39,625 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:41,276 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:41,297 [INFO] grabbed=620 grab_ms=20.6 poses=619
+2026-01-09 11:51:41,426 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:41,493 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,217 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,228 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,296 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,368 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,431 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,494 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,563 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,628 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,693 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,760 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:42,829 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:43,293 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:43,360 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:43,427 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:43,772 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:44,331 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:44,360 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:44,765 [INFO] grabbed=630 grab_ms=0.4 poses=629
+2026-01-09 11:51:45,806 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:45,828 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:45,893 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:45,960 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:46,027 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:46,664 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:46,960 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:47,545 [INFO] grabbed=640 grab_ms=0.4 poses=639
+2026-01-09 11:51:47,760 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:48,756 [INFO] grabbed=650 grab_ms=0.4 poses=649
+2026-01-09 11:51:51,461 [INFO] grabbed=660 grab_ms=19.6 poses=659
+2026-01-09 11:51:51,818 [INFO] [bench] over 60 frames total=253.77ms fps=3.92 wall=15.30s capture=51.37ms (20.2%) detect=141.60ms (55.8%) fuse=3.71ms (1.5%) pnp=2.09ms (0.8%) ransac=54.82ms (21.6%) render=0.18ms (0.1%)
+2026-01-09 11:51:51,819 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:51,828 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:51,893 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:51,961 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:52,026 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:52,827 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:52,894 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:52,960 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:54,312 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:54,562 [INFO] grabbed=670 grab_ms=2.0 poses=669
+2026-01-09 11:51:54,867 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:54,896 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:54,964 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:55,062 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:55,096 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:55,187 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:55,228 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:57,072 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:57,094 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:57,406 [INFO] grabbed=680 grab_ms=0.4 poses=679
+2026-01-09 11:51:58,534 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:58,561 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:59,432 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:59,495 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:51:59,562 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:00,141 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:00,161 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:00,348 [INFO] grabbed=690 grab_ms=0.3 poses=689
+2026-01-09 11:52:00,923 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:01,349 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:01,574 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:01,629 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:01,695 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:01,761 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:02,362 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:02,428 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:03,095 [INFO] grabbed=700 grab_ms=79.6 poses=699
+2026-01-09 11:52:04,699 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:04,885 [INFO] grabbed=710 grab_ms=0.4 poses=709
+2026-01-09 11:52:06,374 [INFO] grabbed=720 grab_ms=0.8 poses=719
+2026-01-09 11:52:06,539 [INFO] [bench] over 60 frames total=244.07ms fps=4.08 wall=14.72s capture=45.50ms (18.6%) detect=151.68ms (62.1%) fuse=1.63ms (0.7%) pnp=3.85ms (1.6%) ransac=41.18ms (16.9%) render=0.24ms (0.1%)
+2026-01-09 11:52:07,728 [INFO] grabbed=730 grab_ms=0.3 poses=729
+2026-01-09 11:52:08,629 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:09,543 [INFO] grabbed=740 grab_ms=0.2 poses=739
+2026-01-09 11:52:10,696 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:10,698 [INFO] grabbed=750 grab_ms=1.3 poses=749
+2026-01-09 11:52:12,496 [INFO] grabbed=760 grab_ms=202.9 poses=759
+2026-01-09 11:52:13,897 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:13,963 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:14,029 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:14,542 [INFO] grabbed=770 grab_ms=0.7 poses=769
+2026-01-09 11:52:15,417 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:15,430 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:15,497 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:15,564 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:15,915 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:15,965 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:16,030 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:16,096 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:16,163 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:16,664 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:16,830 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:17,397 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:17,430 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:17,497 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:17,563 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:17,630 [INFO] grabbed=780 grab_ms=66.7 poses=779
+2026-01-09 11:52:17,736 [INFO] [bench] over 60 frames total=186.08ms fps=5.36 wall=11.20s capture=33.32ms (17.9%) detect=115.14ms (61.9%) fuse=0.99ms (0.5%) pnp=1.48ms (0.8%) ransac=34.98ms (18.8%) render=0.17ms (0.1%)
+2026-01-09 11:52:18,068 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:18,098 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:18,297 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:19,230 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:19,325 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:19,942 [INFO] grabbed=790 grab_ms=0.8 poses=789
+2026-01-09 11:52:20,225 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:20,231 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:20,303 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:20,425 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:20,431 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:20,497 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:20,963 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:21,030 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:22,354 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:22,364 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:22,430 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:22,571 [INFO] grabbed=800 grab_ms=0.3 poses=799
+2026-01-09 11:52:23,779 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:23,833 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:23,900 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:23,965 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:24,031 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:24,097 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:24,164 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:24,488 [INFO] grabbed=810 grab_ms=0.5 poses=809
+2026-01-09 11:52:25,630 [INFO] grabbed=820 grab_ms=0.3 poses=819
+2026-01-09 11:52:26,092 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:26,285 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:26,300 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:26,498 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:26,564 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:26,630 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:27,433 [INFO] grabbed=830 grab_ms=3.5 poses=829
+2026-01-09 11:52:27,644 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:27,700 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:27,766 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:27,831 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:27,897 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:27,964 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:29,542 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:29,565 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:29,633 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:29,700 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:29,766 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:29,834 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:29,900 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:29,965 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:30,031 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:30,098 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:30,324 [INFO] grabbed=840 grab_ms=0.7 poses=839
+2026-01-09 11:52:30,465 [INFO] [bench] over 60 frames total=211.12ms fps=4.71 wall=12.73s capture=51.83ms (24.6%) detect=114.73ms (54.3%) fuse=1.16ms (0.5%) pnp=1.33ms (0.6%) ransac=41.89ms (19.8%) render=0.18ms (0.1%)
+2026-01-09 11:52:30,465 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:30,498 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:30,565 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:30,631 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:30,698 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:31,365 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:31,431 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:31,498 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:31,564 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:32,070 [INFO] grabbed=850 grab_ms=0.2 poses=849
+2026-01-09 11:52:32,432 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:32,631 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:33,228 [INFO] grabbed=860 grab_ms=0.2 poses=859
+2026-01-09 11:52:33,565 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:33,632 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:34,232 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:34,298 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:34,365 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:34,832 [INFO] grabbed=870 grab_ms=0.4 poses=869
+2026-01-09 11:52:35,700 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:35,765 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:35,831 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:35,898 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:36,324 [INFO] grabbed=880 grab_ms=4.6 poses=879
+2026-01-09 11:52:36,832 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:36,898 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:36,965 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:37,031 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:37,567 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:37,765 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:37,832 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:38,499 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:38,565 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:38,632 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:38,699 [INFO] grabbed=890 grab_ms=66.8 poses=889
+2026-01-09 11:52:39,632 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:39,698 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:40,074 [INFO] grabbed=900 grab_ms=0.4 poses=899
+2026-01-09 11:52:40,206 [INFO] [bench] over 60 frames total=161.90ms fps=6.16 wall=9.74s capture=58.08ms (35.9%) detect=76.20ms (47.1%) fuse=1.80ms (1.1%) pnp=1.30ms (0.8%) ransac=24.40ms (15.1%) render=0.12ms (0.1%)
+2026-01-09 11:52:40,651 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:40,701 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:40,766 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:41,678 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:41,699 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:41,766 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:41,832 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:42,825 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:42,834 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:42,899 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:42,966 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:43,032 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:43,099 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:43,166 [INFO] grabbed=910 grab_ms=66.7 poses=909
+2026-01-09 11:52:43,834 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:43,899 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:43,966 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:44,032 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:45,148 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:45,168 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:45,233 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:45,300 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:45,466 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:45,515 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:47,176 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:47,234 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:47,301 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:47,368 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:47,992 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:48,033 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:48,101 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:48,168 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:48,495 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:48,500 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:48,567 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:48,633 [INFO] grabbed=920 grab_ms=66.7 poses=919
+2026-01-09 11:52:49,567 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:49,633 [WARNING] Frame grab failed; skipping frame.
+2026-01-09 11:52:50,379 [INFO] grabbed=930 grab_ms=0.6 poses=929
