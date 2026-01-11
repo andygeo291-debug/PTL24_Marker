@@ -1,0 +1,3 @@
+Run dir: /d/Electryone/PTL24_Marker/basler_test_runs/basler_run_0015_20260109_184938
+Warning: readback failed: No module named 'pypylon'
+Best stream config: packet=1500 ipd=3500 timeout=1000 fail_rate=1.000000

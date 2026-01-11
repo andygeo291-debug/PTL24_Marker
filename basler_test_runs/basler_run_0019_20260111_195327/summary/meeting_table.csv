@@ -1,0 +1,5 @@
+run,poses_rows,debug_rows,effective_fps,t_total_ms_median,t_total_ms_p90,t_total_ms_max,t_detect_ms_median,t_detect_ms_p90,t_detect_ms_max,t_ransac_ms_median,t_ransac_ms_p90,t_ransac_ms_max,mean_reproj_px_median,mean_reproj_px_p90,mean_reproj_px_max,reject_reason_counts,reject_rate,kpi_pass,frame_grab_failed_count,frame_grab_failed_rate
+spike_on,300,300,10.023783914019395,99.652,105.8395,129.104,45.2805,53.6124,73.788,20.9535,23.64,48.092,42.128,42.17,42.247,"{""OK"": 300}",0.0,False,0,0.0
+spike_off,300,300,10.032753095943189,99.43700000000001,106.3323,156.632,45.022999999999996,52.3025,90.542,21.145,23.393,63.913,42.1205,42.159,42.543,"{""OK"": 300}",0.0,False,0,0.0
+spike_on_tuned,300,300,10.030146146333292,99.723,105.7111,141.709,46.813500000000005,56.0058,77.899,15.43,18.3014,35.039,42.1215,42.163,42.234,"{""OK"": 300}",0.0,False,0,0.0
+spike_off_tuned,300,300,10.025588665635054,99.662,106.8096,135.4,47.095,58.5279,79.97,15.245,18.6324,27.584,42.125,42.166,42.218,"{""OK"": 300}",0.0,False,0,0.0

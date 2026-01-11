@@ -1,5 +1,6 @@
 """Minimal Basler GigE wrapper with lazy pypylon import and Mono8 output."""
 
+import sys
 import time
 
 import numpy as np
@@ -20,6 +21,7 @@ class BaslerGigECam:
         gain=None,
         packet_size=None,
         interpacket_delay=None,
+        stream_buffer_count=None,
         timeout_ms=1000,
     ):
         self.serial = serial
@@ -34,6 +36,7 @@ class BaslerGigECam:
         self.gain = gain
         self.packet_size = packet_size
         self.interpacket_delay = interpacket_delay
+        self.stream_buffer_count = stream_buffer_count
         self.timeout_ms = timeout_ms
 
         self.last_timestamp_s = None
@@ -78,6 +81,9 @@ class BaslerGigECam:
             ):
                 return False
         return True
+
+    def _warn(self, message: str) -> None:
+        print(f"[basler_cam] {message}", file=sys.stderr)
 
     def _get_node(self, node_map, name):
         try:
@@ -136,9 +142,16 @@ class BaslerGigECam:
         self._set_value(node_map, "OffsetX", self.offset_x, int)
         self._set_value(node_map, "OffsetY", self.offset_y, int)
 
+        self._set_enum(node_map, "TriggerMode", "Off")
+
         if self.fps is not None:
-            self._set_value(node_map, "AcquisitionFrameRateEnable", True, bool)
-            self._set_value(node_map, "AcquisitionFrameRate", self.fps, float)
+            if not self._set_value(node_map, "AcquisitionFrameRateEnable", True, bool):
+                self._warn("AcquisitionFrameRateEnable not available; continuing without it.")
+            fps_set = self._set_value(node_map, "AcquisitionFrameRate", self.fps, float)
+            if not fps_set:
+                fps_set = self._set_value(node_map, "AcquisitionFrameRateAbs", self.fps, float)
+            if not fps_set:
+                self._warn("AcquisitionFrameRate/AcquisitionFrameRateAbs not available; FPS not set.")
 
         self._set_value(node_map, "ExposureTime", self.exposure_us, float)
         self._set_value(node_map, "Gain", self.gain, float)
@@ -148,6 +161,7 @@ class BaslerGigECam:
 
         # Capture current device values for logging/diagnostics.
         readback_keys = [
+            "TriggerMode",
             "PixelFormat",
             "Width",
             "Height",
@@ -155,6 +169,8 @@ class BaslerGigECam:
             "OffsetY",
             "AcquisitionFrameRateEnable",
             "AcquisitionFrameRate",
+            "AcquisitionFrameRateAbs",
+            "ResultingFrameRateAbs",
             "ExposureTime",
             "Gain",
             "GevSCPSPacketSize",
@@ -189,6 +205,12 @@ class BaslerGigECam:
 
         camera = self._pylon.InstantCamera(tl_factory.CreateDevice(selected))
         camera.Open()
+        if self.stream_buffer_count is not None:
+            try:
+                if hasattr(camera, "MaxNumBuffer"):
+                    camera.MaxNumBuffer = int(self.stream_buffer_count)
+            except Exception:
+                pass
 
         info = camera.GetDeviceInfo()
         self.device_info = {
@@ -199,6 +221,12 @@ class BaslerGigECam:
 
         node_map = camera.GetNodeMap()
         self._apply_settings(node_map)
+        if self.stream_buffer_count is not None:
+            try:
+                if hasattr(camera, "MaxNumBuffer"):
+                    self.readback_settings["MaxNumBuffer"] = int(camera.MaxNumBuffer)
+            except Exception:
+                pass
 
         converter = self._pylon.ImageFormatConverter()
         converter.OutputPixelFormat = self._pylon.PixelType_Mono8

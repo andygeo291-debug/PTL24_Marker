@@ -27,6 +27,12 @@ def add_camera_cli_args(parser):
         help="GevSCPD interpacket delay.",
     )
     parser.add_argument(
+        "--basler-stream-buffer-count",
+        type=int,
+        default=None,
+        help="Stream buffer count (MaxNumBuffer) if supported.",
+    )
+    parser.add_argument(
         "--basler-timeout-ms",
         type=int,
         default=1000,
@@ -69,6 +75,7 @@ def create_camera_from_args(args):
             gain=getattr(args, "basler_gain", None),
             packet_size=getattr(args, "basler_packet_size", None),
             interpacket_delay=getattr(args, "basler_interpacket_delay", None),
+            stream_buffer_count=getattr(args, "basler_stream_buffer_count", None),
             timeout_ms=getattr(args, "basler_timeout_ms", 1000),
         )
         cam.open()

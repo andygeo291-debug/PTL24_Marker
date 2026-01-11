@@ -1,5 +1,8 @@
 numpy
+pandas
 opencv-python
 pupil-apriltags
+pypylon
 simplejson
 PyYAML
+matplotlib

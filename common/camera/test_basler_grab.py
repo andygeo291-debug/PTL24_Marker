@@ -107,6 +107,7 @@ def _apply_settings(camera, args):
     node_map = camera.GetNodeMap()
 
     # Apply deterministic settings where supported.
+    _set_enum(node_map, "TriggerMode", "Off")
     _set_enum(node_map, "PixelFormat", args.pixel_format)
     _set_value(node_map, "Width", args.width, int)
     _set_value(node_map, "Height", args.height, int)
@@ -114,8 +115,13 @@ def _apply_settings(camera, args):
     _set_value(node_map, "OffsetY", args.offset_y, int)
 
     if args.fps is not None:
-        _set_value(node_map, "AcquisitionFrameRateEnable", True, bool)
-        _set_value(node_map, "AcquisitionFrameRate", args.fps, float)
+        if not _set_value(node_map, "AcquisitionFrameRateEnable", True, bool):
+            print("warn: AcquisitionFrameRateEnable not available; continuing.", file=sys.stderr)
+        fps_set = _set_value(node_map, "AcquisitionFrameRate", args.fps, float)
+        if not fps_set:
+            fps_set = _set_value(node_map, "AcquisitionFrameRateAbs", args.fps, float)
+        if not fps_set:
+            print("warn: AcquisitionFrameRate/AcquisitionFrameRateAbs not available.", file=sys.stderr)
 
     _set_value(node_map, "ExposureTime", args.exposure_us, float)
     _set_value(node_map, "Gain", args.gain, float)
@@ -125,6 +131,7 @@ def _apply_settings(camera, args):
 
     # Read back key nodes to show what the camera accepted.
     readback_keys = [
+        "TriggerMode",
         "PixelFormat",
         "Width",
         "Height",
@@ -132,6 +139,8 @@ def _apply_settings(camera, args):
         "OffsetY",
         "AcquisitionFrameRateEnable",
         "AcquisitionFrameRate",
+        "AcquisitionFrameRateAbs",
+        "ResultingFrameRateAbs",
         "ExposureTime",
         "Gain",
         "GevSCPSPacketSize",
@@ -166,6 +175,12 @@ def _parse_args():
     parser.add_argument("--gain", type=float, default=None, help="Gain")
     parser.add_argument("--packet-size", type=int, default=None, help="GevSCPSPacketSize")
     parser.add_argument("--interpacket-delay", type=int, default=None, help="GevSCPD")
+    parser.add_argument(
+        "--stream-buffer-count",
+        type=int,
+        default=None,
+        help="Stream buffer count (MaxNumBuffer) if supported",
+    )
     parser.add_argument("--timeout-ms", type=int, default=1000, help="Retrieve timeout in ms")
     parser.add_argument("--frames", type=int, default=20, help="Number of frames to grab")
     parser.add_argument(
@@ -197,6 +212,7 @@ def main():
                 gain=args.gain,
                 packet_size=args.packet_size,
                 interpacket_delay=args.interpacket_delay,
+                stream_buffer_count=args.stream_buffer_count,
                 timeout_ms=args.timeout_ms,
             )
             try:
@@ -212,19 +228,28 @@ def main():
                 print(f"Readback settings: {cam.readback_settings}")
 
                 grabbed = 0
+                failed = 0
+                durations_ms = []
                 targets = {1, 10, args.frames}
                 for _ in range(args.frames):
+                    start = time.perf_counter()
                     ok, frame = cam.read()
+                    elapsed_ms = (time.perf_counter() - start) * 1000.0
                     if not ok:
+                        failed += 1
                         continue
                     grabbed += 1
+                    durations_ms.append(elapsed_ms)
                     if grabbed in targets:
                         host_ts = cam.last_timestamp_s or time.time()
                         _print_frame_stats(grabbed, frame, host_ts)
             finally:
                 cam.release()
 
-            print(f"grabbed {grabbed}/{args.frames}")
+            avg_ms = float(np.mean(durations_ms)) if durations_ms else 0.0
+            max_ms = float(np.max(durations_ms)) if durations_ms else 0.0
+            print(f"grabbed {grabbed}/{args.frames} failed={failed}")
+            print(f"avg_grab_ms={avg_ms:.3f} max_grab_ms={max_ms:.3f}")
             if grabbed < args.frames:
                 return 1
             return 0
@@ -249,6 +274,8 @@ def main():
         camera = pylon.InstantCamera(tl_factory.CreateDevice(selected))
         try:
             camera.Open()
+            if args.stream_buffer_count is not None and hasattr(camera, "MaxNumBuffer"):
+                camera.MaxNumBuffer = int(args.stream_buffer_count)
             info = camera.GetDeviceInfo()
             serial = _safe_get(info, "GetSerialNumber")
             user = _safe_get(info, "GetUserDefinedName")
@@ -263,20 +290,27 @@ def main():
 
             camera.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
             grabbed = 0
+            failed = 0
+            durations_ms = []
             targets = {1, 10, args.frames}
             for _ in range(args.frames):
+                start = time.perf_counter()
                 grab_result = camera.RetrieveResult(args.timeout_ms, pylon.TimeoutHandling_Return)
                 if grab_result is None:
+                    failed += 1
                     continue
                 try:
                     if grab_result.GrabSucceeded():
                         grabbed += 1
+                        durations_ms.append((time.perf_counter() - start) * 1000.0)
                         image = converter.Convert(grab_result)
                         array = image.GetArray()
                         if array.dtype != np.uint8:
                             array = array.astype(np.uint8, copy=False)
                         if grabbed in targets:
                             _print_frame_stats(grabbed, array, time.time())
+                    else:
+                        failed += 1
                 finally:
                     grab_result.Release()
 
@@ -285,7 +319,10 @@ def main():
             if camera.IsOpen():
                 camera.Close()
 
-        print(f"grabbed {grabbed}/{args.frames}")
+        avg_ms = float(np.mean(durations_ms)) if durations_ms else 0.0
+        max_ms = float(np.max(durations_ms)) if durations_ms else 0.0
+        print(f"grabbed {grabbed}/{args.frames} failed={failed}")
+        print(f"avg_grab_ms={avg_ms:.3f} max_grab_ms={max_ms:.3f}")
         if grabbed < args.frames:
             return 1
         return 0

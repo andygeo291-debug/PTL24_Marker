@@ -32,6 +32,7 @@ def run_trial(
     gain: float,
     packet_size: Optional[int],
     interpacket_delay: Optional[int],
+    stream_buffer_count: Optional[int],
     timeout_ms: int,
     frames: int,
 ) -> Tuple[int, int, str]:
@@ -53,6 +54,7 @@ def run_trial(
         gain=gain,
         packet_size=packet_size,
         interpacket_delay=interpacket_delay,
+        stream_buffer_count=stream_buffer_count,
         timeout_ms=timeout_ms,
     )
 
@@ -92,6 +94,7 @@ def read_gige_params(
     exposure_us: float,
     gain: float,
     timeout_ms: int,
+    stream_buffer_count: Optional[int],
 ) -> Tuple[dict, str]:
     try:
         from common.camera.basler_cam import BaslerGigECam
@@ -111,6 +114,7 @@ def read_gige_params(
         gain=gain,
         packet_size=None,
         interpacket_delay=None,
+        stream_buffer_count=stream_buffer_count,
         timeout_ms=timeout_ms,
     )
     error = ""
@@ -140,6 +144,7 @@ def main() -> int:
     parser.add_argument("--pixel-format", default="Mono8")
     parser.add_argument("--exposure-us", type=float, default=15000.0)
     parser.add_argument("--gain", type=float, default=0.0)
+    parser.add_argument("--stream-buffer-count", type=int, default=None)
     parser.add_argument("--frames", type=int, default=300)
     parser.add_argument("--fail-threshold", type=float, default=0.01)
     parser.add_argument(
@@ -174,6 +179,7 @@ def main() -> int:
         args.exposure_us,
         args.gain,
         max(args.timeout_candidates) if args.timeout_candidates else 1000,
+        args.stream_buffer_count,
     )
     if readback:
         print("Current GigE params:", readback)
@@ -199,6 +205,7 @@ def main() -> int:
                     args.gain,
                     packet_size,
                     ipd,
+                    args.stream_buffer_count,
                     timeout_ms,
                     args.frames,
                 )
@@ -241,6 +248,7 @@ def main() -> int:
             "pixel_format": args.pixel_format,
             "exposure_us": args.exposure_us,
             "gain": args.gain,
+            "stream_buffer_count": args.stream_buffer_count,
             "frames": args.frames,
             "fail_threshold": args.fail_threshold,
             "packet_size_candidates": args.packet_size_candidates,

@@ -30,6 +30,9 @@ if [[ "$BASE_RAW" = /* ]]; then
 else
   BASE_DIR="$(python3 -c 'import os,sys;print(os.path.abspath(sys.argv[1]))' "$ROOT/$BASE_RAW")"
 fi
+if command -v cygpath >/dev/null 2>&1; then
+  BASE_DIR="$(cygpath -u "$BASE_DIR")"
+fi
 
 case "$BASE_DIR" in
   "$ROOT"/*) ;;
