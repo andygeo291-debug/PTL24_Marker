@@ -12,7 +12,7 @@ cd D:\Electryone\PTL24_Marker
 ### DO NOT
 - Do NOT leave Pylon Viewer open.
 - Do NOT change ROI (width/height/offset) without re-calibrating.
-- Do NOT use packet-size 9000 (caused drops). Use 1500.
+- Do NOT use packet-size 9000 (caused drops). Default is 8192; fall back to 1500 if needed.
 
 Known-good Basler settings (use these):
 - serial=21601161, name=StaticCam
@@ -20,7 +20,7 @@ Known-good Basler settings (use these):
 - ROI: 960x720, offset-x=320, offset-y=200
 - fps=30 (AcquisitionFrameRateAbs is used if needed)
 - exposure-us=15000, gain=0
-- packet-size=1500, interpacket-delay=3500
+- packet-size=8192, interpacket-delay=3500
 - stream-buffer-count=64, timeout-ms=2000
 
 ## 1. Quick health check
@@ -31,10 +31,11 @@ Link health grab (120 frames):
   --pixel-format Mono8 --width 960 --height 720 --fps 30 `
   --offset-x 320 --offset-y 200 `
   --exposure-us 15000 --gain 0 `
-  --packet-size 1500 --interpacket-delay 3500 `
+  --packet-size 8192 --interpacket-delay 3500 `
   --stream-buffer-count 64 --timeout-ms 2000 `
   --frames 120
 ```
+If you see any Frame grab failed, fall back to packet-size 1500 (MTU-safe) and keep ipd=3500.
 Good indicators:
 - `grabbed 120/120 failed=0`
 - `Readback settings` includes `AcquisitionFrameRateAbs` and `ResultingFrameRateAbs` ~ 30
@@ -48,7 +49,7 @@ Run HUD first, then confirm you see >=5 tags most of the time.
   --width 960 --height 720 --fps 30 `
   --basler-pixel-format Mono8 --basler-exposure-us 15000 --basler-gain 0 `
   --basler-offset-x 320 --basler-offset-y 200 `
-  --basler-packet-size 1500 --basler-interpacket-delay 3500 `
+  --basler-packet-size 8192 --basler-interpacket-delay 3500 `
   --basler-timeout-ms 2000 --basler-stream-buffer-count 64 `
   --rig phase_b\rigs\cyl_dotec.yaml `
   --camera common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm.yaml `
@@ -71,7 +72,7 @@ Short run (300 frames, spike_off only):
   --width 960 --height 720 --fps 30 `
   --pixel-format Mono8 --exposure-us 15000 --gain 0 `
   --offset-x 320 --offset-y 200 `
-  --packet-size 1500 --interpacket-delay 3500 `
+  --packet-size 8192 --interpacket-delay 3500 `
   --timeout-ms 2000 --stream-buffer-count 64 `
   --spike-frames 300 --only spike_off --no-diagnose
 ```
@@ -84,7 +85,7 @@ Long run (900 frames, spike_off only):
   --width 960 --height 720 --fps 30 `
   --pixel-format Mono8 --exposure-us 15000 --gain 0 `
   --offset-x 320 --offset-y 200 `
-  --packet-size 1500 --interpacket-delay 3500 `
+  --packet-size 8192 --interpacket-delay 3500 `
   --timeout-ms 2000 --stream-buffer-count 64 `
   --spike-frames 900 --only spike_off --no-diagnose
 ```
@@ -130,7 +131,7 @@ Artifacts to keep:
 
 ## 6. Troubleshooting
 - Frame grab failed: check cable/switch, ensure MTU 1500, close Pylon Viewer, increase timeout to 2000.
-- Drops persist: lower fps to 15, verify packet-size 1500, keep interpacket-delay 3500.
+- Drops persist: lower fps to 15, verify packet-size 8192, keep interpacket-delay 3500 (fallback 1500).
 - ROI changed: recalibrate intrinsics.
 
 ## Done checklist

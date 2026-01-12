@@ -402,7 +402,7 @@ def main() -> int:
     parser.add_argument("--offset-y", type=int, default=200)
     parser.add_argument("--interpacket-delay", type=int, default=3500)
     parser.add_argument("--timeout-ms", type=int, default=1000)
-    parser.add_argument("--packet-size", type=int, default=None)
+    parser.add_argument("--packet-size", type=int, default=8192)
     parser.add_argument("--stream-buffer-count", type=int, default=None)
     parser.add_argument("--rig", default="phase_b/rigs/cyl_dotec.yaml")
     parser.add_argument("--calib", default=None)

@@ -11,7 +11,7 @@ param(
     [int]$OffsetY = 200,
     [int]$InterpacketDelay = 3500,
     [int]$TimeoutMs = 1000,
-    [int]$PacketSize = 1500,
+    [int]$PacketSize = 8192,
     [int]$StreamBufferCount = 32,
     [int]$GrabFrames = 200
 )
