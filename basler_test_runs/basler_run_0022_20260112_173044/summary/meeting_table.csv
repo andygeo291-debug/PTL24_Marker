@@ -1,0 +1,2 @@
+run,poses_rows,debug_rows,effective_fps,t_total_ms_median,t_total_ms_p90,t_total_ms_max,t_detect_ms_median,t_detect_ms_p90,t_detect_ms_max,t_ransac_ms_median,t_ransac_ms_p90,t_ransac_ms_max,mean_reproj_px_median,mean_reproj_px_p90,mean_reproj_px_max,reject_reason_counts,reject_rate,kpi_pass,frame_grab_failed_count,frame_grab_failed_rate
+spike_off,900,900,13.469839323799851,71.228,80.8401,196.604,46.1725,52.8614,113.956,22.6845,25.251800000000003,50.477,29.003,29.6571,29.886,"{""HOLD_PREV_POSE"": 3, ""OK"": 897}",0.0,True,0,0.0

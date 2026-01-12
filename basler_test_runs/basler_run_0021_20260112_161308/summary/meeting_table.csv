@@ -1,0 +1,3 @@
+run,poses_rows,debug_rows,effective_fps,t_total_ms_median,t_total_ms_p90,t_total_ms_max,t_detect_ms_median,t_detect_ms_p90,t_detect_ms_max,t_ransac_ms_median,t_ransac_ms_p90,t_ransac_ms_max,mean_reproj_px_median,mean_reproj_px_p90,mean_reproj_px_max,reject_reason_counts,reject_rate,kpi_pass,frame_grab_failed_count,frame_grab_failed_rate
+spike_on,300,300,13.845400032475663,70.691,80.4535,118.905,47.543499999999995,53.807,80.219,20.1525,24.8355,35.571,29.0045,29.1691,29.983,"{""OK"": 300}",0.0,True,0,0.0
+spike_off,300,300,14.203184549633185,69.168,75.51389999999999,105.7,46.437,51.1882,76.779,20.155,24.0912,29.671,28.999,29.153499999999998,29.9,"{""OK"": 300}",0.0,True,0,0.0

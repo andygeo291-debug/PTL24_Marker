@@ -1,0 +1,34 @@
+image_width: 960
+image_height: 720
+camera_matrix:
+  rows: 3
+  cols: 3
+  dt: d
+  data:
+  - 2320.809722010508
+  - 0.0
+  - 595.7701865895732
+  - 0.0
+  - 2327.7223972299826
+  - 506.85658131111495
+  - 0.0
+  - 0.0
+  - 1.0
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  dt: d
+  data:
+  - 0.00911668728947074
+  - 1.3906607546174818
+  - 0.016584949212194645
+  - 0.017710094236009947
+  - -9.162564580303574
+metadata:
+  timestamp: 1768230343.5900805
+  images_dir: D:\Electryone\PTL24_Marker\calib_runs\basler_intrinsics_0005_20260112_160252\images
+  board_cols: 9
+  board_rows: 6
+  square_size_m: 0.025
+  reprojection_error_px: 0.4514533700168599
+  samples_used: 60

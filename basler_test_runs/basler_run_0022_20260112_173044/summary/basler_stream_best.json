@@ -1,0 +1,329 @@
+{
+  "timestamp": 1768235886.1224399,
+  "inputs": {
+    "serial": "21601161",
+    "name": "StaticCam",
+    "width": 960,
+    "height": 720,
+    "offset_x": 320,
+    "offset_y": 200,
+    "fps": 30.0,
+    "pixel_format": "Mono8",
+    "exposure_us": 15000.0,
+    "gain": 0.0,
+    "stream_buffer_count": 64,
+    "frames": 300,
+    "fail_threshold": 0.01,
+    "packet_size_candidates": [
+      1500,
+      1440,
+      1400,
+      1300,
+      1200
+    ],
+    "interpacket_delay_candidates": [
+      3500,
+      8000,
+      12000
+    ],
+    "timeout_candidates": [
+      1000,
+      2000
+    ]
+  },
+  "readback": {
+    "TriggerMode": "Off",
+    "PixelFormat": "Mono8",
+    "Width": "960",
+    "Height": "720",
+    "OffsetX": "320",
+    "OffsetY": "200",
+    "AcquisitionFrameRateEnable": "1",
+    "AcquisitionFrameRateAbs": "30.0003",
+    "ResultingFrameRateAbs": "29.9922",
+    "GevSCPSPacketSize": "9000",
+    "GevSCPD": "3500"
+  },
+  "readback_error": "",
+  "results": [
+    {
+      "packet_size": 1500,
+      "interpacket_delay": 3500,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1500,
+      "interpacket_delay": 3500,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1500,
+      "interpacket_delay": 8000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1500,
+      "interpacket_delay": 8000,
+      "timeout_ms": 2000,
+      "ok": 299,
+      "fail": 1,
+      "fail_rate": 0.0033333333333333335,
+      "error": ""
+    },
+    {
+      "packet_size": 1500,
+      "interpacket_delay": 12000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1500,
+      "interpacket_delay": 12000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1440,
+      "interpacket_delay": 3500,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1440,
+      "interpacket_delay": 3500,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1440,
+      "interpacket_delay": 8000,
+      "timeout_ms": 1000,
+      "ok": 299,
+      "fail": 1,
+      "fail_rate": 0.0033333333333333335,
+      "error": ""
+    },
+    {
+      "packet_size": 1440,
+      "interpacket_delay": 8000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1440,
+      "interpacket_delay": 12000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1440,
+      "interpacket_delay": 12000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1400,
+      "interpacket_delay": 3500,
+      "timeout_ms": 1000,
+      "ok": 299,
+      "fail": 1,
+      "fail_rate": 0.0033333333333333335,
+      "error": ""
+    },
+    {
+      "packet_size": 1400,
+      "interpacket_delay": 3500,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1400,
+      "interpacket_delay": 8000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1400,
+      "interpacket_delay": 8000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1400,
+      "interpacket_delay": 12000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1400,
+      "interpacket_delay": 12000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1300,
+      "interpacket_delay": 3500,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1300,
+      "interpacket_delay": 3500,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1300,
+      "interpacket_delay": 8000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1300,
+      "interpacket_delay": 8000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1300,
+      "interpacket_delay": 12000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1300,
+      "interpacket_delay": 12000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1200,
+      "interpacket_delay": 3500,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1200,
+      "interpacket_delay": 3500,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1200,
+      "interpacket_delay": 8000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1200,
+      "interpacket_delay": 8000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1200,
+      "interpacket_delay": 12000,
+      "timeout_ms": 1000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    },
+    {
+      "packet_size": 1200,
+      "interpacket_delay": 12000,
+      "timeout_ms": 2000,
+      "ok": 300,
+      "fail": 0,
+      "fail_rate": 0.0,
+      "error": ""
+    }
+  ],
+  "best": {
+    "packet_size": 1500,
+    "interpacket_delay": 3500,
+    "timeout_ms": 1000,
+    "ok": 300,
+    "fail": 0,
+    "fail_rate": 0.0,
+    "error": ""
+  }
+}

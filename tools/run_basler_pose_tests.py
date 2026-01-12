@@ -413,6 +413,12 @@ def main() -> int:
     parser.add_argument("--no-diagnose", action="store_true")
     parser.add_argument("--no-auto-tune-latency", action="store_true")
     parser.add_argument("--tuned-ransac-iters", type=int, default=10)
+    parser.add_argument(
+        "--only",
+        choices=["spike_on", "spike_off", "all"],
+        default="all",
+        help="Run only a specific spike mode (default: all).",
+    )
     args = parser.parse_args()
 
     run_base = Path(args.run_base)
@@ -613,28 +619,31 @@ def main() -> int:
         run_dir / "quick_checks" / "poses_poses_out.csv",
         run_dir / "quick_checks" / "debug_poses_out.csv",
     )
-    run_phaseb(
-        "spike_on",
-        args.spike_frames,
-        run_dir / "spike_on" / "poses.csv",
-        run_dir / "spike_on" / "debug_metrics.csv",
-        [],
-    )
-    run_phaseb(
-        "spike_off",
-        args.spike_frames,
-        run_dir / "spike_off" / "poses.csv",
-        run_dir / "spike_off" / "debug_metrics.csv",
-        ["--spike-disable"],
-    )
+    runs = {}
+    run_spike_on = args.only in ("spike_on", "all")
+    run_spike_off = args.only in ("spike_off", "all")
 
-    runs = {
-        "spike_on": run_dir / "spike_on",
-        "spike_off": run_dir / "spike_off",
-    }
+    if run_spike_on:
+        run_phaseb(
+            "spike_on",
+            args.spike_frames,
+            run_dir / "spike_on" / "poses.csv",
+            run_dir / "spike_on" / "debug_metrics.csv",
+            [],
+        )
+        runs["spike_on"] = run_dir / "spike_on"
+    if run_spike_off:
+        run_phaseb(
+            "spike_off",
+            args.spike_frames,
+            run_dir / "spike_off" / "poses.csv",
+            run_dir / "spike_off" / "debug_metrics.csv",
+            ["--spike-disable"],
+        )
+        runs["spike_off"] = run_dir / "spike_off"
     _summarize_runs(run_dir, runs, log_path)
 
-    if not args.no_auto_tune_latency:
+    if not args.no_auto_tune_latency and run_spike_on and run_spike_off:
         table_path = run_dir / "summary" / "meeting_table.csv"
         table_df = pd.read_csv(table_path)
         spike_on_p90 = float(table_df.loc[table_df["run"] == "spike_on", "t_total_ms_p90"].iloc[0])

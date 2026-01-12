@@ -125,3 +125,7 @@ Beyond Phase A: Phase B and validation
 - Phase B v2 introduces weighted SE(3) fusion, adaptive RANSAC, HUD diagnostics, and benchmark logging; see `phase_b/README_phase_b_v2.md`.
 - For the wider Phase B overview (context, rigs, streaming), read `phase_b/README.md`.
 - `PTL24_MARKER_RUN_COMMANDS.md` consolidates Phase A/B setup, multi-camera extrinsics, validation scenarios (S1/S2/S3), and tooling commands into a single cheat sheet.
+
+Basler Lab Runbook
+------------------
+- `docs/BASLER_LAB_RUNBOOK.md` – Windows-first checklist for Basler link health, HUD check, report runs, stability metrics, and report artifacts.
