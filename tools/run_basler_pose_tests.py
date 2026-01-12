@@ -481,7 +481,7 @@ def main() -> int:
             "--fail-threshold",
             "0.01",
             "--packet-size-candidates",
-            "1500,1440,1400,1300,1200",
+            "8192,1500,1440,1400,1300,1200",
             "--interpacket-delay-candidates",
             "3500,8000,12000",
             "--timeout-candidates",
