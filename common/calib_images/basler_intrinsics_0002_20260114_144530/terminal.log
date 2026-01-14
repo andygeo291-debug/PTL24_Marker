@@ -1,0 +1,6 @@
+Basler calibration capture
+- Move the chessboard through the FOV (tilt/rotate/translate).
+- Press SPACE to save a frame.
+- Press Q or ESC to quit early.
+- Target images: 60
+- Run dir: D:\Electryone\PTL24_Marker\common\calib_images\basler_intrinsics_0002_20260114_144530

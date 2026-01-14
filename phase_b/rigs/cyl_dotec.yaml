@@ -10,18 +10,18 @@ length_m: 0.50
 top_annulus:
   ids: [200, 201, 202]
   radius_m: 0.085
-  size_m: 0.050
+  size_m: 0.040
   yaw0_deg: 0
 
 # Bottom rim (3 tags at ~120° apart)
 bottom_annulus:
   ids: [300, 301, 302]
   radius_m: 0.085
-  size_m: 0.050
+  size_m: 0.040
   yaw0_deg: 15
 
 # Side ring (12 tags evenly spaced around barrel)
 ring:
   ids: [100,101,102,103,104,105,106,107,108,109,110,111]
-  size_m: 0.050
+  size_m: 0.040
   z_m: 0.0
