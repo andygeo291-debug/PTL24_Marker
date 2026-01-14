@@ -129,3 +129,4 @@ Beyond Phase A: Phase B and validation
 Basler Lab Runbook
 ------------------
 - `docs/BASLER_LAB_RUNBOOK.md` – Windows-first checklist for Basler link health, HUD check, report runs, stability metrics, and report artifacts.
+- `README_FINAL_TESTS.md` - Final tests runbook with calibration, golden runs, and live monitoring.
