@@ -377,11 +377,64 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
         help="Log one-shot pose estimation checkpoints for the first grabbed frame.",
     )
     parser.add_argument(
+        "--print-tag-count",
+        action="store_true",
+        help="Print detected tag counts every N frames.",
+    )
+    parser.add_argument(
+        "--print-every",
+        type=int,
+        default=60,
+        help="Print tag counts every N frames when enabled (default: 60).",
+    )
+    parser.add_argument(
+        "--print-tag-ids",
+        action="store_true",
+        help="Include tag IDs in tag count output.",
+    )
+    parser.add_argument(
         "--undistort",
         action="store_true",
         help="Undistort frames before detection using calibration coefficients (default: off).",
     )
     parser.add_argument("--family", default="tag36h11", help="AprilTag family.")
+    parser.add_argument(
+        "--det-nthreads",
+        type=int,
+        default=4,
+        help="AprilTag detector threads (default: 4).",
+    )
+    parser.add_argument(
+        "--det-quad-decimate",
+        type=float,
+        default=1.0,
+        help="AprilTag quad_decimate (default: 1.0).",
+    )
+    parser.add_argument(
+        "--det-quad-sigma",
+        type=float,
+        default=0.0,
+        help="AprilTag quad_sigma (default: 0.0).",
+    )
+    parser.add_argument(
+        "--det-decode-sharpen",
+        type=float,
+        default=0.25,
+        help="AprilTag decode_sharpening (default: 0.25).",
+    )
+    parser.add_argument(
+        "--det-refine-edges",
+        dest="det_refine_edges",
+        action="store_true",
+        default=True,
+        help="Enable edge refinement (default: on).",
+    )
+    parser.add_argument(
+        "--det-no-refine-edges",
+        dest="det_refine_edges",
+        action="store_false",
+        help="Disable edge refinement.",
+    )
     parser.add_argument(
         "--axis-len",
         type=float,
@@ -850,7 +903,14 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
         rig.length_m,
     )
 
-    detector = v1.setup_detector(args.family)
+    detector = v1.setup_detector(
+        args.family,
+        nthreads=args.det_nthreads,
+        quad_decimate=args.det_quad_decimate,
+        quad_sigma=args.det_quad_sigma,
+        refine_edges=args.det_refine_edges,
+        decode_sharpening=args.det_decode_sharpen,
+    )
     bench_timer = StageTimer(args.bench_print_every)
     LOGGER.info("Fusion mode: %s", fusion_mode)
     LOGGER.info("Adaptive RANSAC: %s", "enabled" if use_adaptive else "disabled")
@@ -1146,6 +1206,7 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
     if hud_enabled:
         cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
     last_used_ids: List[int] = []
+    tag_counts: List[int] = []
     frame_idx = 0
     frame_count = 0
     start_time = time.perf_counter()
@@ -1275,6 +1336,13 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
             n_dropped_small = 0
             max_hamming_used = None
             raw_det_info: List[Dict[str, object]] = []
+            if args.print_tag_count:
+                tag_counts.append(n_dets_raw)
+                if args.print_every > 0 and (frame_idx % args.print_every == 0):
+                    msg = f"[tag_count] frame={frame_idx} n={n_dets_raw}"
+                    if args.print_tag_ids:
+                        msg += f" ids={sorted(best_detections.keys())}"
+                    print(msg, flush=True)
             for tag_id, det in best_detections.items():
                 spec = rig.tags.get(tag_id)
                 if spec is None:
@@ -1960,6 +2028,21 @@ def run(argv: Optional[Sequence[str]] = None) -> int:
                 )
             else:
                 LOGGER.warning("No frames processed or zero elapsed time; skipping FPS report.")
+        if args.print_tag_count and tag_counts:
+            counts = np.asarray(tag_counts, dtype=float)
+            pct_ge5 = 100.0 * float(np.mean(counts >= 5))
+            print(
+                "[tag_count_summary] frames={} mean={:.2f} p50={:.1f} p90={:.1f} "
+                "min={:.0f} max={:.0f} pct_>=5={:.1f}%".format(
+                    len(tag_counts),
+                    float(np.mean(counts)),
+                    float(np.percentile(counts, 50)),
+                    float(np.percentile(counts, 90)),
+                    float(np.min(counts)),
+                    float(np.max(counts)),
+                    pct_ge5,
+                )
+            )
         elapsed = perf_counter() - t0
         avg_fps = (frame_count / elapsed) if elapsed > 0 else 0.0
         print(f"[wall] elapsed={elapsed:.2f} frames={frame_count} avg_fps={avg_fps:.2f}")

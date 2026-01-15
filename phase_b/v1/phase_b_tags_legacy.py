@@ -1084,15 +1084,22 @@ def parse_video_source(source: str) -> int | str:
         return source
 
 
-def setup_detector(family: str) -> Detector:
+def setup_detector(
+    family: str,
+    nthreads: int = 4,
+    quad_decimate: float = 1.0,
+    quad_sigma: float = 0.0,
+    refine_edges: bool = True,
+    decode_sharpening: float = 0.25,
+) -> Detector:
     """Initialise the AprilTag detector."""
     return Detector(
         families=family,
-        nthreads=4,
-        quad_decimate=1.0,
-        quad_sigma=0.0,
-        refine_edges=True,
-        decode_sharpening=0.25,
+        nthreads=int(nthreads),
+        quad_decimate=float(quad_decimate),
+        quad_sigma=float(quad_sigma),
+        refine_edges=bool(refine_edges),
+        decode_sharpening=float(decode_sharpening),
     )
 
 

@@ -1,0 +1,8 @@
+﻿FINAL RUNS INDEX (PTL24_MARKER) - 2026-01-14 17:09
+
+LONG (900f): basler_test_runs\FINAL_TESTS_basler_run_0033_20260114_170232
+SHORT (300f): basler_test_runs\FINAL_TESTS_basler_run_0032_20260114_164934
+
+Calib YAML: common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml
+Settings: Mono8, ROI=960x720 off(320,200), fps=30, exposure=15000us, gain=0, packet=8192, ipd=3500, buffers=64, timeout=2000
+Ground truth: laser distance lens->roll center=3.3m, camera height=2.44m

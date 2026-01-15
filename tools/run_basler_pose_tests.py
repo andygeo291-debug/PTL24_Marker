@@ -413,6 +413,51 @@ def main() -> int:
     parser.add_argument("--no-diagnose", action="store_true")
     parser.add_argument("--no-auto-tune-latency", action="store_true")
     parser.add_argument("--tuned-ransac-iters", type=int, default=10)
+    parser.add_argument("--print-tag-count", action="store_true", help="Print tag counts every N frames.")
+    parser.add_argument(
+        "--print-every",
+        type=int,
+        default=60,
+        help="Print tag counts every N frames when enabled (default: 60).",
+    )
+    parser.add_argument("--print-tag-ids", action="store_true", help="Include tag IDs in tag count output.")
+    parser.add_argument(
+        "--det-nthreads",
+        type=int,
+        default=4,
+        help="AprilTag detector threads (default: 4).",
+    )
+    parser.add_argument(
+        "--det-quad-decimate",
+        type=float,
+        default=1.0,
+        help="AprilTag quad_decimate (default: 1.0).",
+    )
+    parser.add_argument(
+        "--det-quad-sigma",
+        type=float,
+        default=0.0,
+        help="AprilTag quad_sigma (default: 0.0).",
+    )
+    parser.add_argument(
+        "--det-decode-sharpen",
+        type=float,
+        default=0.25,
+        help="AprilTag decode_sharpening (default: 0.25).",
+    )
+    parser.add_argument(
+        "--det-refine-edges",
+        dest="det_refine_edges",
+        action="store_true",
+        default=True,
+        help="Enable edge refinement (default: on).",
+    )
+    parser.add_argument(
+        "--det-no-refine-edges",
+        dest="det_refine_edges",
+        action="store_false",
+        help="Disable edge refinement.",
+    )
     parser.add_argument(
         "--only",
         choices=["spike_on", "spike_off", "all"],
@@ -552,6 +597,27 @@ def main() -> int:
         common_args.extend(["--basler-packet-size", str(packet_size)])
     if args.stream_buffer_count is not None:
         common_args.extend(["--basler-stream-buffer-count", str(args.stream_buffer_count)])
+    if args.print_tag_count:
+        common_args.append("--print-tag-count")
+        common_args.extend(["--print-every", str(args.print_every)])
+        if args.print_tag_ids:
+            common_args.append("--print-tag-ids")
+    common_args.extend(
+        [
+            "--det-nthreads",
+            str(args.det_nthreads),
+            "--det-quad-decimate",
+            str(args.det_quad_decimate),
+            "--det-quad-sigma",
+            str(args.det_quad_sigma),
+            "--det-decode-sharpen",
+            str(args.det_decode_sharpen),
+        ]
+    )
+    if args.det_refine_edges:
+        common_args.append("--det-refine-edges")
+    else:
+        common_args.append("--det-no-refine-edges")
 
     def run_phaseb(name: str, frames: int, poses_path: Path, debug_path: Path, extra: List[str]) -> None:
         poses_path.parent.mkdir(parents=True, exist_ok=True)

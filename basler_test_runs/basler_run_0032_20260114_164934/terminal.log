@@ -1,0 +1,107 @@
+$ 'D:\Electryone\PTL24_Marker\.venv\Scripts\python.exe' -m phase_b.v2.phase_b_tags_v2 --camera-backend basler --basler-serial 21601161 --basler-name StaticCam --width 960 --height 720 --fps 30.0 --basler-pixel-format Mono8 --basler-exposure-us 15000.0 --basler-gain 0.0 --basler-offset-x 320 --basler-offset-y 200 --basler-interpacket-delay 3500 --basler-timeout-ms 2000 --rig 'D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml' --camera 'common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml' --ransac --adapt --ransac-iters 15 --quiet-apriltag-stderr --no-hud --basler-packet-size 8192 --basler-stream-buffer-count 64 --print-tag-count --print-every 30 --det-nthreads 4 --det-quad-decimate 1.0 --det-quad-sigma 0.0 --det-decode-sharpen 0.25 --det-refine-edges --frames 30 --save-poses 'D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\poses_save_poses.csv' --debug-metrics-out 'D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\debug_save_poses.csv'
+2026-01-14 16:49:34,616 [INFO] Resolved paths: calib=D:\Electryone\PTL24_Marker\common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml extrinsics=(none) rig=D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml config=D:\Electryone\PTL24_Marker\phase_b\config.yaml
+2026-01-14 16:49:34,623 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-14 16:49:34,752 [INFO] Fusion mode: weighted
+2026-01-14 16:49:34,752 [INFO] Adaptive RANSAC: enabled
+2026-01-14 16:49:34,752 [INFO] EKF filtering: disabled
+2026-01-14 16:49:34,752 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-14 16:49:36,038 [INFO] Capture opened: 960x720
+2026-01-14 16:49:36,089 [INFO] Appending poses to D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\poses_save_poses.csv
+2026-01-14 16:49:36,101 [INFO] Writing debug metrics to D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\debug_save_poses.csv
+2026-01-14 16:49:36,102 [INFO] Expecting tag sizes (m): 0.040
+[run] Using calib: D:\Electryone\PTL24_Marker\common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml
+[run] Using rig: D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\poses_save_poses.csv debug=D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\debug_save_poses.csv
+[tag_count] frame=0 n=5
+2026-01-14 16:49:36,662 [INFO] grabbed=10 grab_ms=0.5 poses=9
+2026-01-14 16:49:37,273 [INFO] grabbed=20 grab_ms=0.6 poses=19
+2026-01-14 16:49:37,937 [INFO] grabbed=30 grab_ms=0.6 poses=29
+2026-01-14 16:49:38,015 [INFO] Reached frame limit (30); exiting.
+2026-01-14 16:49:38,075 [INFO] Processed 30 frames in 1.974 s (effective FPS: 15.20)
+[tag_count_summary] frames=30 mean=4.60 p50=5.0 p90=6.0 min=2 max=7 pct_>=5=53.3%
+[wall] elapsed=3.47 frames=30 avg_fps=8.65
+$ 'D:\Electryone\PTL24_Marker\.venv\Scripts\python.exe' -m phase_b.v2.phase_b_tags_v2 --camera-backend basler --basler-serial 21601161 --basler-name StaticCam --width 960 --height 720 --fps 30.0 --basler-pixel-format Mono8 --basler-exposure-us 15000.0 --basler-gain 0.0 --basler-offset-x 320 --basler-offset-y 200 --basler-interpacket-delay 3500 --basler-timeout-ms 2000 --rig 'D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml' --camera 'common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml' --ransac --adapt --ransac-iters 15 --quiet-apriltag-stderr --no-hud --basler-packet-size 8192 --basler-stream-buffer-count 64 --print-tag-count --print-every 30 --det-nthreads 4 --det-quad-decimate 1.0 --det-quad-sigma 0.0 --det-decode-sharpen 0.25 --det-refine-edges --frames 30 --poses-out 'D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\poses_poses_out.csv' --debug-metrics-out 'D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\debug_poses_out.csv'
+2026-01-14 16:49:38,593 [INFO] Resolved paths: calib=D:\Electryone\PTL24_Marker\common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml extrinsics=(none) rig=D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml config=D:\Electryone\PTL24_Marker\phase_b\config.yaml
+2026-01-14 16:49:38,599 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-14 16:49:38,676 [INFO] Fusion mode: weighted
+2026-01-14 16:49:38,676 [INFO] Adaptive RANSAC: enabled
+2026-01-14 16:49:38,676 [INFO] EKF filtering: disabled
+2026-01-14 16:49:38,676 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-14 16:49:39,343 [INFO] Capture opened: 960x720
+2026-01-14 16:49:39,399 [INFO] Appending poses to D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\poses_poses_out.csv
+2026-01-14 16:49:39,414 [INFO] Writing debug metrics to D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\debug_poses_out.csv
+2026-01-14 16:49:39,415 [INFO] Expecting tag sizes (m): 0.040
+[run] Using calib: D:\Electryone\PTL24_Marker\common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml
+[run] Using rig: D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\poses_poses_out.csv debug=D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\quick_checks\debug_poses_out.csv
+[tag_count] frame=0 n=3
+2026-01-14 16:49:40,144 [INFO] grabbed=10 grab_ms=0.7 poses=9
+2026-01-14 16:49:40,880 [INFO] grabbed=20 grab_ms=0.5 poses=19
+2026-01-14 16:49:41,507 [INFO] grabbed=30 grab_ms=0.5 poses=29
+2026-01-14 16:49:41,572 [INFO] Reached frame limit (30); exiting.
+2026-01-14 16:49:41,601 [INFO] Processed 30 frames in 2.186 s (effective FPS: 13.72)
+[tag_count_summary] frames=30 mean=3.97 p50=4.0 p90=5.0 min=3 max=6 pct_>=5=30.0%
+[wall] elapsed=3.02 frames=30 avg_fps=9.94
+$ 'D:\Electryone\PTL24_Marker\.venv\Scripts\python.exe' -m phase_b.v2.phase_b_tags_v2 --camera-backend basler --basler-serial 21601161 --basler-name StaticCam --width 960 --height 720 --fps 30.0 --basler-pixel-format Mono8 --basler-exposure-us 15000.0 --basler-gain 0.0 --basler-offset-x 320 --basler-offset-y 200 --basler-interpacket-delay 3500 --basler-timeout-ms 2000 --rig 'D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml' --camera 'common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml' --ransac --adapt --ransac-iters 15 --quiet-apriltag-stderr --no-hud --basler-packet-size 8192 --basler-stream-buffer-count 64 --print-tag-count --print-every 30 --det-nthreads 4 --det-quad-decimate 1.0 --det-quad-sigma 0.0 --det-decode-sharpen 0.25 --det-refine-edges --frames 300 --save-poses 'D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\spike_off\poses.csv' --debug-metrics-out 'D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\spike_off\debug_metrics.csv' --spike-disable
+2026-01-14 16:49:42,072 [INFO] Resolved paths: calib=D:\Electryone\PTL24_Marker\common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml extrinsics=(none) rig=D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml config=D:\Electryone\PTL24_Marker\phase_b\config.yaml
+2026-01-14 16:49:42,080 [INFO] Loaded rig with 18 tags (radius 0.117 m, length 0.500 m).
+2026-01-14 16:49:42,162 [INFO] Fusion mode: weighted
+2026-01-14 16:49:42,162 [INFO] Adaptive RANSAC: enabled
+2026-01-14 16:49:42,162 [INFO] EKF filtering: disabled
+2026-01-14 16:49:42,162 [INFO] RANSAC thresholds: trans=0.050 m rot=5.000 deg base_trans=0.050 base_rot=5.000 min_inliers=3 adaptive=True
+2026-01-14 16:49:42,833 [INFO] Capture opened: 960x720
+2026-01-14 16:49:42,882 [INFO] Appending poses to D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\spike_off\poses.csv
+2026-01-14 16:49:42,895 [INFO] Writing debug metrics to D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\spike_off\debug_metrics.csv
+2026-01-14 16:49:42,895 [INFO] Expecting tag sizes (m): 0.040
+[run] Using calib: D:\Electryone\PTL24_Marker\common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_20260114_144958.yaml
+[run] Using rig: D:\Electryone\PTL24_Marker\phase_b\rigs\cyl_dotec.yaml
+[run] outputs: run_dir=(none) poses=D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\spike_off\poses.csv debug=D:\Electryone\PTL24_Marker\basler_test_runs\basler_run_0032_20260114_164934\spike_off\debug_metrics.csv
+[tag_count] frame=0 n=5
+2026-01-14 16:49:43,500 [INFO] grabbed=10 grab_ms=0.5 poses=9
+2026-01-14 16:49:44,173 [INFO] grabbed=20 grab_ms=0.6 poses=19
+2026-01-14 16:49:44,813 [INFO] grabbed=30 grab_ms=0.5 poses=29
+[tag_count] frame=30 n=3
+2026-01-14 16:49:45,468 [INFO] grabbed=40 grab_ms=0.5 poses=39
+2026-01-14 16:49:46,130 [INFO] grabbed=50 grab_ms=0.4 poses=49
+2026-01-14 16:49:46,877 [INFO] grabbed=60 grab_ms=0.4 poses=59
+2026-01-14 16:49:46,946 [INFO] [bench] over 60 frames total=66.89ms fps=12.54 wall=4.78s capture=0.52ms (0.8%) detect=43.81ms (65.5%) fuse=0.62ms (0.9%) pnp=0.69ms (1.0%) ransac=21.18ms (31.7%) render=0.08ms (0.1%)
+[tag_count] frame=60 n=4
+2026-01-14 16:49:47,516 [INFO] grabbed=70 grab_ms=0.4 poses=69
+2026-01-14 16:49:48,139 [INFO] grabbed=80 grab_ms=0.5 poses=79
+2026-01-14 16:49:48,759 [INFO] grabbed=90 grab_ms=0.4 poses=89
+[tag_count] frame=90 n=3
+2026-01-14 16:49:49,377 [INFO] grabbed=100 grab_ms=0.4 poses=99
+2026-01-14 16:49:49,997 [INFO] grabbed=110 grab_ms=0.4 poses=109
+2026-01-14 16:49:50,677 [INFO] grabbed=120 grab_ms=0.8 poses=119
+2026-01-14 16:49:50,743 [INFO] [bench] over 60 frames total=62.72ms fps=15.80 wall=3.80s capture=0.45ms (0.7%) detect=40.38ms (64.4%) fuse=0.58ms (0.9%) pnp=0.62ms (1.0%) ransac=20.62ms (32.9%) render=0.07ms (0.1%)
+[tag_count] frame=120 n=4
+2026-01-14 16:49:51,307 [INFO] grabbed=130 grab_ms=0.5 poses=129
+2026-01-14 16:49:51,936 [INFO] grabbed=140 grab_ms=0.4 poses=139
+2026-01-14 16:49:52,560 [INFO] grabbed=150 grab_ms=0.4 poses=149
+[tag_count] frame=150 n=3
+2026-01-14 16:49:53,187 [INFO] grabbed=160 grab_ms=0.4 poses=159
+2026-01-14 16:49:53,840 [INFO] grabbed=170 grab_ms=0.5 poses=169
+2026-01-14 16:49:54,508 [INFO] grabbed=180 grab_ms=0.4 poses=179
+2026-01-14 16:49:54,575 [INFO] [bench] over 60 frames total=63.26ms fps=15.66 wall=3.83s capture=0.44ms (0.7%) detect=40.45ms (63.9%) fuse=0.60ms (1.0%) pnp=0.61ms (1.0%) ransac=21.09ms (33.3%) render=0.07ms (0.1%)
+[tag_count] frame=180 n=4
+2026-01-14 16:49:55,202 [INFO] grabbed=190 grab_ms=0.5 poses=189
+2026-01-14 16:49:55,833 [INFO] grabbed=200 grab_ms=0.4 poses=199
+2026-01-14 16:49:56,499 [INFO] grabbed=210 grab_ms=0.4 poses=209
+[tag_count] frame=210 n=5
+2026-01-14 16:49:57,156 [INFO] grabbed=220 grab_ms=0.4 poses=219
+2026-01-14 16:49:57,817 [INFO] grabbed=230 grab_ms=0.4 poses=229
+2026-01-14 16:49:58,470 [INFO] grabbed=240 grab_ms=0.4 poses=239
+2026-01-14 16:49:58,563 [INFO] [bench] over 60 frames total=65.85ms fps=15.04 wall=3.99s capture=0.49ms (0.7%) detect=41.82ms (63.5%) fuse=0.65ms (1.0%) pnp=0.65ms (1.0%) ransac=22.16ms (33.7%) render=0.08ms (0.1%)
+[tag_count] frame=240 n=4
+2026-01-14 16:49:59,097 [INFO] grabbed=250 grab_ms=0.6 poses=249
+2026-01-14 16:49:59,682 [INFO] grabbed=260 grab_ms=0.4 poses=259
+2026-01-14 16:50:00,269 [INFO] grabbed=270 grab_ms=0.4 poses=269
+[tag_count] frame=270 n=4
+2026-01-14 16:50:00,843 [INFO] grabbed=280 grab_ms=0.4 poses=279
+2026-01-14 16:50:01,418 [INFO] grabbed=290 grab_ms=0.4 poses=289
+2026-01-14 16:50:02,000 [INFO] grabbed=300 grab_ms=0.6 poses=299
+2026-01-14 16:50:02,060 [INFO] [bench] over 60 frames total=57.73ms fps=17.15 wall=3.50s capture=0.45ms (0.8%) detect=36.30ms (62.9%) fuse=0.57ms (1.0%) pnp=0.60ms (1.0%) ransac=19.75ms (34.2%) render=0.07ms (0.1%)
+2026-01-14 16:50:02,060 [INFO] Reached frame limit (300); exiting.
+2026-01-14 16:50:02,095 [INFO] Processed 300 frames in 19.200 s (effective FPS: 15.63)
+[tag_count_summary] frames=300 mean=4.16 p50=4.0 p90=5.0 min=2 max=7 pct_>=5=33.0%
+[wall] elapsed=20.03 frames=300 avg_fps=14.98
