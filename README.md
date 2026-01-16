@@ -130,3 +130,9 @@ Basler Lab Runbook
 ------------------
 - `docs/BASLER_LAB_RUNBOOK.md` – Windows-first checklist for Basler link health, HUD check, report runs, stability metrics, and report artifacts.
 - `README_FINAL_TESTS.md` - Final tests runbook with calibration, golden runs, and live monitoring.
+
+Docs
+----
+- `docs/SUPERVISOR_RUNBOOK.md` – One-page supervisor cheat sheet (Windows/macOS).
+- `docs/SUPERVISOR_TECHNICAL_GUIDE.md` – Architecture + key functions and metrics.
+- `basler_test_runs/README.md` – Notes on run artifacts and folder structure.
