@@ -68,10 +68,53 @@ Camera control (latency vs quality)
 
 ## Debug metrics columns (how to read)
 `debug_metrics.csv` header comes from `phase_b/v2/debug_log.py` and includes:
-- `t_total_ms`, `t_detect_ms`, `t_ransac_ms`: latency breakdown.
-- `n_visible`: detected tags kept for pose.
-- `n_dets_raw`, `n_dets_kept`: detector raw vs accepted.
-- `mean_reproj_px`: reprojection error; lower is better.
-- `reject_reason`: `OK`, `HOLD_PREV_POSE`, or rejection type.
+- `t`: wall time (epoch seconds).
+- `fps`: instantaneous FPS estimate.
+- `n_visible`: number of tag detections used for pose (post-filter).
+- `n_inliers`: inlier tags used in fusion.
+- `mean_reproj`: mean reprojection error (pixels) across inliers.
+- `ransac_score`: selected candidate error (lower is better).
+- `weight_min`, `weight_max`: min/max fusion weights used (unitless).
+- `tilt_deg`: cylinder tilt in degrees (camera frame).
+- `mean_tag_area_px2`: mean tag quad area (pixels^2).
+- `mean_view_cos`: mean view cosine (1=fronto-parallel).
+- `mean_reproj_px`: mean reprojection error (pixels, same scale as mean_reproj).
+- `ransac_trans_eff`, `ransac_rot_eff`: effective thresholds (m, deg).
+- `n_unknown_ids`: detections not in rig YAML.
+- `n_mirror_discards`: detections with negative view cosine.
+- `n_dets_raw`: raw detections returned by the detector.
+- `n_dets_kept`: detections kept after ID/geometry checks.
+- `n_dropped_hamming`: detections dropped for high Hamming error.
+- `n_dropped_unknown`: detections dropped for unknown tag IDs.
+- `n_dropped_small`: detections dropped for small area.
+- `max_hamming_used`: max Hamming distance accepted in this frame.
+- `spike_delta_trans_m`, `spike_delta_rot_deg`: measured spike deltas (m, deg).
+- `spike_trans_thresh_m`, `spike_rot_thresh_deg`: spike thresholds (m, deg).
+- `spike_ref_age_frames`, `spike_ref_frame_idx`: reference info for spike checks.
+- `reject_reason`: `OK`, `HOLD_PREV_POSE`, `NO_POSE`, `REJECT_SPIKE`.
+- `consecutive_reject_spike`: running count of spike rejects.
+- `used_ids`: tag IDs used for fusion (comma-separated).
+- `accepted`: 1 if pose accepted (OK/HOLD), else 0.
+- `t_read_ms`, `t_gray_ms`, `t_detect_ms`, `t_reproj_ms`, `t_ransac_ms`, `t_fuse_ms`, `t_ekf_ms`, `t_hud_ms`, `t_log_ms`, `t_total_ms`: timing breakdown in ms.
 
-Use p50/p90 of `t_total_ms` to assess latency stability (p90 < 100 ms is the KPI).
+## poses.csv fields (how to read)
+`poses.csv` is written by `phase_b/v2/phase_b_tags_v2.py` and includes:
+- `timestamp`: epoch seconds when the row was logged.
+- `frame`: frame index in the run.
+- `used_ids`: tag IDs used for fusion (comma-separated).
+- `decision_margins`: detector decision margins for used tags.
+- `rvec_cam_x/y/z`: Rodrigues rotation vector (radians), cylinder->camera.
+- `tvec_cam_x/y/z`: translation (meters), cylinder->camera.
+- `rvec_world_x/y/z`: Rodrigues rotation vector (radians) in world frame (if extrinsics provided).
+- `tvec_world_x/y/z`: translation (meters) in world frame (if extrinsics provided).
+- `tilt_cam_deg`: cylinder tilt in degrees (camera frame).
+- `tilt_world_deg`: cylinder tilt in degrees (world frame, if extrinsics provided).
+
+## p90 explained
+`p90` is the 90th percentile: 90% of values are **at or below** this number.
+Example: `t_total_ms p90=80` means 90% of frames finished in 80 ms or less.
+
+## HUD vs NO-HUD
+HUD only controls the on-screen overlay. It does **not** change detection or
+logging. Tag visibility stats come from `n_visible` in `debug_metrics.csv`,
+regardless of HUD being on or off.

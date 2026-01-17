@@ -1,14 +1,15 @@
 # Supervisor Runbook (Phase B v2)
 
-One-page copy/paste commands for Basler + Phase B v2. Keep camera + rig unchanged.
+Supervisor-friendly commands for Basler + Phase B v2. Keep camera + rig unchanged.
 
 ## 0) Before you start
 - Close Pylon Viewer (it locks the Basler camera).
 - Use the correct calibration YAML for this ROI.
-- Outputs go under `basler_test_runs/...` (poses, debug metrics, summaries).
+- Outputs go under `basler_test_runs/<run>/` (poses, debug metrics, summaries).
 
-## 1) Basler quick check (10-30 frames)
-PowerShell:
+## 1) How to run Basler Phase B v2 on Windows (PowerShell)
+
+### A) Basler visibility smoke test (10–30 frames)
 ```powershell
 Set-Location "D:\Electryone\PTL24_Marker"
 . .\.venv\Scripts\Activate.ps1
@@ -23,22 +24,7 @@ Set-Location "D:\Electryone\PTL24_Marker"
   --frames 20
 ```
 
-macOS (bash):
-```bash
-cd ~/path/to/ptl24_marker
-source venv/bin/activate
-python -m common.camera.test_basler_grab \
-  --serial 21601161 --name StaticCam \
-  --pixel-format Mono8 --width 960 --height 720 --fps 30 \
-  --offset-x 320 --offset-y 200 \
-  --exposure-us 15000 --gain 0 \
-  --packet-size 8192 --interpacket-delay 3500 \
-  --stream-buffer-count 64 --timeout-ms 2000 \
-  --frames 20
-```
-
-## 2) Full Basler suite (auto summary)
-PowerShell:
+### B) Quick check run (30 frames, spike_off only)
 ```powershell
 .\.venv\Scripts\python tools\run_basler_pose_tests.py `
   --serial 21601161 --name StaticCam `
@@ -47,29 +33,33 @@ PowerShell:
   --pixel-format Mono8 --exposure-us 15000 --gain 0 `
   --offset-x 320 --offset-y 200 `
   --packet-size 8192 --interpacket-delay 3500 `
-  --timeout-ms 2000 --stream-buffer-count 64
+  --timeout-ms 2000 --stream-buffer-count 64 `
+  --quick-frames 30 --spike-frames 30 --only spike_off --no-diagnose
 ```
 
-macOS (bash):
-```bash
-python tools/run_basler_pose_tests.py \
-  --serial 21601161 --name StaticCam \
-  --calib common/calib/basler_lab_960x720_offx320_offy200_mono8_11mm.yaml \
-  --width 960 --height 720 --fps 30 \
-  --pixel-format Mono8 --exposure-us 15000 --gain 0 \
-  --offset-x 320 --offset-y 200 \
-  --packet-size 8192 --interpacket-delay 3500 \
-  --timeout-ms 2000 --stream-buffer-count 64
+### C) Long run (900 frames, spike_off)
+```powershell
+.\.venv\Scripts\python tools\run_basler_pose_tests.py `
+  --serial 21601161 --name StaticCam `
+  --calib common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm.yaml `
+  --width 960 --height 720 --fps 30 `
+  --pixel-format Mono8 --exposure-us 15000 --gain 0 `
+  --offset-x 320 --offset-y 200 `
+  --packet-size 8192 --interpacket-delay 3500 `
+  --timeout-ms 2000 --stream-buffer-count 64 `
+  --spike-frames 900 --only spike_off --no-diagnose
 ```
 
-Outputs:
-- `basler_test_runs/<run>/summary/MEETING_SUMMARY.md`
-- `basler_test_runs/<run>/summary/meeting_table.csv`
-- `basler_test_runs/<run>/spike_off/poses.csv`
-- `basler_test_runs/<run>/spike_off/debug_metrics.csv`
+### D) Outputs (where files land)
+Inside the run folder (example: `basler_test_runs/basler_run_00XX_YYYYMMDD_HHMMSS/`):
+- `run_cmd.txt` (exact command)
+- `terminal.log` (stdout/stderr from the run)
+- `spike_off/poses.csv`
+- `spike_off/debug_metrics.csv`
+- `summary/MEETING_SUMMARY.md`
+- `summary/meeting_table.csv`
 
-## 3) Intrinsics capture + calibrate + validate (9x6, 0.025 m)
-PowerShell:
+### E) Calibration (capture -> intrinsics -> validate)
 ```powershell
 $runBase = "common\calib_images"
 .\.venv\Scripts\python tools\capture_basler_calib_images.py `
@@ -91,7 +81,49 @@ $calib = "common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm_$(Get-Date 
   --calib $calib --images-dir $images --cols 9 --rows 6 --square-size-m 0.025
 ```
 
-macOS (bash):
+## 2) How to run Basler Phase B v2 on macOS (bash/zsh)
+
+### A) Basler visibility smoke test (10–30 frames)
+```bash
+cd ~/path/to/ptl24_marker
+source venv/bin/activate
+python -m common.camera.test_basler_grab \
+  --serial 21601161 --name StaticCam \
+  --pixel-format Mono8 --width 960 --height 720 --fps 30 \
+  --offset-x 320 --offset-y 200 \
+  --exposure-us 15000 --gain 0 \
+  --packet-size 8192 --interpacket-delay 3500 \
+  --stream-buffer-count 64 --timeout-ms 2000 \
+  --frames 20
+```
+
+### B) Quick check run (30 frames, spike_off only)
+```bash
+python tools/run_basler_pose_tests.py \
+  --serial 21601161 --name StaticCam \
+  --calib common/calib/basler_lab_960x720_offx320_offy200_mono8_11mm.yaml \
+  --width 960 --height 720 --fps 30 \
+  --pixel-format Mono8 --exposure-us 15000 --gain 0 \
+  --offset-x 320 --offset-y 200 \
+  --packet-size 8192 --interpacket-delay 3500 \
+  --timeout-ms 2000 --stream-buffer-count 64 \
+  --quick-frames 30 --spike-frames 30 --only spike_off --no-diagnose
+```
+
+### C) Long run (900 frames, spike_off)
+```bash
+python tools/run_basler_pose_tests.py \
+  --serial 21601161 --name StaticCam \
+  --calib common/calib/basler_lab_960x720_offx320_offy200_mono8_11mm.yaml \
+  --width 960 --height 720 --fps 30 \
+  --pixel-format Mono8 --exposure-us 15000 --gain 0 \
+  --offset-x 320 --offset-y 200 \
+  --packet-size 8192 --interpacket-delay 3500 \
+  --timeout-ms 2000 --stream-buffer-count 64 \
+  --spike-frames 900 --only spike_off --no-diagnose
+```
+
+### D) Calibration (capture -> intrinsics -> validate)
 ```bash
 run_base="common/calib_images"
 python tools/capture_basler_calib_images.py \
@@ -113,35 +145,8 @@ python tools/validate_calib.py \
   --calib "$calib" --images-dir "$images" --cols 9 --rows 6 --square-size-m 0.025
 ```
 
-## 4) Long run example (900 frames, spike_off)
-PowerShell:
-```powershell
-.\.venv\Scripts\python tools\run_basler_pose_tests.py `
-  --serial 21601161 --name StaticCam `
-  --calib common\calib\basler_lab_960x720_offx320_offy200_mono8_11mm.yaml `
-  --width 960 --height 720 --fps 30 `
-  --pixel-format Mono8 --exposure-us 15000 --gain 0 `
-  --offset-x 320 --offset-y 200 `
-  --packet-size 8192 --interpacket-delay 3500 `
-  --timeout-ms 2000 --stream-buffer-count 64 `
-  --spike-frames 900 --only spike_off --no-diagnose
-```
-
-macOS (bash):
-```bash
-python tools/run_basler_pose_tests.py \
-  --serial 21601161 --name StaticCam \
-  --calib common/calib/basler_lab_960x720_offx320_offy200_mono8_11mm.yaml \
-  --width 960 --height 720 --fps 30 \
-  --pixel-format Mono8 --exposure-us 15000 --gain 0 \
-  --offset-x 320 --offset-y 200 \
-  --packet-size 8192 --interpacket-delay 3500 \
-  --timeout-ms 2000 --stream-buffer-count 64 \
-  --spike-frames 900 --only spike_off --no-diagnose
-```
-
 ## Common failure fixes
-- Camera locked: close Pylon Viewer, then retry.
+- Device in use: close Pylon Viewer, then retry.
 - Drops: keep packet size 8192 with ipd=3500; if drops persist, fall back to 1500.
 - Link issues: check NIC link speed, cable, and 169.254.x.x address.
 - Timeouts: increase `--timeout-ms` to 2000.
